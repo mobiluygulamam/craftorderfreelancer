@@ -1,0 +1,12 @@
+:root {
+  //   Color variables
+  @each $color, $value in $theme-colors {
+    --#{$variable-prefix}#{$color}: #{$value};
+  }
+
+  //   fonts variables
+  --#{$variable-prefix}Be-Vietnam-Pro: #{inspect($be)};
+  --#{$variable-prefix}Plus-Jakarta-Sans: #{inspect($plus)};
+  --#{$variable-prefix}Lexend: #{inspect($le)};
+  --#{$variable-prefix}Inter: #{inspect($inter)};
+}

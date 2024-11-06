@@ -1,0 +1,154 @@
+// clients logo area css
+.saas_client_logo_area {
+  overflow: hidden;
+  padding-left: 125px;
+  padding-right: 125px;
+  padding-top: 80px;
+  .min_client_area {
+    border-bottom: 0px;
+    padding-bottom: 0;
+  }
+}
+.client_title {
+  font-size: 18px;
+  line-height: 32px;
+  color: var(--saas-gray-dark);
+  font-weight: 400;
+  font-family: var(--saas-Inter);
+  opacity: 0.8;
+  .split-line {
+    display: inline-block !important;
+  }
+  span {
+    opacity: 1;
+    font-weight: 600;
+    margin: 0px 6px;
+  }
+  &.white {
+    color: #fff;
+  }
+}
+.client_title_two {
+  font-size: 24px;
+  line-height: 34px;
+  color: #0f172a;
+  font-weight: 600;
+  margin-bottom: 40px;
+  span {
+    color: var(--saas-blue);
+  }
+}
+.min_client_area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d9dbe9;
+  padding-bottom: 40px;
+  margin-top: 50px;
+  .item {
+    width: calc(100% / 7);
+    text-align: center;
+    padding: 10px;
+  }
+  img {
+    opacity: 0.5;
+    transition: 0.3s;
+    cursor: pointer;
+    max-width: 100%;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// saas_client_logo_area_two css
+.saas_client_logo_two {
+  padding-top: 100px;
+  .min_client_area {
+    border-bottom: 1px solid #d9dbe9;
+  }
+}
+
+// saas_client_logo_three css
+.saas_client_logo_three {
+  padding-bottom: 80px;
+}
+
+.saas_client_logo_area_dark {
+  padding-top: 100px;
+  .min_client_area {
+    border-color: #515151;
+  }
+}
+
+// subscribe_area css start
+.subscribe_inner {
+  background: linear-gradient(140deg, #245fe7 0%, #2b5bfd 100%);
+  border-radius: 40px;
+  padding: 85px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: -150px;
+  .section_title_two {
+    max-width: 856px;
+    margin: 0 auto 50px;
+    h2,
+    p {
+      color: #fff;
+    }
+  }
+  .note {
+    font-size: 16px;
+    color: #fff;
+    margin-top: 20px;
+    a {
+      text-decoration: underline;
+      color: #fff;
+    }
+  }
+}
+.subscribe_form {
+  max-width: 526px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  .form-control {
+    border-radius: 12px;
+    box-shadow: 0px 4px 30px 0px rgba(29, 41, 57, 0.08);
+    background: #fff;
+    padding: 10px 150px 10px 25px;
+    height: 62px;
+    border: 0px;
+  }
+  .theme_btn {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    bottom: 4px;
+    background: var(--saas-blue);
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s linear;
+    border: 0px;
+    &:hover {
+      background: #111;
+      color: #fff;
+    }
+  }
+}
+
+.marquee {
+  width: 100%;
+  display: inline-flex;
+  overflow: hidden;
+  .slide {
+    width: auto;
+    display: inline-block;
+    padding: 1rem 0px;
+  }
+}

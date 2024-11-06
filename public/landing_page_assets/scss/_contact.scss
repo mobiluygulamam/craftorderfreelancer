@@ -1,0 +1,141 @@
+// saas_contact_area
+.saas_content {
+  padding-left: 0;
+  padding-right: 100px;
+  p {
+    margin-bottom: 30px;
+  }
+}
+.contact_info_item {
+  display: flex;
+  max-width: 300px;
+  margin-top: 20px;
+  .icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--saas-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+  }
+  .contect_text {
+    flex: 1;
+    p {
+      font-size: 18px;
+      color: #344054;
+      font-weight: 500;
+      margin-bottom: 0;
+      a {
+        color: #344054;
+        transition: all 0.3s linear;
+        &:hover {
+          color: var(--saas-blue);
+        }
+      }
+    }
+  }
+}
+
+.contact_form {
+  background: #f4eaf4;
+  border-radius: 20px;
+  padding: 50px;
+  h3 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+    .form-control {
+      height: 72px;
+      border-radius: 8px;
+      padding-left: 25px;
+      border: 1px solid #fff;
+      background: #fff;
+      color: #747373;
+      &::placeholder {
+        color: #747373;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: var(--saas-blue);
+        box-shadow: none;
+      }
+    }
+    textarea {
+      &.form-control {
+        height: 220px;
+        padding-top: 20px;
+      }
+    }
+    .select {
+      width: 100%;
+      padding-left: 25px;
+      height: 72px;
+      border: 1px solid #fff;
+      line-height: 72px;
+      font-size: 18px;
+      .current {
+        font-weight: 500;
+        color: #0f0e0e;
+      }
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: var(--saas-blue);
+        box-shadow: none;
+      }
+    }
+    .saas_btn {
+      border: 0px;
+      padding: 16px 30px;
+    }
+  }
+}
+
+.location_area {
+  padding-bottom: 90px;
+}
+.location_item {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 6px 60px 0px rgba(24, 44, 76, 0.03);
+  padding: 48px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #344054;
+  }
+  .email,
+  .phone {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #344054;
+    transition: all 0.2s;
+    line-height: 32px;
+    &:hover {
+      color: var(--saas-blue);
+    }
+  }
+  .email {
+    text-decoration: underline;
+  }
+  .phone {
+    font-weight: 400;
+  }
+  .read_more_btn {
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,58 @@
+// Prefix for :root CSS variables
+
+$variable-prefix: saas- !default;
+
+/*font Variables*/
+$be: "Be Vietnam Pro", sans-serif;
+$le: "Lexend", sans-serif;
+$inter: "Inter", sans-serif;
+$plus: "Plus Jakarta Sans", sans-serif;
+
+/*Color Variables*/
+$heading_color: #0f172a;
+$text_color: #475569;
+$purple: #8438ff;
+$blue: #2b5bfd;
+
+$theme-colors: (
+  "gray-dark": $heading_color,
+  "gray": $text_color,
+  "purple": $purple,
+  "blue": $blue,
+);
+
+/*=================== fonts ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+// Mixins
+@mixin transition(
+  $property: all,
+  $duration: 300ms,
+  $animate: linear,
+  $delay: 0s
+) {
+  transition: $property $duration $animate $delay;
+}
+
+// Placeholder Mixins
+
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+.col-md-offset-right-1,
+.col-lg-offset-right-1 {
+  margin-right: 8.33333333%;
+}
+// Font family link

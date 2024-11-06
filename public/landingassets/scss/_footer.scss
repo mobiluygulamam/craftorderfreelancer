@@ -1,0 +1,204 @@
+// footer css
+.footer_area {
+  padding-top: 120px;
+}
+.f_widget {
+  .f_title {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--saas-Inter);
+    margin-bottom: 25px;
+    &.f_title_dark {
+      color: #1d2939;
+    }
+  }
+  &.f_about_widget {
+    padding-right: 80px;
+    .f_logo {
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      color: #a1a1aa;
+    }
+    .f_social_icon {
+      margin-top: 30px;
+      li {
+        margin-right: 5px;
+        a {
+          color: rgba(255, 255, 255, 0.6);
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s linear;
+          font-size: 13px;
+          background: #27272a;
+          &:hover {
+            background: var(--saas-blue);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .link_widget {
+    li {
+      margin-bottom: 15px;
+      a {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 400;
+        font-family: var(--saas-Inter);
+        transition: all 0.2s linear;
+        &:hover {
+          color: var(--saas-blue);
+        }
+      }
+    }
+    &.dark_link {
+      li {
+        a {
+          color: #1d2939;
+          &:hover {
+            color: var(--saas-blue);
+          }
+        }
+      }
+    }
+  }
+}
+.newsletter_form {
+  position: relative;
+  .form-control {
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid rgba(14, 21, 32, 0.25);
+    background: #fff;
+    border-radius: 45px;
+    padding: 10px 25px;
+    font-family: var(--saas-Inter);
+    height: 56px;
+    &:focus {
+      border-color: var(--saas-blue);
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  .theme_btn {
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 45px;
+    padding: 10px 25px;
+    background: var(--saas-blue);
+    font-family: var(--saas-Inter);
+    border: 0px;
+    color: #fff;
+    transition: all 0.2s linear;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    &:hover {
+      background: var(--saas-gray-dark);
+      color: #fff;
+    }
+  }
+  &.newsletter_form_two {
+    .form-control {
+      background: #f8f9fc;
+      border-radius: 5px;
+    }
+    .theme_btn {
+      background: var(--saas-blue);
+      position: relative;
+      border-radius: 5px;
+      padding: 15px 38px;
+      margin-top: 12px;
+      &:hover {
+        background: #fff;
+        color: #111;
+      }
+    }
+  }
+}
+.footer_bottom {
+  border-top: 1px solid rgba(14, 21, 32, 0.1);
+  padding: 28px 0px 20px;
+  margin-top: 90px;
+  p {
+    font-size: 16px;
+    line-height: 28px;
+    color: #0e1520;
+  }
+}
+.f_social_icon {
+  li {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+    a {
+      font-size: 16px;
+      color: #0e1520;
+      transition: all 0.2s linear;
+      &:hover {
+        color: var(--saas-blue);
+      }
+    }
+  }
+}
+
+// footer_area_two css
+.footer_area_two {
+  padding-top: 260px;
+  overflow: hidden;
+  .f_widget {
+    .f_title {
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+  }
+  .footer_bottom {
+    border-top-color: #3f3f46;
+    p {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+.footer_shap {
+  position: relative;
+  z-index: 0;
+  &:before {
+    content: "";
+    width: 1650px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(../img/home-three/f_shap.png) no-repeat left bottom / cover;
+    z-index: -1;
+  }
+}
+.footer_area_three {
+  padding-top: 110px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  .f_widget.f_about_widget p,
+  .footer_bottom p {
+    color: #fff;
+  }
+  .f_widget .link_widget li a {
+    color: #fff;
+    &:hover {
+      color: var(--saas-blue);
+    }
+  }
+}

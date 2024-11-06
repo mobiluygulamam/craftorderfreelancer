@@ -1,0 +1,126 @@
+body {
+  font-family: var(--saas-Inter);
+}
+:focus {
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--saas-Inter);
+  font-weight: 600;
+  color: var(--saas-gray-dark);
+}
+
+p {
+  font-family: var(--saas-Inter);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--saas-gray);
+}
+
+/** === Predefined Global Classes === **/
+button:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/**===== section padding scss =====**/
+.sec_padding {
+  padding: 120px 0px;
+}
+.sec_padding_two {
+  padding: 100px 0px;
+}
+/** ===== section title scss ====== **/
+
+.section_title {
+  margin-bottom: 70px;
+  h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--saas-blue);
+    font-family: var(--saas-Inter);
+    text-transform: capitalize;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+  p {
+    line-height: 30px;
+    color: #344054;
+  }
+  &.text-center {
+    max-width: 804px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.white {
+    h2,
+    p {
+      color: #fff;
+    }
+  }
+}
+.section_title_two {
+  margin-bottom: 50px;
+  h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--saas-purple);
+    font-family: var(--saas-Inter);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-size: 48px;
+    line-height: 60px;
+    font-family: var(--saas-Inter);
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 30px;
+    color: #344054;
+    font-family: var(--saas-Inter);
+  }
+  &.text-center {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.section_title_three {
+  h2 {
+    font-size: 48px;
+    font-family: var(--saas-Inter);
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #14141f;
+  }
+}
+
+.section_title_four {
+  margin-bottom: 70px;
+  h2 {
+    color: #fff;
+    font-size: 60px;
+  }
+}
+/* End Title Area css
+============================================================================================ */

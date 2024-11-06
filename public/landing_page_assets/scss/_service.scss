@@ -1,0 +1,200 @@
+// service_category_area css  start
+.service_category_area {
+  position: relative;
+  z-index: 1;
+  .shap {
+    position: absolute;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    z-index: -1;
+  }
+  .col-lg-4 {
+    &:nth-child(2) {
+      .service_item {
+        .icon {
+          background: linear-gradient(0deg, #6366f1 0%, #818cf8 100%);
+        }
+      }
+    }
+    &:nth-child(3) {
+      .service_item {
+        .icon {
+          background: linear-gradient(0deg, #a855f7 0%, #c084fc 100%);
+        }
+      }
+    }
+    &:nth-child(4) {
+      .service_item {
+        .icon {
+          background: linear-gradient(0deg, #22c55e 0%, #4ade80 100%);
+        }
+      }
+    }
+    &:nth-child(5) {
+      .service_item {
+        .icon {
+          background: linear-gradient(0deg, #ef4444 0%, #f87171 100%);
+        }
+      }
+    }
+    &:nth-child(6) {
+      .service_item {
+        .icon {
+          background: linear-gradient(0deg, #06b6d4 0%, #22d3ee 100%);
+        }
+      }
+    }
+  }
+}
+.service_item {
+  border-radius: 26px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transition: all 0.3s ease-in-out;
+  padding: 40px;
+  margin-bottom: 30px;
+  background: #fff;
+  cursor: pointer;
+  .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    background: linear-gradient(0deg, #3b82f6 0%, #60a5fa 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  p {
+    margin-bottom: 0;
+    line-height: 32px;
+  }
+  &:hover {
+    box-shadow: 0px 6px 50px 0px rgba(24, 44, 76, 0.13);
+    transform: translateY(-8px);
+  }
+}
+// service_category_area css  End
+
+// service_category_area_two  css start
+.service_category_area_two {
+  .service_item {
+    background: #f8f9fc;
+    box-shadow: none;
+  }
+}
+// service_category_area_two  css End
+
+// service_item_dark css
+.service_item_dark {
+  background: #1c1c22;
+  box-shadow: none;
+  .icon {
+    background: transparent !important;
+    width: max-content;
+    height: max-content;
+    border-radius: 0px;
+  }
+  h4,
+  p {
+    color: #fff;
+  }
+  &:hover {
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// saas_about_area css start
+
+.about_img {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.saas_about_content {
+  padding-left: 80px;
+  h2 {
+    font-size: 48px;
+    line-height: 60px;
+    letter-spacing: -0.3px;
+    color: #1d2939;
+    margin-bottom: 20px;
+  }
+  .saas_btn {
+    margin-top: 25px;
+  }
+}
+// saas_about_area css end
+
+// saas fact_area css start
+.fact_inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-left: 80px;
+  padding-right: 80px;
+  grid-gap: 70px;
+  margin-top: 90px;
+  .skill_fact_item {
+    display: flex;
+    .number {
+      font-size: 48px;
+      font-weight: 600;
+      color: #1d2939;
+      font-family: var(--saas-Inter);
+      margin-right: 20px;
+    }
+    p {
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+  }
+}
+
+// about_mission_area css start
+
+.mission_content {
+  .section_title {
+    margin-bottom: 30px;
+  }
+  .nav-tabs {
+    .nav-item {
+      margin-right: 40px;
+      .nav-link {
+        padding-left: 0;
+        font-size: 22px;
+        padding-right: 0;
+        &:before {
+          background: var(--saas-blue);
+        }
+        &.active,
+        &:hover {
+          color: var(--saas-blue);
+        }
+      }
+    }
+  }
+  .tab-content {
+    .tab-pane {
+      padding-top: 30px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    .saas_list li {
+      padding-left: 24px;
+      color: #344054;
+      i,
+      img {
+        position: absolute;
+        left: 0;
+        top: 10px;
+      }
+    }
+  }
+}

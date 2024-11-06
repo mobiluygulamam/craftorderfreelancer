@@ -1,0 +1,453 @@
+// blog area css start */
+.blog_item {
+  margin-bottom: 60px;
+  .blog_img {
+    display: block;
+    overflow: hidden;
+    img {
+      transition: all 0.3s linear;
+    }
+  }
+  .blog_content {
+    padding-top: 35px;
+    .read_more_btn {
+      margin-top: 10px;
+    }
+  }
+  h2 {
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -0.2px;
+    margin-bottom: 22px;
+    transition: color 0.2s linear;
+  }
+  &:hover {
+    .blog_img {
+      img {
+        transform: scale(1.1);
+      }
+    }
+    h2 {
+      color: var(--saas-blue);
+    }
+  }
+}
+.read_more_btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d2939;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s linear;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #1d2939;
+    transition: all 0.3s linear;
+    left: 0;
+    right: auto;
+    bottom: 0;
+  }
+  &:after {
+    width: 0;
+    right: 0;
+    left: auto;
+    background: var(--saas-blue);
+    transition: all 0.3s linear 0.1s;
+  }
+  &:hover {
+    color: var(--saas-blue);
+    &:after {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+    &:before {
+      width: 0;
+      right: 0;
+      left: auto;
+    }
+  }
+}
+.blog_meta {
+  margin-bottom: 10px;
+  a {
+    font-size: 16px;
+    font-weight: 500;
+    font-family: $plus;
+    color: var(--saas-gray);
+    opacity: 0.8;
+    position: relative;
+    & + a {
+      &::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--saas-gray);
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0px 6px 0px 2px;
+      }
+    }
+  }
+}
+.blog_sidebar {
+  padding-left: 50px;
+}
+.sidebar_widget {
+  .widget_title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: $plus;
+    letter-spacing: -0.2px;
+    margin-bottom: 25px;
+  }
+  .search-form {
+    position: relative;
+    z-index: 1;
+    .form-control {
+      font-size: 16px;
+      border: 1px solid #e6e8f1;
+      border-radius: 4px !important;
+      padding-left: 20px;
+      height: 52px;
+      color: #808695;
+      z-index: 0;
+      &:focus {
+        border-color: var(--saas-blue);
+        box-shadow: none;
+      }
+    }
+    button {
+      border: 0px;
+      padding: 16px;
+      background: transparent;
+      position: absolute;
+      color: var(--saas-blue);
+      height: 100%;
+      right: 0;
+    }
+  }
+  .categories_list {
+    margin-bottom: 0;
+    li {
+      a {
+        font-size: 16px;
+        color: #60687a;
+        line-height: 28px;
+        font-family: var(--saas-Inter);
+        position: relative;
+        transition: all 0.3s;
+        &:before {
+          content: "";
+          width: 100%;
+          height: 1px;
+          background: #1d2939;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          transform: scaleX(0);
+          transition: all 0.3s;
+          transform-origin: left bottom;
+        }
+        span {
+          color: #1d2939;
+          font-weight: 600;
+          margin-left: 4px;
+          display: inline-block;
+        }
+        &:hover {
+          color: #1d2939;
+          &:before {
+            transform: scaleX(1);
+          }
+        }
+      }
+      & + li {
+        margin-top: 6px;
+      }
+    }
+  }
+  .recent_post_item {
+    .post_img {
+      display: block;
+      margin-right: 20px;
+    }
+    h4 {
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 5px;
+      transition: all 0.2s;
+    }
+    span {
+      color: var(--saas-gray);
+      opacity: 0.8;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: $plus;
+    }
+    & + .recent_post_item {
+      margin-top: 25px;
+    }
+    &:hover {
+      h4 {
+        color: var(--saas-blue);
+      }
+    }
+  }
+  & + .sidebar_widget {
+    margin-top: 40px;
+  }
+}
+.tags_lists {
+  a {
+    font-size: 16px;
+    line-height: 28px;
+    display: inline-block;
+    background: #f2f6ff;
+    color: #1d2939;
+    font-family: $inter;
+    border-radius: 4px;
+    padding: 8px 14px;
+    margin: 4px 2px;
+    transition: all 0.3s;
+    &:hover {
+      background: var(--saas-blue);
+      color: #fff;
+    }
+  }
+}
+
+.pagination {
+  margin-top: 60px;
+  .page-numbers {
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    border: 1px solid #e6e8f1;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 52px;
+    color: #1d2939;
+    display: inline-block;
+    margin-right: 8px;
+    transition: all 0.3s linear;
+    &:hover,
+    &.current {
+      background: var(--saas-blue);
+      border-color: var(--saas-blue);
+      color: #fff;
+    }
+  }
+}
+// blog area css End */
+
+// blog_grid_item css
+.blog_grid_item {
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 10px;
+  }
+}
+
+// blog_single css start
+.blog_single {
+  .blog_content {
+    padding-top: 35px;
+    p {
+      & + p {
+        margin-bottom: 30px;
+      }
+    }
+    .blockquote {
+      background: #f8f9fc;
+      border-radius: 4px;
+      padding: 35px 25px 35px 85px;
+      position: relative;
+      z-index: 1;
+      &::before {
+        content: "";
+        width: 47px;
+        height: 37px;
+        position: absolute;
+        background: url(../img/blog-grid/quote.svg) no-repeat;
+        top: 45px;
+        left: 20px;
+        z-index: -1;
+      }
+      h6 {
+        font-size: 20px;
+        line-height: 32px;
+        font-style: italic;
+        font-weight: 600;
+      }
+    }
+    h4 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+  }
+}
+.blog_navbar {
+  padding-top: 30px;
+  border-top: 1px solid #e6e8f1;
+  margin-top: 35px;
+  a {
+    font-size: 16px;
+    color: #001f6d;
+    font-weight: 500;
+    transition: all 0.3s;
+    i {
+      font-size: 14px;
+    }
+    &.post_prev {
+      i {
+        margin-right: 10px;
+      }
+    }
+    &.post_next {
+      i {
+        margin-left: 10px;
+      }
+    }
+    &:hover {
+      color: var(--saas-blue);
+    }
+  }
+}
+.blog_title {
+  font-size: 32px;
+  line-height: 44px;
+  margin-bottom: 30px;
+}
+.comment_inner {
+  margin-top: 60px;
+}
+.comment_box {
+  .post_comment {
+    margin-top: 30px;
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      .rounded-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin-right: 25px;
+      }
+      .comment_text {
+        h6 {
+          font-size: 20px;
+          margin-bottom: 8px;
+          color: #1d2939;
+        }
+        span {
+          font-size: 15px;
+          color: #344054;
+          font-family: var(--saas-Inter);
+          margin-bottom: 8px;
+        }
+        p {
+          color: #344054;
+          margin-bottom: 20px;
+        }
+        .comment_reply {
+          font-size: 15px;
+          font-weight: 500;
+          color: #1d2939;
+          transition: all 0.3s;
+          float: right;
+          i {
+            margin-right: 4px;
+          }
+          &:hover {
+            color: var(--saas-blue);
+          }
+        }
+      }
+    }
+    .reply_comment {
+      margin-left: 100px;
+    }
+  }
+}
+.blog_comment_box {
+  margin-top: 65px;
+}
+.comment_form {
+  .form-group {
+    margin-bottom: 20px;
+    .form-control {
+      font-size: 16px;
+      border: 1px solid #e6e8f1;
+      border-radius: 8px;
+      padding-left: 25px;
+      color: #808695;
+      height: 64px;
+      &:focus {
+        border-color: var(--saas-blue);
+        box-shadow: none;
+      }
+    }
+    textarea {
+      &.form-control {
+        height: 220px;
+        padding-top: 20px;
+      }
+    }
+  }
+  .comment-form-cookies-consent {
+    color: #808695;
+    font-size: 16px;
+    margin-bottom: 30px;
+    input {
+      display: none;
+      &:checked + label {
+        &:before {
+          background: var(--saas-blue);
+          border-color: var(--saas-blue);
+        }
+        &:after {
+          display: block;
+        }
+      }
+    }
+    label {
+      position: relative;
+      padding-left: 25px;
+      &:before {
+        content: "";
+        width: 15px;
+        height: 15px;
+        border: 1px solid #001f6d;
+        position: absolute;
+        left: 0;
+        top: 8px;
+      }
+      &:after {
+        content: "";
+        width: 5px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        position: absolute;
+        left: 5px;
+        top: 9px;
+        transform: rotate(45deg);
+        display: none;
+      }
+    }
+  }
+  .saas_btn {
+    border: 0px;
+    padding: 15px 35px;
+  }
+}
+// blog_single css End
