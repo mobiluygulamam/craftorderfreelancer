@@ -62,6 +62,7 @@
     "Amount : ": "Miktar : ",
     "and the ": "ve ",
     "Annual Billing": "Yıllık Faturalandırma",
+    "Weekly Biling": "Haftalık Faturalandırma",
     "Annual Payments": "Yıllık Ödemeler",
     "Annual Price": "Yıllık Fiyat",
     "Answer": "Cevap",
@@ -773,6 +774,7 @@
     "Month": "Ay",
     "month": "ay",
     "Monthly Biling": "Aylık Faturalandırma",
+    "Yearly Biling": "Yıllık Faturalandırma",
     "Monthly Payments": "Aylık Ödemeler",
     "Monthly Price": "Aylık Fiyat",
     "more": "Daha",
@@ -926,6 +928,7 @@
     "pending": "Sırada",
     "Pending": "Sırada",
     "Per month": "Aylık",
+    "Per week": "Haftalık",
     "Per Year": "Yıllık",
     "Permanently delete your account.": "Hesabınızı kalıcı olarak silin.",
     "Permission": "İzin",
@@ -1481,5 +1484,120 @@
     "Zoom Meeting Settings": "Zoom Toplantı Ayarları",
     "Zoom Meeting Title": "Zoom Toplantı Başlığı",
     "Zoom Metting Saved Successfully.": "Zoom Toplantısı Başarıyla Kaydedildi.",
-    "“Attention is the new currency”": "“Dikkat yeni para birimidir”"
-  }
+    "“Attention is the new currency”": "“Dikkat yeni para birimidir”",
+"Lets Start":"Hemen Başlayın",
+"Enter_mail_adress":"Mail adresiniz...", 
+
+     "project_management.part1": "Karmaşık Projelerinizi",
+     "project_management.part2": "Basitçe Yönetin",
+     "project_management.success_message" : "Craftorder sayesinde projelerinizde karmaşaya son verin, iş süreçlerinizi daha verimli hale getirin ve başarılarınızı artırın. Şimdi abone olun, güçlü başlangıçlar yapın!"
+
+, "project_management.create_free_account": "Ücretsiz Hesap Oluştur",
+"section_title.title":"Projelerinizi Kolayca Yönetin. Her Yerden, Her Zaman.",
+"section_title.description":"Craftorder, iş süreçlerinizi düzenleyerek zamandan tasarruf etmenizi ve daha iyi sonuçlar almanızı sağlar"
+,
+
+"feature_1_title": "Zaman Yönetimini Güçlendirin",
+"feature_1_description": "Projelerinizi planlayın ve zamandan tasarruf edin.",
+"feature_1_tool_title": "Zaman Takibi Araçları",
+"feature_1_tool_description": "Tüm projeler için detaylı zaman izleme.",
+"feature_1_checklist_1": "Detaylı saat raporları",
+"feature_1_checklist_2": "Hızlı süre yönetimi",
+"feature_1_checklist_3": "Görev odaklı zaman çizelgeleri",
+
+"feature_2_title": "Takım Çalışması Kolaylığı",
+"feature_2_description": "Projelerinizdeki takım üyeleriyle verimli iletişim kurun.",
+"feature_2_tool_title": "Ekip İletişim Araçları",
+"feature_2_tool_description": "Kolayca mesajlaşın ve paylaşım yapın.",
+"feature_2_checklist_1": "Anlık bildirimler",
+"feature_2_checklist_2": "Görev atama",
+"feature_2_checklist_3": "Paylaşılan dosyalar",
+
+"feature_3_title": "Veri Analizi ile Karar Verin",
+"feature_3_description": "Projenizle ilgili veri analizi yaparak daha bilinçli kararlar alın.",
+"feature_3_tool_title": "Veri Analiz Araçları",
+"feature_3_tool_description": "Projenizin her aşamasında derinlemesine analiz.",
+"feature_3_checklist_1": "Performans raporları",
+"feature_3_checklist_2": "Proje ilerlemesi analizi",
+"feature_3_checklist_3": "Özelleştirilebilir grafikler",
+
+"feature_4_title": "Kaynak Yönetimini Optimize Edin",
+"feature_4_description": "Ekip üyelerinizin görevlerini ve kaynaklarını optimize edin.",
+"feature_4_tool_title": "Kaynak Yönetimi Araçları",
+"feature_4_tool_description": "Ekip üyelerinin yükünü dengeleyin.",
+"feature_4_checklist_1": "Kaynak tahsisi",
+"feature_4_checklist_2": "Görev önceliklendirmesi",
+"feature_4_checklist_3": "Verimli kaynak kullanımı",
+
+"feature_5_title": "Projelerinizi Kolayca Takip Edin",
+"feature_5_description": "Projelerinizi gerçek zamanlı takip edin ve anında güncellemeler alın.",
+"feature_5_tool_title": "Gerçek Zamanlı Takip Araçları",
+"feature_5_tool_description": "Proje durumunu anlık olarak izleyin.",
+"feature_5_checklist_1": "Canlı proje durumu",
+"feature_5_checklist_2": "Anlık bildirimler",
+"feature_5_checklist_3": "Kolayca raporlama",
+"faq_title": "Sıkça Sorulan Sorular",
+  "faq_description": "Craftorder hakkında sıkça sorulan sorulara göz atın ve daha fazla bilgi edinin."
+,"faq_1.question": "CraftOrder nedir?",
+    "faq_1.answer": "CraftOrder, serbest çalışanlar ve küçük işletmeler için geliştirilmiş, iş yönetimi, müşteri ilişkileri, ve proje takibi sağlayan bir platformdur.",
+    
+    "faq_2.question": "CraftOrder nasıl çalışır?",
+    "faq_2.answer": "CraftOrder, serbest çalışanların projelerini, müşteri ilişkilerini, zamanlarını ve faturalandırmalarını kolayca yönetmelerini sağlar. Tüm işlemler dijital ortamda tek bir platform üzerinden takip edilebilir.",
+    
+    "faq_3.question": "CraftOrder teknik bilgi gerektiriyor mu?",
+    "faq_3.answer": "Hayır, CraftOrder teknik bilgi gerektirmez. Kullanıcı dostu arayüzü sayesinde herkes kolayca kullanabilir.",
+    
+    "faq_4.question": "Verilerim güvenli mi?",
+    "faq_4.answer": "CraftOrder, verilerinizi güvenli bir şekilde saklar. Şifreleme ve güvenlik önlemleri ile tüm bilgileriniz korunur."
+,
+    "faq_5.question": "CraftOrder ücretsiz mi?",
+    "faq_5.answer": "CraftOrder, belirli bir süre ücretsiz kullanım imkanı sunar. Ücretsiz planla temel özelliklere erişebilir, ihtiyaç duyduğunuzda premium planlara geçiş yapabilirsiniz."
+,"freelance_crm": "Freelance CRM: Proje Yönetimi ve Takip İçin Kolay ve Güçlü Araç"
+,"princing.title": "Başarınıza Özel Planlar",
+"princing.description": "Büyümenizi desteklemek için esnek ve sade fiyatlandırma. Bugün 3 günlük ücretsiz deneme ile başlayın."
+,  "freelancerspecial": "Freelancer'lara Özgü Seçenekler" ,
+
+"freelancerKickoff": "Freelancer Başlangıcı",
+"freelancerEssentials": "Freelancer Temel",
+"masterFreelance": "Master Freelance",
+"select_this_plan":"Bu planı seç",
+
+
+"gb_file_uploading":"GB dosya yükleme",
+"mb_file_uploading":"MB dosya yükleme",
+"team_members":"Ekip Üyesi",
+"project_management":"Proje Yönetimi",
+"Contract_management":"Sözleşme Yönetimi",
+"unlimited_task_management":"Limitsiz Görev Yönetimi",
+"unlimited_note_management":"Limitsiz Not Yönetimi",
+"unlimited_customer_management":"Limitsiz Müşteri Yönetimi",
+"customer_management":"Müşteri Yönetimi",
+"shared_project":"Proje durum paylaşımı",
+"AI":"Chatgpt Entegrasyonu", 
+"unlimited":"Limitsiz",
+
+     "service_section_title": "Müşteri Yönetiminizi Kolaylaştırın, Verimliliğinizi Artırın",
+     "service_section_subtitle": "Müşteri yönetimini daha verimli hale getirin ve iş süreçlerinizi kolaylaştırın.",
+     "service_item_1_title": "İş Akışlarını Otomatikleştirin",
+     "service_item_1_desc": "İş akışlarınızdaki tekrarlayan görevleri otomatikleştirerek zamandan tasarruf edin ve işlerinizi hızlandırın.",
+     "service_item_2_title": "Verimliliğinizi Artırın",
+     "service_item_2_desc": "Çeşitli süreçlerinizi entegre ederek verimliliği artırın ve daha hızlı sonuçlar elde edin.",
+     "service_item_3_title": "Kolay İletişim ve Takip",
+     "service_item_3_desc": "İletişimi basitleştirin ve müşteri etkileşimlerini tek bir platformda takip edin.",
+     "service_item_4_title": "Gerçek Zamanlı Müşteri İşbirliği",
+     "service_item_4_desc": "Müşterilerinizle gerçek zamanlı olarak işbirliği yapın, süreçlerinizi anında optimize edin.",
+     "service_item_5_title": "Zamanı Verimli Kullanın",
+     "service_item_5_desc": "Vaktinizi daha verimli kullanarak, daha fazla iş tamamlayın ve daha fazla başarı elde edin.",
+     "service_item_6_title": "Verilerinizi End-to-End Güvenlikle Koruyun",
+     "service_item_6_desc": "Verilerinizi tamamen güvenli bir şekilde koruyun, her adımda güvenliğinizi sağlamak için güçlü sistemler kullanın.",
+     "ready_to_get_started": "Başlamak İçin Hazır Mısınız?",
+     "try_craftorder_free": "CraftOrder'ı 3 gün boyunca ücretsiz deneyin - kurulumu birkaç dakika alır."
+        
+        
+
+
+
+
+
+}
+

@@ -1,8 +1,6 @@
 @extends('layouts.guest')
 
-@section('page-title')
-    {{ __('Copylink') }}
-@endsection
+
 
 {{-- @section('language-bar')
     <a href="#" class="btn-primary">

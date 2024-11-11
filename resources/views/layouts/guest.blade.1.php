@@ -258,7 +258,7 @@
                             <div class="col-12">
                                 {{-- <span class=""> {{env('FOOTER_TEXT')}}</span> --}}
                                 <span> &copy; {{ date('Y') }}
-                                    {{ Utility::getValByName('footer_text') ? Utility::getValByName('footer_text') : config('app.name', 'Taskly Saas') }}
+                                    {{ Utility::getValByName('footer_text') ? Utility::getValByName('footer_text') : config('app.name', 'Taskly asdasd') }}
                                 </span>
                             </div>
                         </div>

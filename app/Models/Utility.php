@@ -660,13 +660,13 @@ class Utility
             'google_recaptcha_secret' => '',
             'currency' => 'USD',
             'currency_symbol' => '$',
-            'app_name' => 'Taskly Saas',
-            'APP_NAME' => 'Taskly Saas',
+            'app_name' => 'Taskly Saasasd',
+            'APP_NAME' => 'Taskly asdasd',
             'default_admin_lang' => 'en',
             'display_landing' => 'on',
             'site_rtl' => 'off',
             'signup_button' => 'on',
-            'footer_text' => 'Taskly Saas',
+            'footer_text' => 'asd Saas',
             'email_verification' => 'off',
             'color_flag' => 'false',
         ];
@@ -968,7 +968,7 @@ class Utility
             'color_flag' => 'false',
             'enable_cookie' => 'on',
             "meta_image" => '',
-            "meta_keywords" => 'Taskly SaaS',
+            "meta_keywords" => 'Taskly SaaSkkk',
             "meta_description" => 'Taskly is a tool where you can Manage projects, work with clients, and collaborate with team members. All in one place.',
 
         ];

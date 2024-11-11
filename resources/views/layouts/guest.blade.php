@@ -13,8 +13,9 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
+        $color = 'theme-4';
     }
 
     $SITE_RTL = isset($setting['RTL']) ? $setting['RTL'] : $SITE_RTL;
@@ -105,7 +106,7 @@
 
 
 @php
-    $color = !empty($setting['color']) ? $setting['color'] : 'theme-3';
+    $color = !empty($setting['color']) ? $setting['color'] : 'theme-4';
 
     if (isset($setting['color_flag']) && $setting['color_flag'] == 'true') {
         $color = 'custom-color';
@@ -223,7 +224,7 @@
                     <div class="container">
                         <div class="navbar-brand">
                             <a class="" href="#">
-                                <img src="{{ asset("assets/logo-light.png". '?timestamp=' . time()) }}" class="big-logo"
+                                <img src="{{ asset("assets/logo-light.png". '?timestamp=' . time()) }}" style="width: 75px; height: 75px; " class="big-logo"
                                     alt="{{config('app.name', 'Taskly Sass')}}" loading="lazy">
                             </a>
                         </div>

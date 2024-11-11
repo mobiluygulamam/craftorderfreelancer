@@ -250,7 +250,7 @@ else
 @endif
 
 
-@if($color == "theme-3")
+@if($color == "theme-4")
 <style type="text/css">
     .m-list-active, .m-list-active:hover, .m-list-active:focus {
     background: linear-gradient(141.55deg, #6fd943 3.46%, #6fd943 99.86%), #6fd943 !important;

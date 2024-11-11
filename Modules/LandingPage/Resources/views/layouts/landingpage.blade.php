@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags -->
@@ -17,7 +17,7 @@
     <link href="landingassets/css/style.css" rel="stylesheet">
     <link href="landingassets/css/responsive.css" rel="stylesheet">
 
-    <title>Pictech - Creative HTML5 Template for Saas, Startup & Agency</title>
+    <title>{{__('freelance_crm')}}</title>
 </head>
 
 <body data-scroll-animation="true">
@@ -92,7 +92,8 @@
                                   <div class="btn_text"><span>{{ __('Login') }}</span><span>{{ __('Login') }}</span></div>
                               </a>
                               <a href="{{ route('register') }}" class="signup_btn hover_effect">
-                                  <div class="btn_text"><span>Create Free Account</span><span>Create Free Account</span></div>
+                                  <div class="btn_text"><span>{{ __('project_management.create_free_account') }}</span>
+                                   <span>{{ __('project_management.create_free_account') }}</span></div>
                               </a>
                           </div>
             
@@ -119,20 +120,21 @@
             <img class="banner_shap" src="landingassets/img/home-four/banner_shap.png" alt="">
             <div class="container">
                 <div class="saas_banner_content_two">
-                    <h2 class="title-animation"><span data-parallax='{"x": -180}'>Property Management</span>
-                        <span class="title-animation" data-parallax='{"x": 120}'>Software Made Easy</span>
-                    </h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Save 15 hours every week, put your rental portfolio on
-                        autopilot and make accounting a breeze.
+                    <h2 class="title-animation">
+                         <span data-parallax='{"x": -180}'>{{ __('project_management.part1') }}</span>
+                         <span class="title-animation" data-parallax='{"x": 120}'>{{ __('project_management.part2') }}</span>
+                     </h2>
+                     
+                    <p class="wow fadeInUp" data-wow-delay="0.3s">{{__('project_management.success_message')}}
                     </p>
                     <form class="mailchimp wow fadeInUp" data-wow-delay="0.6s" method="post">
                         <div class="subcribes subcribes_two  position-relative">
                             <div class="input_group">
                                 <input type="text" name="EMAIL" class="form-control memail"
-                                    placeholder="Enter your e-mail address...">
+                                    placeholder="{{__('Enter_mail_adress')}}">
                                 <img src="landingassets/img/home-three/email.png" alt="">
                             </div>
-                            <button class="btn btn_submit" type="submit">Request Demo</button>
+                            <button class="btn btn_submit" type="submit">{{__('Lets Start')}}</button>
                         </div>
                     </form>
                 
@@ -143,36 +145,26 @@
         </section>
         <section class="saas_features_area_three sec_padding" data-bg-color="#17171C">
             <div class="container">
-                <div class="section_title white text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">Manage Any Property.<br> Anytime, Anywhere.</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Property managers, owners, and accountants worldwide
-                        use PicmaticWeb<br> to manage any combination of properties.</p>
+               <div class="section_title white text-center">
+                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">{{__("section_title.title")}}</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.3s">{{__('section_title.description')}}</p>
                 </div>
                 <div class="features_animation">
                     <div class="feature_item_inner">
                         <div class="row flex-row-reverse">
                             <div class="col-lg-6">
-                                <div class="saas_features_img_two wow fadeInRight" data-wow-delay="0.2s">
-                                    <img class="img_one" src="landingassets/img/home-four/feature_img1.png" alt="">
-                                    <img class="img_two" data-parallax='{"y": 40}'
-                                        src="landingassets/img/home-four/feature_img11.png" alt="">
-                                </div>
+                              
                             </div>
                             <div class="col-lg-6">
                                 <div class="saas_feature_content_two pe-5 wow fadeInLeft" data-wow-delay="0.3s">
-                                    <h2>Property management software for any portfolio</h2>
-                                    <p>Built by owners and property managers just like you. Deliver a better owner
-                                        experience, more value, transparency, and trust.</p>
+                                    <h2>{{__('feature_1_title')}}</h2>
+                                    <p>{{__('feature_1_description')}}</p>
                                     <ul class="list-unstyled features_list">
-                                        <li><i class="fa fa-check-circle"></i>Get maintenance
-                                            requests online</li>
-                                        <li><i class="fa fa-check-circle"></i>Customizable chart of accounts</li>
-                                        <li><i class="fa fa-check-circle"></i>Send automated payment reminders</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_1_checklist_1')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_1_checklist_2')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_1_checklist_3')}}</li>
                                     </ul>
-                                    <a href="#" class="saas_btn white wow fadeInUp" data-wow-delay="0.6s">
-                                        <div class="btn_text"><span>Request Demo</span><span>Request Demo</span>
-                                        </div>
-                                    </a>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -180,26 +172,17 @@
                     <div class="feature_item_inner two">
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="saas_features_img_two wow fadeInLeft" data-wow-delay="0.2s">
-                                    <img class="img_one" src="landingassets/img/home-four/f2.png" alt="">
-                                    <img class="img_two" data-parallax='{"y": 40}' src="landingassets/img/home-four/f22.png"
-                                        alt="">
-                                </div>
+                              
                             </div>
                             <div class="col-lg-6">
                                 <div class="saas_feature_content_two ps-5 wow fadeInRight" data-wow-delay="0.4s">
-                                    <h2>Complete maintenance requests right away</h2>
-                                    <p>Built by owners and property managers just like you. Deliver a better owner
-                                        experience, more value, transparency, and trust.</p>
+                                   <h2>{{__('feature_5_title')}}</h2>
+                                   <p>{{__('feature_5_description')}}</p>
                                     <ul class="list-unstyled features_list">
-                                        <li><i class="fa fa-check-circle"></i>Owner portal with financials</li>
-                                        <li><i class="fa fa-check-circle"></i>Print checks for owners</li>
-                                        <li><i class="fa fa-check-circle"></i>Keep owners happier for longer</li>
-                                    </ul>
-                                    <a href="#" class="saas_btn white wow fadeInUp" data-wow-delay="0.6s">
-                                        <div class="btn_text"><span>Request Demo</span><span>Request Demo</span>
-                                        </div>
-                                    </a>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_5_checklist_1')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_5_checklist_2')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_5_checklist_3')}}</li></ul>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -207,26 +190,18 @@
                     <div class="feature_item_inner three">
                         <div class="row flex-row-reverse">
                             <div class="col-lg-6">
-                                <div class="saas_features_img_two wow fadeInRight" data-wow-delay="0.3s">
-                                    <img class="img_one" src="landingassets/img/home-four/Chart2.png" alt="">
-                                    <img class="img_two" data-parallax='{"y": 40}' src="landingassets/img/home-four/Chart4.png"
-                                        alt="">
-                                </div>
+                            
                             </div>
                             <div class="col-lg-6">
                                 <div class="saas_feature_content_two pe-5 wow fadeInLeft" data-wow-delay="0.2s">
-                                    <h2>Make listings online and get a custom website</h2>
-                                    <p>Built by owners and property managers just like you. Deliver a better owner
-                                        experience, more value, transparency, and trust.</p>
+                                   <h2>{{__('feature_4_title')}}</h2>
+                                   <p>{{__('feature_4_description')}}</p>
                                     <ul class="list-unstyled features_list">
-                                        <li><i class="fa fa-check-circle"></i>Share documents securely</li>
-                                        <li><i class="fa fa-check-circle"></i>Financial transparency</li>
-                                        <li><i class="fa fa-check-circle"></i>Keep owners happier for longer</li>
-                                    </ul>
-                                    <a href="#" class="saas_btn white wow fadeInUp" data-wow-delay="0.6s">
-                                        <div class="btn_text"><span>Request Demo</span><span>Request Demo</span>
-                                        </div>
-                                    </a>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_4_checklist_1')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_4_checklist_2')}}</li>
+                                        <li><i class="fa fa-check-circle"></i>{{__('feature_4_checklist_3')}}</li>
+                                   </ul>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -238,9 +213,8 @@
             <img class="tab_shap" src="landingassets/img/home-four/tab_bg.png" alt="">
             <div class="container">
                 <div class="section_title white text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">PicmaticWeb managed remote talent experience</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Property managers, owners, and accountants worldwide
-                        use PicmaticWeb</p>
+                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">{{__('faq_title')}}</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.3s">{{__('faq_description')}}</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -254,32 +228,27 @@
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Up to 80% quicker & cheaper
+                                        {{__('faq_1.question')}}
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        All Wing clients receive complimentary access to the Wing Task Workspace App – a
-                                        specialized app built to help you communicate with your assistant, manage
-                                        tasks/projects, share files, record screen-sharing videos, and lot more.
-                                    </div>
+                                        {{__('faq_1.answer')}}
+                               </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Dedicated assistants only
+                                        {{__('faq_2.question')}}
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        All Wing clients receive complimentary access to the Wing Task Workspace App – a
-                                        specialized app built to help you communicate with your assistant, manage
-                                        tasks/projects, share files, record screen-sharing videos, and lot more.
-                                    </div>
+                                        {{__('faq_2.answer')}}</div>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -287,16 +256,13 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                        Free Customer Success Manager
+                                        {{__('faq_3.question')}}
                                     </button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        All Wing clients receive complimentary access to the Wing Task Workspace App – a
-                                        specialized app built to help you communicate with your assistant, manage
-                                        tasks/projects, share files, record screen-sharing videos, and lot more.
-                                    </div>
+                                        {{__('faq_3.answer')}} </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -304,16 +270,13 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFour" aria-expanded="false"
                                         aria-controls="collapseFour">
-                                        Wing Workspace App
+                                        {{__('faq_4.question')}}
                                     </button>
                                 </h2>
                                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        All Wing clients receive complimentary access to the Wing Task Workspace App – a
-                                        specialized app built to help you communicate with your assistant, manage
-                                        tasks/projects, share files, record screen-sharing videos, and lot more.
-                                    </div>
+                                        {{__('faq_4.answer')}} </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -321,16 +284,14 @@
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseFive" aria-expanded="false"
                                         aria-controls="collapseFive">
-                                        Ongoing quality supervision
+                                        {{__('faq_5.question')}}
+
                                     </button>
                                 </h2>
                                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        All Wing clients receive complimentary access to the Wing Task Workspace App – a
-                                        specialized app built to help you communicate with your assistant, manage
-                                        tasks/projects, share files, record screen-sharing videos, and lot more.
-                                    </div>
+                                        {{__('faq_5.answer')}}</div>
                                 </div>
                             </div>
 
@@ -339,129 +300,14 @@
                 </div>
             </div>
         </section>
-        <section class="testimonial_area_four black sec_padding" data-bg-color="#17171C">
-            <div class="container">
-                <div class="section_title white text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">Helping Digital Agency Teams Feel More Organized</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Property managers, owners, and accountants worldwide
-                        use PicmaticWeb<br>
-                        to manage any combination of properties.</p>
-                </div>
-                <div class="testimonial_slider_one wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="item">
-                        <div class="ratting">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p>PicmaticWeb is our go-to tool to manage our team. With new features with every update,
-                            PicmaticWeb is helping us catalog our day-to-day operating needs in managing loads of
-                            projects. PicmaticWeb has become a game-changer for us. From helping us organize every kind
-                            of work to improving efficiency and productivity overall has been amazing</p>
-                        <div class="quote_icon d-flex align-items-center justify-content-between">
-                            <div class="icon">
-                                <img src="landingassets/img/home-two/quote.png" alt="">
-                            </div>
-                        </div>
-                        <div class="client_info">
-                            <img src="landingassets/img/home-two/author_img_1.png" alt="">
-                            <div class="text">
-                                <h5>Barly Vallendito</h5>
-                                <h6>Co-founder & COO, Picmatic Ltd.</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="ratting">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p>PicmaticWeb is our go-to tool to manage our team. With new features with every update,
-                            PicmaticWeb is helping us catalog our day-to-day operating needs in managing loads of
-                            projects. PicmaticWeb has become a game-changer for us. From helping us organize every kind
-                            of work to improving efficiency and productivity overall has been amazing</p>
-                        <div class="quote_icon d-flex align-items-center justify-content-between">
-                            <div class="icon">
-                                <img src="landingassets/img/home-two/quote.png" alt="">
-                            </div>
-                        </div>
-                        <div class="client_info">
-                            <img src="landingassets/img/home-two/author_img_2.png" alt="">
-                            <div class="text">
-                                <h5>Syahrul Falah</h5>
-                                <h6>Co-founder & COO, Litteweb Ltd.</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="ratting">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p>PicmaticWeb is our go-to tool to manage our team. With new features with every update,
-                            PicmaticWeb is helping us catalog our day-to-day operating needs in managing loads of
-                            projects. PicmaticWeb has become a game-changer for us. From helping us organize every kind
-                            of work to improving efficiency and productivity overall has been amazing</p>
-                        <div class="quote_icon d-flex align-items-center justify-content-between">
-                            <div class="icon">
-                                <img src="landingassets/img/home-two/quote.png" alt="">
-                            </div>
-                        </div>
-                        <div class="client_info">
-                            <img src="landingassets/img/home-two/author_img_2.png" alt="">
-                            <div class="text">
-                                <h5>Marina Nikiforova</h5>
-                                <h6>Co-founder & COO, Litteweb Ltd.</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="ratting">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <p>PicmaticWeb is our go-to tool to manage our team. With new features with every update,
-                            PicmaticWeb is helping us catalog our day-to-day operating needs in managing loads of
-                            projects. PicmaticWeb has become a game-changer for us. From helping us organize every kind
-                            of work to improving efficiency and productivity overall has been amazing</p>
-                        <div class="quote_icon d-flex align-items-center justify-content-between">
-                            <div class="icon">
-                                <img src="landingassets/img/home-two/quote.png" alt="">
-                            </div>
-                        </div>
-                        <div class="client_info">
-                            <img src="landingassets/img/home-two/author_img_2.png" alt="">
-                            <div class="text">
-                                <h5>Syahrul Falah</h5>
-                                <h6>Co-founder & COO, Litteweb Ltd.</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom_nav">
-                    <button class="prev"><i class="icon-arrow-left2" aria-hidden="true"></i></button>
-                    <button class="next"><i class="icon-arrow-right2" aria-hidden="true"></i></button>
-                </div>
-            </div>
-        </section>
+  
         <section class="saas_price_area saas_price_area_two sec_border sec_padding" data-bg-color="#1E1E1E">
             <img class="price_shap" src="landingassets/img/home-four/price_bg.png" alt="">
             <div class="container">
                 <div class="section_title white text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">Plans that fit your scale</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Simple, transparent pricing that grows with you. Try
-                        any plan free for 14 days.</p>
+                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">{{__('princing.title')}}</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.3s">{{__('princing.description')}}
+                </p>
                 </div>
                 <ul class="nav nav-pills price_tab justify-content-center mb-5 wow fadeInUp" data-wow-delay="0.4s"
                     id="pills-tab-price" role="tablist">
@@ -469,15 +315,10 @@
                         <button class="nav-link active" id="pills-mon-tab" data-bs-toggle="pill"
                             data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month"
                             aria-selected="true">
-                            Monthly billing
+                            {{__('freelancerspecial')}}
                         </button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year"
-                            type="button" role="tab" aria-controls="pills-year" aria-selected="false">
-                            Annual billing
-                        </button>
-                    </li>
+                
                 </ul>
                 <div class="tab-content price_content wow fadeInUp" data-wow-delay="0.6s" id="pills-tabContent-price">
                     <div class="tab-pane fade show active" id="pills-month" role="tabpanel" tabindex="0">
@@ -485,321 +326,154 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="saas_price_item">
                                     <div class="price_header">
-                                        <h2>Starter plan</h2>
-                                        <h3>Ideal for small teams and startups.</h3>
+                                        <h2>{{__('freelancerKickoff')}}</h2>
                                     </div>
                                     <div class="price_middle">
-                                        <h2>$19<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
+                                        <h2>$3<small>/{{__('Per week')}}</small></h2>
+                                        <p>{{__('Weekly Biling')}}</p>
+                                        <a href="#" class="price_btn">{{__('select_this_plan')}}</a>
+
                                     </div>
                                     <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">1 {{__('gb_file_uploading')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">2 {{__('team_members')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">3 {{__('project_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">3 {{__('Contract_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">3 {{__('customer_management')}}</li>
+
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_task_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_note_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('shared_project')}}</li>
+                                        <li><img src="landingassets/img/home-four/graph.png" alt="">{{__('AI')}} <a href="#">?</a></li>
+                                        
+                                 
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="saas_price_item">
                                     <div class="price_header">
-                                        <h2>Business plan</h2>
-                                        <h3>Great for agencies and busy sites.</h3>
+                                        <h2>{{__('freelancerEssentials')}}</h2>
+
+                                  
                                         <div class="badge">Popular</div>
                                     </div>
                                     <div class="price_middle">
-                                        <h2>$49<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
+                                        <h2>$9<small>/{{__('Per month')}}</small></h2>
+                                        <p>{{__('Monthly Biling')}}</p>
+                                        <a href="#" class="price_btn">{{__('select_this_plan')}}</a>
+
                                     </div>
                                     <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">5 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">10 {{__('gb_file_uploading')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">10 {{__('team_members')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{ __('project_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{__('Contract_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{__('customer_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_task_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_note_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('shared_project')}}</li>
+                                        <li><img src="landingassets/img/home-four/graph.png" alt="">{{__('AI')}} <a href="#">?</a></li>
+                                        
+                                 
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <div class="saas_price_item">
                                     <div class="price_header">
-                                        <h2>Enterprise plan</h2>
-                                        <h3>For high traffic sites and fast syncing.</h3>
+                                        <h2>{{__('masterFreelance')}}</h2>
+                              
                                     </div>
                                     <div class="price_middle">
-                                        <h2>$119<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
+                                        <h2>$99<small>/{{__('Per Year')}}</small></h2>
+                                        <p>{{__('Annual Billing')}}</p>
+                                        <a href="#" class="price_btn">{{__('select_this_plan')}}</a>
                                     </div>
                                     <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">5 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">100 {{__('gb_file_uploading')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{__('team_members')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{ __('project_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{__('Contract_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{ __('unlimited')}} {{__('customer_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_task_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('unlimited_note_management')}}</li>
+                                        <li><img src="landingassets/img/home-four/check.png" alt="">{{__('shared_project')}}</li>
+                                        <li><img src="landingassets/img/home-four/graph.png" alt="">{{__('AI')}} <a href="#">?</a></li>
+                                        
+                                 
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade service_tab_image" id="pills-year" role="tabpanel"
-                        aria-labelledby="pills-year-tab" tabindex="0">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="saas_price_item">
-                                    <div class="price_header">
-                                        <h2>Starter plan</h2>
-                                        <h3>Ideal for small teams and startups.</h3>
-                                    </div>
-                                    <div class="price_middle">
-                                        <h2>$19<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
-                                    </div>
-                                    <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">5 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="saas_price_item">
-                                    <div class="price_header">
-                                        <h2>Business plan</h2>
-                                        <h3>Great for agencies and busy sites.</h3>
-                                        <div class="badge">Popular</div>
-                                    </div>
-                                    <div class="price_middle">
-                                        <h2>$69<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
-                                    </div>
-                                    <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">5 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="saas_price_item">
-                                    <div class="price_header">
-                                        <h2>Enterprise plan</h2>
-                                        <h3>For high traffic sites and fast syncing.</h3>
-                                    </div>
-                                    <div class="price_middle">
-                                        <h2>$219<small>/mo</small></h2>
-                                        <p>Billed monthly.</p>
-                                        <a href="#" class="price_btn">Select this plan</a>
-                                    </div>
-                                    <ul class="list-unstyled">
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">5 site</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Real-time sync</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">1k synced records<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Basic chat and email
-                                            support</li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">Virtual assistant support
-                                        </li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt="">10k pageviews<a
-                                                href="#">?</a></li>
-                                        <li><img src="landingassets/img/home-four/check.png" alt=""><img
-                                                src="landingassets/img/home-four/graph.png" alt="">Google
-                                            Analytics Import<a href="#">?</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
                 </div>
             </div>
         </section>
         <section class="service_category_area sec_padding" data-bg-color="#17171C">
-            <div class="container">
-                <div class="section_title white text-center">
-                    <h2 class="wow fadeInUp" data-wow-delay="0.2s">Manage Your Finance. Anytime, Anywhere.</h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">Property managers, owners, and accountants worldwide
-                        use PicmaticWeb<br>
-                        to manage any combination of properties.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/mood.png" alt="">
-                            </div>
-                            <h4>Happy Customer Service</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/camera.png" alt="">
-                            </div>
-                            <h4>Expert Professionals</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/airplay.png" alt="">
-                            </div>
-                            <h4>Project Sharing</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/lock.png" alt="">
-                            </div>
-                            <h4>Secure Payments</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/album.png" alt="">
-                            </div>
-                            <h4>Flexible Payment</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="icon">
-                                <img src="landingassets/img/home-five/deskphone.png" alt="">
-                            </div>
-                            <h4>24/7 Support</h4>
-                            <p>Obligations business will frequently occur that pleasures have to be </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <div class="container">
+              <div class="section_title white text-center">
+                  <h2 class="wow fadeInUp" data-wow-delay="0.2s">@lang('service_section_title')</h2>
+                  <p class="wow fadeInUp" data-wow-delay="0.3s">@lang('service_section_subtitle')</p>
+              </div>
+              <div class="row">
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.2s">
+                          <h4>@lang('service_item_1_title')</h4>
+                          <p>@lang('service_item_1_desc')</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.3s">
+                          <h4>@lang('service_item_2_title')</h4>
+                          <p>@lang('service_item_2_desc')</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.4s">
+                          <h4>@lang('service_item_3_title')</h4>
+                          <p>@lang('service_item_3_desc')</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.5s">
+                          <h4>@lang('service_item_4_title')</h4>
+                          <p>@lang('service_item_4_desc')</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.6s">
+                          <h4>@lang('service_item_5_title')</h4>
+                          <p>@lang('service_item_5_desc')</p>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="service_item service_item_dark wow fadeInUp" data-wow-delay="0.7s">
+                          <h4>@lang('service_item_6_title')</h4>
+                          <p>@lang('service_item_6_desc')</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      
+      
         <section class="promo_area_dark sec_padding" data-bg-color="#121217">
             <div class="container">
                 <div class="row justify-content-md-center">
                     <div class="promo_content col-xl-7 text-center">
-                        <h2 class="title-animation">Ready to Get Started?</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.5s">Try Flowmonk free for 14 days - setting up takes a
-                            few minutes.</p>
+                        <h2 class="title-animation">{{__('ready_to_get_started')}}</h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.5s">{{__('try_craftorder_free')}}</p>
                         <a href="#" class="saas_btn">
-                            <div class="btn_text"><span>Start a Free Trail</span><span>Start a Free Trail</span></div>
+                            <div class="btn_text"><span>{{__('project_management.create_free_account')}}</span><span>{{__('project_management.create_free_account')}}</span></div>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-        <footer class="footer_area_two footer_area_three" data-bg-color="#12141D">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="f_widget f_about_widget wow fadeInUp" data-wow-delay="0.2s">
-                            <a href="index.html" class="f_logo"><img src="landingassets/img/home-two/f_logo_w.png" alt=""></a>
-                            <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                                consequat duis enim velit mollit.</p>
-                            <ul class="list-unstyled f_social_icon">
-                                <li><a href="#"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
-                                <li><a href="#"><i class="ti-vimeo-alt"></i></a></li>
-                                <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-sm-6">
-                        <div class="f_widget f_link_widget wow fadeInUp" data-wow-delay="0.3s">
-                            <h3 class="f_title">COMPANY</h3>
-                            <ul class="list-unstyled link_widget">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="service.html">Service</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="team.html">Team</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="f_widget f_link_widget wow fadeInUp" data-wow-delay="0.4s">
-                            <h3 class="f_title">HELP</h3>
-                            <ul class="list-unstyled link_widget">
-                                <li><a href="#">Customer Support</a></li>
-                                <li><a href="#">Delivery Details</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="f_widget f_newsletter_widget wow fadeInUp" data-wow-delay="0.5s">
-                            <h3 class="f_title">SUBSCRIBE TO NEWSLETTER</h3>
-                            <form action="#" class="newsletter_form newsletter_form_two">
-                                <input class="form-control" type="text" placeholder="Enter your email">
-                                <button type="submit" class="theme_btn">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_bottom text-center">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <p class="mb-0 wow fadeInUp" data-wow-delay="0.3s">© Copyright 2024, All Rights Reserved by <a href="#0">PicmaticWeb</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+  
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->

@@ -62,6 +62,10 @@
     "Amount : ": "Amount : ",
     "and the ": "and the ",
     "Annual Billing": "Annual Billing",
+    "Yearly Biling": "Yıllık Faturalandırma",
+    "Weekly Biling": "Haftalık Faturalandırma",
+    "Per week": "Haftalık",
+
     "Annual Payments": "Annual Payments",
     "Annual Price": "Annual Price",
     "Answer": "Answer",
@@ -927,6 +931,7 @@
     "Pending": "Pending",
     "Per month": "Per month",
     "Per Year": "Per Year",
+    
     "Permanently delete your account.": "Permanently delete your account.",
     "Permission": "Permission",
     "Permission Denied!!!.": "Permission Denied!!!.",
@@ -1482,4 +1487,97 @@
     "Zoom Meeting Title": "Zoom Meeting Title",
     "Zoom Metting Saved Successfully.": "Zoom Metting Saved Successfully.",
     "“Attention is the new currency”": "“Attention is the new currency”"
-}
+,
+"Lets Start":"Hemen Başlayın",
+"Enter_mail_adress":"Enter your e-mail address..."
+,
+        "project_management.part1": "Manage Your Complex Projects",
+        "project_management.part2": "with Simplicity",
+        "project_management.success_message" : "Eliminate chaos in your projects with Craftorder, streamline your workflows, and boost your achievements. Subscribe now and make a strong start!"
+,  "project_management.create_free_account": "Create Free Account",
+    "section_title.title": "Manage Your Projects Easily. Anytime, Anywhere.",
+        "section_title.description": "Craftorder organizes your workflows, helping you save time and achieve better results"
+        ,"feature_1_title": "Enhance Time Management",
+        "feature_1_description": "Plan your projects and save time.",
+        "feature_1_tool_title": "Time Tracking Tools",
+        "feature_1_tool_description": "Detailed time tracking for all projects.",
+        "feature_1_checklist_1": "Detailed hour reports",
+        "feature_1_checklist_2": "Quick time management",
+        "feature_1_checklist_3": "Task-based timelines",
+        
+        "feature_2_title": "Team Collaboration Made Easy",
+        "feature_2_description": "Efficient communication with your project team members.",
+        "feature_2_tool_title": "Team Communication Tools",
+        "feature_2_tool_description": "Easily message and share files.",
+        "feature_2_checklist_1": "Real-time notifications",
+        "feature_2_checklist_2": "Task assignment",
+        "feature_2_checklist_3": "Shared files",
+        
+        "feature_3_title": "Make Decisions with Data Analysis",
+        "feature_3_description": "Make more informed decisions by analyzing data from your project.",
+        "feature_3_tool_title": "Data Analysis Tools",
+        "feature_3_tool_description": "In-depth analysis at every stage of your project.",
+        "feature_3_checklist_1": "Performance reports",
+        "feature_3_checklist_2": "Project progress analysis",
+        "feature_3_checklist_3": "Customizable charts",
+        
+        "feature_4_title": "Optimize Resource Management",
+        "feature_4_description": "Optimize your team members' tasks and resources.",
+        "feature_4_tool_title": "Resource Management Tools",
+        "feature_4_tool_description": "Balance the workload of team members.",
+        "feature_4_checklist_1": "Resource allocation",
+        "feature_4_checklist_2": "Task prioritization",
+        "feature_4_checklist_3": "Efficient resource use",
+        
+        "feature_5_title": "Easily Track Your Projects",
+        "feature_5_description": "Track your projects in real time and get instant updates.",
+        "feature_5_tool_title": "Real-Time Tracking Tools",
+        "feature_5_tool_description": "Monitor project status in real time.",
+        "feature_5_checklist_1": "Live project status",
+        "feature_5_checklist_2": "Instant notifications",
+        "feature_5_checklist_3": "Easy reporting",
+         "faq_title": "Frequently Asked Questions",
+         "faq_description": "Check out the frequently asked questions about Craftorder and get more information."
+, "faq_1.question": "What is CraftOrder?",
+"faq_1.answer": "CraftOrder is a platform designed for freelancers and small businesses to manage projects, customer relationships, and time tracking.",
+
+"faq_2.question": "How does CraftOrder work?",
+"faq_2.answer": "CraftOrder allows freelancers to easily manage their projects, customer relations, time, and billing. All processes are tracked in a single platform.",
+
+"faq_3.question": "Does CraftOrder require technical knowledge?",
+"faq_3.answer": "No, CraftOrder does not require technical knowledge. Its user-friendly interface allows anyone to use it easily.",
+
+"faq_4.question": "Is my data secure?",
+"faq_4.answer": "CraftOrder securely stores your data. All your information is protected with encryption and security measures."
+,
+"faq_5.question": "Is CraftOrder free?",
+"faq_5.answer": "CraftOrder offers a free trial period. You can access basic features with the free plan and upgrade to premium plans when needed."
+
+,  "freelance_crm": "Freelance CRM: Easy and Powerful Tools for Project Management and Tracking"
+,  "princing.title": "Plans Tailored to Your Success",
+"princing.description": "Flexible and simple pricing that supports your growth. Start your 3-day free trial today."
+,"freelancerspecial": "Freelancer-Specific Options", 
+"freelancerKickoff": "Freelancer Kickoff",
+"freelancerEssentials": "Freelancer Essentials",
+"masterFreelance": "Master Freelance",
+"select_this_plan":"Select this Plan",
+     "service_section_title": "Simplify Your Customer Management, Boost Your Efficiency",
+     "service_section_subtitle": "Make customer management more efficient and streamline your business processes.",
+     "service_item_1_title": "Automate Workflows",
+     "service_item_1_desc": "Automate repetitive tasks in your workflows to save time and accelerate your work.",
+     "service_item_2_title": "Increase Your Productivity",
+     "service_item_2_desc": "Integrate various processes to increase efficiency and achieve faster results.",
+     "service_item_3_title": "Easy Communication and Tracking",
+     "service_item_3_desc": "Simplify communication and track customer interactions on a single platform.",
+     "service_item_4_title": "Real-Time Customer Collaboration",
+     "service_item_4_desc": "Collaborate with your customers in real-time, optimizing your processes instantly.",
+     "service_item_5_title": "Use Time Efficiently",
+     "service_item_5_desc": "Make better use of your time, complete more tasks, and achieve greater success.",
+     "service_item_6_title": "Protect Your Data with End-to-End Security",
+     "service_item_6_desc": "Safeguard your data with complete security, using robust systems to ensure your security at every step."
+     ,
+          "ready_to_get_started": "Ready to Get Started?",
+          "try_craftorder_free": "Try CraftOrder free for 3 days - setting up takes a few minutes."
+        }
+        
+   
