@@ -19,13 +19,7 @@
     </a>
     @auth('web')
 
-    @if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
-        <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
-            data-title="{{ __('Create New Task') }}" data-url="{{ route('tasks.create', [$currentWorkspace->slug,$currentWorkspace->id]) }}"
-            data-toggle="tooltip" title="{{ __('Add Task') }}">
-            <i class="ti ti-plus"></i>
-        </a>
-    @endif
+  
 @endauth
 @endsection
 

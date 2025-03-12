@@ -6,7 +6,7 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
         $dark_mode = $setting['cust_darklayout'];
         $cust_theme_bg = $setting['cust_theme_bg'];
@@ -194,7 +194,7 @@
 
 @php
     if (Auth::user()->type == 'admin') {
-        $color = !empty($setting['color']) ? $setting['color'] : 'theme-3';
+        $color = !empty($setting['color']) ? $setting['color'] : 'theme-4';
 
         if (isset($setting['color_flag']) && $setting['color_flag'] == 'true') {
             $color = 'custom-color';
@@ -202,7 +202,7 @@
             $color = $color;
         }
     } else {
-        $color = !empty($setting['theme_color']) ? $setting['theme_color'] : 'theme-3';
+        $color = !empty($setting['theme_color']) ? $setting['theme_color'] : 'theme-4';
 
         if (isset($setting['color_flag']) && $setting['color_flag'] == 'true') {
             $color = 'custom-color';
@@ -297,9 +297,19 @@
                     </div>
                 </div>
             </div>
-
+            @php
+            $currentPath = request()->path(); // Şu anki URL yolunu alır
+            $userPlan = Auth::user() ? App\Models\Plan::find(Auth::user()->plan) : null;
+        @endphp
+        
+        @if($currentPath === 'plans'||  !strpos($currentPath,'payment') || ($userPlan && strpos(strtolower($userPlan->name), "finish") === false))
+            {{-- Eğer plans sayfasındaysak veya plan ismi "finish" değilse content gösterilir --}}
             @yield('content')
-
+        @else
+            {{-- Eğer kullanıcı planı "finish" ise ve plans sayfasında değilsek özel bir mesaj gösterilir --}}
+            <div>Kullanıcı plan süresi bitmiştir, plan satın almak için <a href="/plans">Tıklayın</a>.</div>
+        @endif
+        
         </div>
     </div>
 

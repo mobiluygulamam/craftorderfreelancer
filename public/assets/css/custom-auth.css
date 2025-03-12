@@ -53,7 +53,11 @@
     border-radius: 0px;
     position: absolute;
     transform-origin: bottom;
-    background: var(--bs-green);
+
+
+    background: rgb(19,92,210);
+    background: linear-gradient(33deg, rgba(19,92,210,1) 51%, rgba(1,41,106,1) 100%, rgba(1,41,106,1) 100%);
+
 }
 
 .custom-login .navbar {
@@ -86,7 +90,7 @@
     width: 2px;
     background: #000000;
     top: 0;
-    right: 0;
+    right:-10;
 }
 
 .custom-login .navbar .nav-item:last-of-type .nav-link::after {
@@ -112,6 +116,7 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    left:-50px;
     z-index: 9;
 }
 
@@ -130,6 +135,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+  
 }
 
 .custom-login .custom-login-form .for-pwd {
@@ -247,15 +253,18 @@
 }
 .login-bg-1{
     position: absolute;
-    bottom: 0;
-    left: 10%;
+    bottom: 10%;
+    left: 5%;
     z-index: 1;
 }
 .login-bg-2{
+
     position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
+    bottom: 40%;
+    right: 10%;
+    height: 100px;
+    width: 200px;
+    z-index: 3;
 }
 .auth-footer{
     position: relative;

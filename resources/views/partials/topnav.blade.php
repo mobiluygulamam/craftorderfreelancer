@@ -12,7 +12,7 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
         $dark_mode = $setting['cust_darklayout'];
         $cust_theme_bg = $setting['cust_theme_bg'];
@@ -112,10 +112,13 @@
    
                         <i class="ti ti-chevron-down drp-arrow nocolor hide-mob"></i>
                     </a>
+                    @if (Auth::user()->type != 'admin')
                     @if (Auth::user()->getGuard() != 'client')
-                    <span>{{App\Models\Plan::find(Auth::user()->plan)->name}}</span>
-
+                    <a class="mr-5 btn btn-bg-primary" href="{{route('plans.index')}}">{{App\Models\Plan::find(Auth::user()->plan)->name??""}} </a>
+    
+                        @endif
                     @endif
+              
                     <div class="dropdown-menu dash-h-dropdown">
                         {{-- @foreach (Auth::user()->workspace as $workspace)
                             @if ($workspace->is_active)
@@ -247,11 +250,12 @@
                         @auth('web')
                             @foreach (Auth::user()->workspace as $workspace)
                                 @if ($currentWorkspace->id == $workspace->id)
-                                    @if ($workspace->pivot->permission == 'Owner')
+                                    @if ($workspace->pivot->permission == 'Owner' &&!App\Models\Utility::isdemopackage())
                                         <a href="#!" class="dropdown-item" data-toggle="modal"
                                             data-target="#modelCreateWorkspace">
                                             <i class="ti ti-circle-plus"></i>
                                             <span>{{ __('Create New Workspace') }}</span>
+                                       
                                         </a>
                                     @endif
                                 @endif
@@ -260,7 +264,7 @@
 
                         @if (isset($currentWorkspace) && $currentWorkspace)
                             @auth('web')
-                                @if (Auth::user()->id == $currentWorkspace->created_by)
+                                @if (Auth::user()->id == $currentWorkspace->created_by &&!App\Models\Utility::isdemopackage())
                                     <a href="#" class="dropdown-item bs-pass-para"
                                         data-confirm="{{ __('Are You Sure?') }}"
                                         data-text="{{ __('This action can not be undone. Do you want to continue?') }}"

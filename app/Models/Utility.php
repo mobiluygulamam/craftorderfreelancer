@@ -19,7 +19,35 @@ use App\Models\ReferralTransaction;
 
 
 class Utility
+
 {
+
+    public static function getRandomMotivationalQuote() {
+          // Motivasyon cümlelerinin dizisi
+          $quotes = [
+               "İşini büyütmek seni özgürleştirir.",
+               "Her zaman daha büyük hedefler koy.",
+               "Başarı, tutkulu insanların işidir.",
+               "İşini severek yap, fark yarat.",
+               "Başarı, cesaretle başlar ve kararlılıkla büyür.",
+               "Yolculuğun zorlu olabilir, ama sonuçlar buna değecektir.",
+               "Her gün yeni bir fırsattır, onu değerlendir.",
+               "Hayallerin gerçek olmayı bekliyor.",
+               "Girişimcilik, risk alarak kazanmaktır.",
+               "Hedeflerini aş, sınırlarını zorla.",
+               "Yapabileceğine inandığında, her şey mümkündür.",
+               "Kendini geliştir, dünyayı değiştirebilirsin.",
+               "Her adım seni başarıya biraz daha yaklaştırır.",
+               "Başarı, azim ve süreklilikle elde edilir.",
+               "Kendine inan, başarının anahtarı senin içinde."
+           ];
+          // Rastgele bir cümle seçmek için array_rand() fonksiyonu kullanılıyor
+          $randomIndex = array_rand($quotes);
+          
+          // Rastgele seçilen cümleyi döndürüyoruz
+          return $quotes[$randomIndex];
+      }
+
     public function createSlug($table, $title, $id = 0)
     {
         // Normalize the title
@@ -402,6 +430,91 @@ class Utility
         return $dateCollection;
     }
 
+    public static function userprojectcount(){
+
+        $user=Auth::user();
+        $currant_workspace = $user->currant_workspace;
+
+   return  Project::where('workspace', '=', $currant_workspace)->count();
+    }
+
+    
+
+    public static function isClientRestrictedDemo(){
+
+     if(Utility::isdemopackage()){
+
+          $user=Auth::user();
+          $currant_workspace = $user->currant_workspace;
+  
+      $clientcount= Client::where('currant_workspace', '=', $currant_workspace)->count();
+if ($clientcount>=3) {
+return true;
+}return false;
+     }
+     else return false;
+}
+    public static function isProjectRestrictedDemo(){
+         if(Utility::isdemopackage()){
+if (Utility::userprojectcount()>=3) {
+   return true;
+}return false;
+         }
+         else return false;
+    }
+
+    public static function isFinishPackageTime(){
+     $user=Auth::user();
+   
+   //Datetime
+     $expiredate = $user->plan_expire_date;
+$now=\Carbon\Carbon::now();
+return $now->gt($expiredate) ? true : false;
+  
+   
+    }
+public static function isdemopackage(){
+     $user=Auth::user();
+   
+   
+     $userPlanid = $user->plan;
+$planname= Plan::find($userPlanid)->name;
+
+return strtolower($planname) == 'demo'|| strtolower($planname) == 'deneme' ? true : false;
+  
+}
+    public static function isPlanRestricted()
+    {
+        $user = Auth::user();
+
+        if (!$user || !$user->plan) {
+            return false; // Kullanıcı giriş yapmamışsa veya planı yoksa kısıtlama uygulanmaz.
+        }
+
+        // Kullanıcının plan adını al
+        $planName = optional($user->plan)->name;
+
+        // Eğer plan "demo" değilse, kısıtlama uygulanmaz.
+        if ($planName !== 'demo') {
+            return false;
+        }
+
+        // Kullanıcının sahip olduğu workspace'leri al
+        $workspaces = UserWorkspace::where('user_id', $user->id)->get();
+        $workspaceCount = $workspaces->pluck('workspace_id')->unique()->count();
+
+        // Eğer kullanıcının yalnızca 1 workspace'i varsa, içinde kaç "Member" olduğunu kontrol et
+        $memberCount = 0;
+        if ($workspaceCount == 1) {
+            $workspaceId = $workspaces->first()->workspace_id;
+            $memberCount = UserWorkspace::where('workspace_id', $workspaceId)
+                ->where('permission', 'Member')
+                ->count();
+        }
+
+        // Eğer tek bir workspace varsa ve en az 5 "Member" bulunuyorsa, kısıtlama aktif olur.
+        return ($workspaceCount == 1 && $memberCount >= 5);
+    }
     public static function calculateTimesheetHours($times)
     {
         $minutes = 0;
@@ -598,7 +711,7 @@ class Utility
             'SIGNUP_BUTTON' => 'on',
             'cust_theme_bg' => 'on',
             'cust_darklayout' => 'off',
-            'color' => 'theme-3',
+            'color' => 'theme-4',
             "SITE_RTL" => "off",
             'company_email' => 'test@example.com',
             "storage_setting" => "local",
@@ -658,8 +771,8 @@ class Utility
             'recaptcha_module' => 'off',
             'google_recaptcha_key' => '',
             'google_recaptcha_secret' => '',
-            'currency' => 'USD',
-            'currency_symbol' => '$',
+            'currency' => 'TL',
+            'currency_symbol' => '₺',
             'app_name' => 'Taskly Saasasd',
             'APP_NAME' => 'Taskly asdasd',
             'default_admin_lang' => 'en',
@@ -769,7 +882,7 @@ class Utility
             'invoicest_notificaation' => 0,
             'cust_theme_bg' => 'on',
             'cust_darklayout' => 'off',
-            'color' => 'theme-3',
+            'color' => 'theme-4',
             "SITE_RTL" => "off",
             "meta_image" => '',
             "meta_keywords" => '',
@@ -964,7 +1077,7 @@ class Utility
         $adminSettings = [
             'cust_theme_bg' => 'on',
             'cust_darklayout' => 'off',
-            'color' => 'theme-3',
+            'color' => 'theme-4',
             'color_flag' => 'false',
             'enable_cookie' => 'on',
             "meta_image" => '',
@@ -1890,7 +2003,7 @@ class Utility
             "pl" => "Polish",
             "pt" => "Portuguese",
             "ru" => "Russian",
-            "tr" => "Turkish",
+            "tr" => "Türkçe",
             "pt-br" => "Portuguese(BR)",
         ];
         return $languages;

@@ -11,7 +11,7 @@ class pusher_config
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (file_exists(storage_path() . "/installed") && \Schema::hasTable('settings') === true) {
+        if ( \Schema::hasTable('settings') === true) {
             $settings = Utility::getAdminPaymentSetting();
             if ($settings) {
                 config([

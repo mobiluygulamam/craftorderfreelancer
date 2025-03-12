@@ -625,7 +625,7 @@
                     }
                 },
                 colors: [style.backgroundColor],
-                labels: ['Progress'],
+                labels: ['{{ __('Progress') }}'],
             };
             var chart = new ApexCharts(document.querySelector("#milestone-chart"), options);
             chart.render();
@@ -719,7 +719,7 @@
                 show: true
             },
             xaxis: {
-                categories: ["Estimated Hours", "Logged Hours "],
+                categories: ['{{ __('Estimated Hours') }}', '{{ __('Logged Hours') }}'],
 
             }
         };

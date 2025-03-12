@@ -3,7 +3,7 @@
     if ($setting['color']) {
         $color = $setting['color'];
     } else {
-        $color = 'theme-3';
+        $color = 'theme-4';
     }
 @endphp
 
@@ -121,7 +121,7 @@
         }
     </style>
 @endif
-@if ($color == 'theme-3')
+@if ($color == 'theme-4')
     <style type="text/css">
         .selectgroup-input:checked+.selectgroup-button {
             background-color: #6fd943 !important;

@@ -16,11 +16,19 @@
 @section('action-button')
     @auth('web')
         @if ($currentWorkspace->permission == 'Owner')
-            <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
-                data-title="{{ __('Create Contract Type') }}" data-toggle="tooltip" title="{{ __('Create Contract Type') }}"
-                data-url="{{ route('contract_type.create', !empty($currentWorkspace) ? $currentWorkspace->slug : 0) }}">
-                <i class="ti ti-plus"></i>
-            </a>
+@if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime())
+<div class="alert alert-warning text-center">
+     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla sözleşme türü ekleyemezsiniz!</h6>
+ </div>
+ @else 
+ <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
+ data-title="{{ __('Create Contract Type') }}" data-toggle="tooltip" title="{{ __('Create Contract Type') }}"
+ data-url="{{ route('contract_type.create', !empty($currentWorkspace) ? $currentWorkspace->slug : 0) }}">
+ <i class="ti ti-plus"></i>
+</a>
+@endif
+     
+          
         @endif
     @endauth
 @endsection

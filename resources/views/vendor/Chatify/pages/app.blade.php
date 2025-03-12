@@ -11,7 +11,7 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
     } else {
         $setting = App\Models\Utility::getcompanySettings($currentWorkspace->id);
@@ -279,7 +279,7 @@
 @endif
 
 
-@if ($color == 'theme-3')
+@if ($color == 'theme-4')
     <style type="text/css">
         .m-list-active,
         .m-list-active:hover,

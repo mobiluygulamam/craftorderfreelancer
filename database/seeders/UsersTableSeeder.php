@@ -17,16 +17,16 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $adminUser = User::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('1234'),
-            'type' => 'admin',
-            'email_verified_at' => date('Y-m-d i:h:s'),
-            'lang' => 'en',
-        ]);
+     //    $adminUser = User::create([
+     //        'name' => 'Super Admin',
+     //        'email' => 'admin@example.com',
+     //        'password' => Hash::make('1234'),
+     //        'type' => 'admin',
+     //        'email_verified_at' => date('Y-m-d i:h:s'),
+     //        'lang' => 'en',
+     //    ]);
 
-        User::defaultEmail();
-        User::seed_languages();
+     //    User::defaultEmail();
+     //    User::seed_languages();
     }
 }

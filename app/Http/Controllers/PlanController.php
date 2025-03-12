@@ -22,22 +22,102 @@ class PlanController extends Controller
         $assignPlan = $user->assignPlan(1);
         return redirect()->back()->with('success', __('We successfully planned a refund and assigned a free plan.'));
     }
-
     public function index()
     {
         $currentWorkspace = Utility::getWorkspaceBySlug('');
         $paymentSetting = Utility::getAdminPaymentSetting();
-        if (\Auth::user()->type == 'admin') {
-            $plans = Plan::get();
-            return view('plans.admin', compact('plans', 'currentWorkspace', 'paymentSetting'));
-        } elseif ($currentWorkspace->creater->id == \Auth::user()->id) {
-            $plans = Plan::where('status', '1')->where('is_plan_enable', '=', 1)->get();
-            return view('plans.company', compact('plans', 'currentWorkspace', 'paymentSetting'));
+        $objUser = \Auth::user();
+    
+        if ($objUser->type == 'admin' || $currentWorkspace->creater->id == $objUser->id) {
+            $query = Order::select([
+                'orders.*',
+                'users.name as user_name',
+            ])->join('users', 'orders.user_id', '=', 'users.id');
+    
+            if ($objUser->type !== 'admin') {
+                $query->where('users.id', $objUser->id);
+            }
+    
+            // Eager load the relationships
+            $orders = $query->with('total_coupon_used.coupon_detail')->orderBy('orders.created_at', 'DESC')->get();
+            $userOrders = Order::select('*')
+                ->whereIn('id', function ($query) {
+                    $query->selectRaw('MAX(id)')
+                        ->from('orders')
+                        ->groupBy('user_id');
+                })
+                ->orderBy('created_at', 'desc')
+                ->get();
+    
+            if ($objUser->type == 'admin') {
+                $plans = Plan::get();
+                return view('plans.admin', compact('plans', 'currentWorkspace', 'paymentSetting', 'orders', 'userOrders'));
+            } elseif ($currentWorkspace->creater->id == $objUser->id) {
+                $plans = Plan::where('status', '1')
+                    ->where('is_plan_enable', '=', 1)
+                    ->where('id', '!=', $objUser->plan)
+                    ->get();
+                $currentPlan = Plan::where('id', $objUser->plan)->first();
+                return view('plans.company', compact('plans', 'currentWorkspace', 'paymentSetting', 'currentPlan', 'orders', 'userOrders'));
+            } else {
+                return redirect()->route('home');
+            }
         } else {
             return redirect()->route('home');
         }
     }
+    
+//     public function index()
+//     {
+//         $currentWorkspace = Utility::getWorkspaceBySlug('');
+//         $paymentSetting = Utility::getAdminPaymentSetting();
+//         if (\Auth::user()->type == 'admin') {
+//             $plans = Plan::get();
+//             return view('plans.admin', compact('plans', 'currentWorkspace', 'paymentSetting'));
+//         } elseif ($currentWorkspace->creater->id == \Auth::user()->id) {
+//           $plans = Plan::where('status', '1')
+//           ->where('is_plan_enable', '=', 1)
+//           ->where('id', '!=', \Auth::user()->plan)
+//           ->get();
+//             $currentPlan= Plan::where('id', \Auth::user()->plan)->first();
+//             return view('plans.company', compact('plans', 'currentWorkspace', 'paymentSetting','currentPlan'));
+//         } else {
+//             return redirect()->route('home');
+//         }
+//     }
 
+
+//     public function Orderview()
+//     {
+//         $currentWorkspace = Utility::getWorkspaceBySlug('');
+//         $objUser = \Auth::user();
+
+//         if ($objUser->type == 'admin' || $currentWorkspace->creater->id == $objUser->id) {
+//             $query = Order::select([
+//                 'orders.*',
+//                 'users.name as user_name',
+//             ])->join('users', 'orders.user_id', '=', 'users.id');
+
+//             if ($objUser->type !== 'admin') {
+//                 $query->where('users.id', $objUser->id);
+//             }
+
+//             // Eager load the relationships
+//             $orders = $query->with('total_coupon_used.coupon_detail')->orderBy('orders.created_at', 'DESC')->get();
+//             $userOrders = Order::select('*')
+//                 ->whereIn('id', function ($query) {
+//                     $query->selectRaw('MAX(id)')
+//                         ->from('orders')
+//                         ->groupBy('user_id');
+//                 })
+//                 ->orderBy('created_at', 'desc')
+//                 ->get();
+
+//             return view('order.index', compact('currentWorkspace', 'orders', 'userOrders'));
+//         } else {
+//             return redirect()->route('home');
+//         }
+//     }
     public function managePlanStatus(Request $request)
     {
         $planId = $request->plan_id;
@@ -93,6 +173,8 @@ class PlanController extends Controller
     {
         $validation = [];
         $validation['name'] = 'required|unique:plans';
+        $validation['plan_type'] = 'required|string|max:255';
+        $validation['weekly_price'] = 'required|numeric|min:0';
         $validation['monthly_price'] = 'required|numeric|min:0';
         $validation['annual_price'] = 'required|numeric|min:0';
         // $validation['trial_days']     = 'required|numeric|min:1';
@@ -121,10 +203,12 @@ class PlanController extends Controller
 
 
 
-        if ($request->monthly_price > 0 || $request->annual_price > 0) {
+        if ($request->monthly_price > 0 || $request->annual_price > 0|| $request->weekly_price > 0) {
             $paymentSetting = Utility::getAdminPaymentSetting();
             $post['monthly_price'] = $request->monthly_price;
             $post['annual_price'] = $request->annual_price;
+            $post['storage_limit'] = $request->storage_limit;
+            $post['weekly_price'] = $request->weekly_price;
             $post['storage_limit'] = $request->storage_limit;
         }
         $post['status'] = $request->has('status') ? 1 : 0;
@@ -288,7 +372,7 @@ class PlanController extends Controller
                     $planID = \Illuminate\Support\Facades\Crypt::decrypt($code);
                     $plan = Plan::find($planID);
                     if ($plan) {
-                        $plan->price = ($paymentSetting['currency_symbol'] ? $paymentSetting['currency_symbol'] : '$') . $plan->{$frequency . '_price'};
+                        $plan->price = ($paymentSetting['currency_symbol'] ? $paymentSetting['currency_symbol'] : '₺') . $plan->{$frequency . '_price'};
                         return view('plans.payment', compact('plan', 'frequency', 'currentWorkspace', 'paymentSetting'));
                     } else {
                         return redirect()->back()->with('error', __('Plan is deleted.'));

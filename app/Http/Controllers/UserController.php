@@ -259,6 +259,7 @@ class UserController extends Controller
     {
         $currentWorkspace = Utility::getWorkspaceBySlug($slug);
         if ($currentWorkspace) {
+
             $users = User::select('users.*', 'user_workspaces.permission', 'user_workspaces.is_active')->join('user_workspaces', 'user_workspaces.user_id', '=', 'users.id');
             $users->where('user_workspaces.workspace_id', '=', $currentWorkspace->id);
             $users = $users->get();
@@ -272,8 +273,32 @@ class UserController extends Controller
                 ])
                 ->with('getPlan')
                 ->get();
+
+
+
         }
-        return view('users.index', compact('currentWorkspace', 'users'));
+        $user = auth()->user(); // Giriş yapan kullanıcı bilgisi
+    $planName = optional($user->plan)->name; // Kullanıcının plan ismini al
+    if ($planName !== 'demo'||$planName !== 'free') {
+     // Eğer kullanıcı demo planında değilse, hiçbir kısıtlama yapmadan sayfayı göster
+    $planRestricted = false;
+     return view('users.index', compact('currentWorkspace', ['users','planRestricted']));
+ }
+ $workspaces = UserWorkspace::where('user_id', $user->id)->get();
+    $workspaceCount = $workspaces->pluck('workspace_id')->unique()->count();
+    $memberCount = 0;
+    if ($workspaceCount == 1) {
+        $workspaceId = $workspaces->first()->workspace_id;
+        $memberCount = UserWorkspace::where('workspace_id', $workspaceId)
+                        ->where('permission', 'Member')
+                        ->count();
+    }
+
+    return view('users.index', ['users','userPlan',
+        'workspaceCount' => $workspaceCount,
+        'memberCount' => $memberCount,
+        'planRestricted' => true, 
+    ]);
     }
 
 
@@ -470,7 +495,8 @@ class UserController extends Controller
                     'referral_code' => $code
                 ]
             );
-            $assignPlan = $objUser->assignPlan(1);
+            #default plan
+            $assignPlan = $objUser->assignPlan(4);
 
             if (!$assignPlan['is_success']) {
                 return redirect()->back()->with('error', __($assignPlan['error']));

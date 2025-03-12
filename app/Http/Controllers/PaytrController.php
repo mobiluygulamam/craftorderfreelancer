@@ -43,7 +43,7 @@ class PaytrController extends Controller
                     $discount_value = ($get_amount / 100) * $coupons->discount;
 
                     $get_amount = $get_amount - $discount_value;
-
+                    $get_amount=$get_amount*100;
                     if ($coupons->limit == $usedCoupun) {
                         return redirect()->back()->with('error', __('This coupon code has expired.'));
                     }
@@ -95,6 +95,7 @@ class PaytrController extends Controller
                     return redirect()->back()->with('error', __('This coupon code is invalid or has expired.'));
                 }
             }
+            $get_amount=$get_amount*100;
             try {
                 $coupon = (empty($request->coupon)) ? "0" : $request->coupon;
 

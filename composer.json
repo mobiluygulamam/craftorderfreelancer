@@ -11,6 +11,7 @@
         "arkitecht/laravel-twilio": "^1.6",
         "doctrine/dbal": "^4.1",
         "fedapay/fedapay-php": "^0.4.2",
+        "getbrevo/brevo-php": "1.x.x",
         "guzzlehttp/guzzle": "^7.9",
         "inertiajs/inertia-laravel": "^1.0",
         "iyzico/iyzipay-php": "^2.0",

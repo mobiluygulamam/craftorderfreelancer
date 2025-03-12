@@ -165,7 +165,37 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $count->count();
     }
-
+public static function verifyEmail($pmail) {
+     $curl = curl_init();
+ 
+     curl_setopt_array($curl, [
+         CURLOPT_URL => "https://verify.maileroo.net/check",
+         CURLOPT_RETURNTRANSFER => true,
+         CURLOPT_MAXREDIRS => 10,
+         CURLOPT_TIMEOUT => 30,
+         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+         CURLOPT_CUSTOMREQUEST => "POST",
+         CURLOPT_POSTFIELDS => json_encode([
+             "api_key" => "dd8e670f5b67e6b361d826c0da55eed55191be0ecdfdcb877023c3f68166f1f0",  // Buraya kendi API anahtarınızı koyun
+             "email_address" => $pmail
+         ]),
+         CURLOPT_HTTPHEADER => [
+             "Content-Type: application/json",
+             "Cache-Control: no-cache"
+         ]
+     ]);
+ 
+     $response = curl_exec($curl);
+     $err = curl_error($curl);
+ 
+     curl_close($curl);
+ 
+     if ($err) {
+         return "cURL Error #:" . $err;
+     } else {
+         return $response;
+     }
+ }
     public function countTask($workspace_id)
     {
         return Task::join('projects', 'tasks.project_id', '=', 'projects.id')->where('projects.workspace', '=', $workspace_id)->where('tasks.assign_to', '=', $this->id)->count();
@@ -945,7 +975,7 @@ class User extends Authenticatable implements MustVerifyEmail
                             <b>Proje Adı</b> : { project_name }<br>
                             <b>Sözleşme Tipi</b> : { contract_type }<br>
                             <b>değer</b> : { value }<br>
-                            <b>Başlangıç tarihi</b> : { start_date }<br>
+                            <b>Başlangıç tarihi</b> : { start_date} }<br>
                             <b>Bitiş tarihi</b> : { end_date }</span></p><p><br></p>',
 
                     'zh' => '<p><span style="font-size: 14px; font-family: sans-serif;">您好， <b>{client_name}!</b></span>

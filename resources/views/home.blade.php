@@ -253,19 +253,19 @@
                                         <div class="col-6">
                                             <span class="d-flex align-items-center mb-2">
                                                 <i class="f-10 lh-1 fas fa-circle" style="color:#3cb8d9;"></i>
-                                                <span class="ms-2 text-sm">On Going</span>
+                                                <span class="ms-2 text-sm">{{ __('On Going') }}</span>
                                             </span>
                                         </div>
                                         <div class="col-6">
                                             <span class="d-flex align-items-center mb-2">
                                                 <i class="f-10 lh-1 fas fa-circle" style="color:#545454;"></i>
-                                                <span class="ms-2 text-sm">On Hold</span>
+                                                <span class="ms-2 text-sm">{{ __('On Hold') }}</span>
                                             </span>
                                         </div>
                                         <div class="col-6">
                                             <span class="d-flex align-items-center mb-2">
                                                 <i class="f-10 lh-1 fas fa-circle" style="color: #6095c1; "></i>
-                                                <span class="ms-2 text-sm">Finished</span>
+                                                <span class="ms-2 text-sm">{{ __('Finished') }}</span>
                                             </span>
                                         </div>
 
@@ -299,17 +299,16 @@
                         </div>
                     </div>
 
-                    @if (Auth::user()->getGuard() != 'client')
-                        <div class="card ">
-                            <div class="card-header">
-                                <h5>{{ __('Storage Status') }} <small>({{ $users->storage_limit . 'MB' }} /
-                                        {{ $plan->storage_limit . 'MB' }})</small></h5>
-                            </div>
-                            <div class="card-body">
-                                <div id="storage-limit-chart"></div>
-                            </div>
-                        </div>
-                    @endif
+                    <div class="col-lg-5 col-md-5 w-100 ">
+                         <div class="card mt-3 ">
+                             <div class="card-header">
+                                
+                                 <div class="text-end"><small class=""></small></div>
+                             </div>
+                             <div class="card-body">
+                            <h5 class="text-center">    {{App\Models\Utility::getRandomMotivationalQuote()}}</h5>
+                             </div>
+                         </div>
 
                     @if (Auth::user()->getGuard() == 'client')
                         <div class="card">
@@ -585,7 +584,7 @@
                             }
                         },
                         colors: [style.backgroundColor],
-                        labels: ['Progress'],
+                        labels: ['{{ __('Progress') }}'],
                     };
                     var chart = new ApexCharts(document.querySelector("#storage-limit-chart"), options);
                     chart.render();

@@ -1746,7 +1746,8 @@ h2.wow.fadeInUp.home_5_testi {
 }
 
 .feature_item_inner {
-  background: linear-gradient(175deg, #7579ff 0%, #b224ef 100%);
+     background: rgb(7,7,17);
+     background: linear-gradient(270deg, rgba(7,7,17,1) 0%, rgba(34,34,73,1) 51%, rgba(9,9,20,1) 100%);
   border-radius: 20px;
   padding: 90px;
 }
@@ -1786,14 +1787,16 @@ h2.wow.fadeInUp.home_5_testi {
   color: #fff;
 }
 .feature_item_inner.two {
-  background: linear-gradient(175deg, #f74fac 0%, #fcb24f 100%);
+     background: rgb(15,15,34);
+     background: linear-gradient(270deg, rgba(15,15,34,1) 0%, rgba(79,79,135,1) 51%, rgba(26,26,47,1) 100%);
 }
 .feature_item_inner.two .saas_features_img_two .img_two {
   top: 120px;
   right: 60px;
 }
 .feature_item_inner.three {
-  background: linear-gradient(175deg, #ff7a00 0%, #ffd439 100%);
+     background: rgb(15,15,34);
+     background: linear-gradient(270deg, rgba(15,15,34,1) 0%, rgba(79,79,135,1) 51%, rgba(30,58,61,1) 100%);
 }
 .feature_item_inner.three .saas_features_img_two {
   padding-top: 50px;

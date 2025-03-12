@@ -6,7 +6,7 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
         $dark_mode = $setting['cust_darklayout'];
         $cust_theme_bg = $setting['cust_theme_bg'];
@@ -56,7 +56,8 @@
             <a href="{{ route('home') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
                 {{-- <img src="{{ asset($logo . $company_logo . '?timestamp=' . strtotime(isset($currentWorkspace) ? $currentWorkspace->updated_at : '')) }}" alt="logo" class="sidebar_logo_size " /> --}}
-                <img src="{{ asset($logo . $company_logo . '?v=' . time()) }}" alt="logo" class="sidebar_logo_size " />
+                <img src="{{ asset('../resources/'.$logo . $company_logo . '?v=' . time()) }}" alt="logo" class="sidebar_logo_size " />
+                {{-- <img src="{{ url('storage/logo/logo-light.png') }}" alt="logo" class="sidebar_logo_size " /> --}}
             </a>
         </div>
 
@@ -71,7 +72,7 @@
                         </a>
                     </li>
                 @else
-                    <li class="dash-item dash-hasmenu">
+                    <li class="dash-item dash-hasmenu ">
                         <a href="{{ route('home') }}"
                             class="dash-link  {{ Request::route()->getName() == 'home' || Request::route()->getName() == null || Request::route()->getName() == 'client.home' ? ' active' : '' }}">
                             <span class="dash-micon"><i class="ti ti-home"></i></span>
@@ -82,19 +83,52 @@
 
                 @if (isset($currentWorkspace) && $currentWorkspace)
                     @auth('web')
-                        <li class="dash-item dash-hasmenu">
-                            <a href="{{ route('users.index', $currentWorkspace->slug) }}"
-                                class="dash-link {{ Request::route()->getName() == 'users.index' ? ' active' : '' }}"><span
-                                    class="dash-micon"> <i data-feather="user"></i></span><span
-                                    class="dash-mtext">{{ __('Users') }}</span></a>
-                        </li>
+
+                     
+
+                     @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime()) 
+                        <a href="{{ route('plans.index', $currentWorkspace->slug) }}" class="dash-link "><span
+                         class="dash-micon"><i data-feather="list"></i></span>
+                        
+                         <span
+                         class="dash-mtext">{{ __('Team') }} 
+                       
+                        </span>
+                    
+                    </a> 
+               
+                          
+                     @else   <li class="dash-item {{ Request::route()->getName() == 'users.index' ? ' active' : '' }}">
+                         <a href="{{ route('users.index', $currentWorkspace->slug) }}" class="dash-link ">
+                           
+                              <span
+                                 class="dash-micon"><i data-feather="list"></i></span><span
+                                 class="dash-mtext">{{ __('Team') }}  
+                                 @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime())
+                                 <span class=" top-10 right-0 transform translate-x-1/2 -translate-y-1/2 badge bg-red-500 p-2 px-3 text-white text-xs font-bold rounded-full shadow-md rounded-2">
+                                   Paket Yükselt
+                               </span>
+                   
+                                 @endif</span>
+                         </a>
+                         
+                     </li>
+                        @endif
 
                         @if ($currentWorkspace->creater->id == Auth::user()->id)
+                        
                             <li class="dash-item dash-hasmenu">
                                 <a href="{{ route('clients.index', $currentWorkspace->slug) }}"
                                     class="dash-link {{ Request::route()->getName() == 'clients.index' ? ' active' : '' }}"><span
                                         class="dash-micon"> <i class="ti ti-brand-python"></i></span><span
-                                        class="dash-mtext"> {{ __('Clients') }}</span></a>
+                                        class="dash-mtext "> {{ __('Clients') }}</span>      @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime())
+                                        <span class=" top-10 right-0 transform translate-x-1/2 -translate-y-1/2 badge bg-red-500 p-2 px-3 text-white text-xs font-bold rounded-full shadow-md rounded-2">
+                                          Paket Yükselt
+                                      </span>
+
+                                     
+                                        @endif</a>
+                                    
                             </li>
                         @endif
 
@@ -102,15 +136,37 @@
                             class="dash-item {{ Request::route()->getName() == 'projects.index' || Request::segment(2) == 'projects' ? ' active' : '' }}">
                             <a href="{{ route('projects.index', $currentWorkspace->slug) }}" class="dash-link"><span
                                     class="dash-micon"> <i data-feather="briefcase"></i></span><span
-                                    class="dash-mtext">{{ __('Projects') }}</span></a>
+                                    class="dash-mtext">{{ __('Projects') }}</span>
+                                    @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime()) &nbsp;
+                                 <span class=" top--10 right-0 transform translate-x-1/2 -translate-y-1/2 badge bg-red-500 p-2 px-3 text-white text-xs font-bold rounded-full shadow-md rounded-2">
+                                   Paket  Yükselt
+                               </span>
+                             
+                                 @endif
+                                   </a>
+                                    
                         </li>
+                        @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime()) 
+                        <a href="{{ route('plans.index', $currentWorkspace->slug) }}" class="dash-link "><span
+                         class="dash-micon"><i data-feather="list"></i></span><span
+                         class="dash-mtext">{{ __('Tasks') }}   &nbsp; <span class=" top--10 right-0 transform translate-x-1/2 -translate-y-1/2 badge bg-red-500 p-2 px-3 text-white text-xs font-bold rounded-full shadow-md rounded-2">
+                              Paket Yükselt
+                          </span>
+                         </span></a>
+                     @else   <li class="dash-item {{ Request::route()->getName() == 'tasks.index' ? ' active' : '' }}">
+                         <a href="{{ route('tasks.index', $currentWorkspace->slug) }}" class="dash-link "><span
+                                 class="dash-micon"><i data-feather="list"></i></span><span
+                                 class="dash-mtext">{{ __('Tasks') }}
+                                
+                              
+                              </span></a>
+                           
+                                 
+                     </li>
+                        @endif
+                     
 
-                        <li class="dash-item {{ Request::route()->getName() == 'tasks.index' ? ' active' : '' }}">
-                            <a href="{{ route('tasks.index', $currentWorkspace->slug) }}" class="dash-link "><span
-                                    class="dash-micon"><i data-feather="list"></i></span><span
-                                    class="dash-mtext">{{ __('Tasks') }}</span></a>
-                        </li>
-
+                     
                       
 
                    
@@ -125,27 +181,43 @@
                         @endif --}}
 
                         @if (isset($currentWorkspace) && $currentWorkspace && $currentWorkspace->creater->id == Auth::user()->id)
-                            <li
-                                class="dash-item dash-hasmenu {{ Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.show' ? ' active' : '' }}">
-                                <a href="#" class="dash-link"><span class="dash-micon"><i
-                                            class="ti ti-device-floppy"></i></span><span
-                                        class="dash-mtext">{{ __('Contracts') }}</span><span class="dash-arrow"><i
-                                            data-feather="chevron-right"></i></span></a>
-                                <ul
-                                    class="dash-submenu collapse  {{ Request::route()->getName() == 'contracts.index' ? ' active' : '' }}">
 
-                                    <li
-                                        class="dash-item {{ Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.show' ? 'active' : '' }}">
-                                        <a class="dash-link"
-                                            href="{{ route('contracts.index', $currentWorkspace->slug) }}">{{ __('Contracts') }}</a>
-                                    </li>
-
-                                    <li class="dash-item ">
-                                        <a class="dash-link"
-                                            href="{{ route('contract_type.index', $currentWorkspace->slug) }}">{{ __('Contract Type') }}</a>
-                                    </li>
-                                </ul>
-                            </li>
+                        @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime()) 
+                        <li class=" relative dash-item  dash-hasmenu {{ Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.show' ? 'active' : '' }}">
+                         <a href="{{ route('plans.index', $currentWorkspace->slug) }}" class="dash-link flex items-center absolute">
+                             <span class="dash-micon"><i class="ti ti-device-floppy"></i></span>
+                             <span class="dash-mtext left-0">{{ __('Contracts') }}</span>
+                             <span class=" top--10 right-0 transform translate-x-1/2 -translate-y-1/2 badge bg-red-500 p-2 px-3 text-white text-xs font-bold rounded-full shadow-md rounded-2">
+                              Paket Yükselt
+                          </span>
+                         </a>
+                     
+                     </li>
+                     
+                         @else
+                    <li
+                    class="dash-item dash-hasmenu {{ Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.show' ? ' active' : '' }}" >
+                    <a href="#" class="dash-link"><span class="dash-micon"><i
+                                class="ti ti-device-floppy"></i></span><span
+                            class="dash-mtext">{{ __('Contracts') }}</span><span class="dash-arrow"><i
+                                data-feather="chevron-right"></i></span></a>
+                    <ul
+                        class="dash-submenu collapse  {{ Request::route()->getName() == 'contracts.index' ? ' active' : '' }}">
+                    
+                        <li
+                            class="dash-item {{ Request::route()->getName() == 'contracts.index' || Request::route()->getName() == 'contracts.show' ? 'active' : '' }}">
+                            <a class="dash-link"
+                                href="{{ route('contracts.index', $currentWorkspace->slug) }}">{{ __('Contracts') }}</a>
+                        </li>
+                    
+                        <li class="dash-item ">
+                            <a class="dash-link"
+                                href="{{ route('contract_type.index', $currentWorkspace->slug) }}">{{ __('Contract Type') }}</a>
+                        </li>
+                    </ul>
+                    </li>
+                    @endif
+                  
                         @endif
 
                         <li class="dash-item {{ Request::route()->getName() == 'calender.index' ? ' active' : '' }}">
@@ -177,6 +249,7 @@
                             <a href="{{ route('client.projects.index', $currentWorkspace->slug) }}"
                                 class="dash-link "><span class="dash-micon"><i data-feather="briefcase"></i></span><span
                                     class="dash-mtext">{{ __('Projects') }}</span></a>
+                                    
                         </li>
 
                         <li
@@ -222,8 +295,7 @@
                     </li>
                 @endif
                 @if (
-                    (Auth::user()->type == 'admin' ||
-                        (isset($currentWorkspace) && $currentWorkspace && $currentWorkspace->creater->id == Auth::user()->id)) &&
+                    Auth::user()->type == 'admin'  &&
                         Auth::user()->getGuard() != 'client')
 
                     <li class="dash-item {{ Request::route()->getName() == 'plans.index' ? ' active' : '' }}">
@@ -232,11 +304,7 @@
                                 class="dash-mtext">{{ __('Plans') }}</span></a>
                     </li>
 
-                    <li class="dash-item {{ Request::route()->getName() == 'order.index' ? ' active' : '' }}">
-                        <a href="{{ route('order.index') }}" class="dash-link "><span class="dash-micon"><i
-                                    data-feather="credit-card"></i></span><span
-                                class="dash-mtext">{{ __('Orders') }}</span></a>
-                    </li>
+                  
 
                     @if (Auth::user()->type == 'admin')
                         <li class="dash-item {{ request()->is('plan_request*') ? 'active' : '' }}">

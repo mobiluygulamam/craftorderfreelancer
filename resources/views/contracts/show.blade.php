@@ -245,7 +245,7 @@
                                                     {{ $currentWorkspace->priceFormat($contract->value) }} </dd>
 
                                                 <dt class="col-sm-4 h6 text-sm">{{ __('Type') }}</dt>
-                                                <dd class="col-sm-8 text-sm">{{ $contract->contract_type->name }}</dd>
+                                                <dd class="col-sm-8 text-sm">{{ $contract->contract_type->name??'' }}</dd>
 
                                                 <dt class="col-sm-4 h6 text-sm">{{ __('Start Date') }}</dt>
                                                 <dd class="col-sm-8 text-sm">
@@ -279,114 +279,6 @@
                                     </div>
                                 </div>
                                 {{ Form::close() }}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="attachments">
-                        <div class="row ">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>{{ __('Attachments') }}</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        @if ($contract->status == 'accept' || $currentWorkspace->permission == 'Owner')
-                                            <div class=" ">
-                                                <div class="col-md-12 dropzone browse-file" id="dropzonewidget">
-                                                    <div class="dz-message" data-dz-message>
-                                                        <span>
-                                                            @if (Auth::user()->getGuard() == 'client')
-                                                                {{ __('No files available') }}
-                                                            @else
-                                                                {{ __('Drop files here to upload') }}
-                                                            @endif
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-
-                                        <div class="col-md-12 mt-3">
-                                            <div class="list-group list-group-flush mb-0" id="attachments">
-                                                @foreach ($contract->files as $file)
-                                                    <div class="card mb-3 border shadow-none">
-                                                        <div class="px-3 py-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col">
-                                                                    <h6 class="text-sm mb-0">
-                                                                        <a href="#!">{{ $file->files }}</a>
-                                                                    </h6>
-                                                                    <p class="card-text small text-muted">
-                                                                        @if (File::exists(storage_path('contract_attechment/' . $file->files)))
-                                                                            {{ number_format(\File::size(storage_path('contract_attechment/' . $file->files)) / 1048576, 2) . ' ' . __('MB') }}
-                                                                        @endif
-                                                                    </p>
-                                                                </div>
-                                                                <div class="action-btn bg-warning p-0 w-auto    ">
-                                                                    <a href="{{ asset(Storage::url('contract_attechment')) . '/' . $file->files }}"
-                                                                        class=" btn btn-sm d-inline-flex align-items-center"
-                                                                        download="" data-bs-toggle="tooltip"
-                                                                        title="Download">
-                                                                        <span class="text-white">
-                                                                            <i class="ti ti-download"></i></span>
-                                                                    </a>
-                                                                </div>
-                                                                @if (\Auth::guard('client')->check())
-                                                                    @if ($contract->status == 'accept' && \Auth::user()->id == $file->client_id)
-                                                                        <div class="col-auto actions">
-                                                                            <div class="action-btn bg-danger ms-2">
-                                                                                <a href="#"
-                                                                                    class="mx-3 btn btn-sm d-inline-flex align-items-center bs-pass-para"
-                                                                                    data-confirm="{{ __('Are You Sure?') }}"
-                                                                                    data-text="{{ __('This action can not be undone. Do you want to continue?') }}"
-                                                                                    data-confirm-yes="delete-form-{{ $file->id }}"
-                                                                                    title="{{ __('Delete') }}"
-                                                                                    data-bs-toggle="tooltip"
-                                                                                    data-bs-placement="top">
-                                                                                    <span class="text-white">
-                                                                                        <i class="ti ti-trash"></i></span>
-                                                                                </a>
-                                                                                {!! Form::open([
-                                                                                    'method' => 'DELETE',
-                                                                                    'route' => [$client_keyword . 'contracts.file.delete', [$currentWorkspace->slug, $file->id]],
-                                                                                    'id' => 'delete-form-' . $file->id,
-                                                                                ]) !!}
-                                                                                {!! Form::close() !!}
-                                                                            </div>
-                                                                        </div>
-                                                                    @endif
-                                                                @else
-                                                                    <div class="col-auto actions">
-                                                                        <div class="action-btn bg-danger ms-2">
-                                                                            <a href="#"
-                                                                                class="mx-3 btn btn-sm d-inline-flex align-items-center bs-pass-para"
-                                                                                data-confirm="{{ __('Are You Sure?') }}"
-                                                                                data-text="{{ __('This action can not be undone. Do you want to continue?') }}"
-                                                                                data-confirm-yes="delete-form-{{ $file->id }}"
-                                                                                title="{{ __('Delete') }}"
-                                                                                data-bs-toggle="tooltip"
-                                                                                data-bs-placement="top">
-                                                                                <span class="text-white">
-                                                                                    <i class="ti ti-trash"></i></span>
-                                                                            </a>
-                                                                            {!! Form::open([
-                                                                                'method' => 'DELETE',
-                                                                                'route' => [$client_keyword . 'contracts.file.delete', [$currentWorkspace->slug, $file->id]],
-                                                                                'id' => 'delete-form-' . $file->id,
-                                                                            ]) !!}
-                                                                            {!! Form::close() !!}
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

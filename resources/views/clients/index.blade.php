@@ -19,23 +19,31 @@
 
 @section('action-button')
     @auth('web')
-        <a href="{{ route('client.export') }}" class="btn btn-sm btn-primary" data-toggle="tooltip"
-            title="{{ __('Export Client') }}">
-            <i class="ti ti-file-x"></i>
-        </a>
 
-        <a href="#" class="btn btn-sm btn-primary mx-1" data-ajax-popup="true" data-size="md"
-            data-title="{{ __('Import Client') }}" data-url="{{ route('client.file.import', $currentWorkspace->slug) }}"
-            data-toggle="tooltip" title="{{ __('Import Client') }}">
-            <i class="ti ti-file-import"></i>
-        </a>
+       
+  @if(App\Models\Utility::isClientRestrictedDemo())
 
+  <div class="alert alert-warning text-center">
+     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz ve müşteri hacmini aştığınız için daha fazla Müşteri ekleyemezsiniz!</h6>
+ </div>
+@else
+<a href="{{ route('client.export') }}" class="btn btn-sm btn-primary" data-toggle="tooltip"
+title="{{ __('Export Client') }}">
+<i class="ti ti-file-x"></i>
+</a>
+
+<a href="#" class="btn btn-sm btn-primary mx-1" data-ajax-popup="true" data-size="md"
+data-title="{{ __('Import Client') }}" data-url="{{ route('client.file.import', $currentWorkspace->slug) }}"
+data-toggle="tooltip" title="{{ __('Import Client') }}">
+<i class="ti ti-file-import"></i>
+</a>
         @if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
             <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="lg"
                 data-title="{{ __('Add Client') }}" data-url="{{ route('clients.create', $currentWorkspace->slug) }}"
                 data-toggle="tooltip" title="{{ __('Add Client') }}">
                 <i class="ti ti-plus"></i>
             </a>
+        @endif
         @endif
     @endauth
 @endsection
@@ -126,6 +134,8 @@
             <div class="col-xl-3 col-lg-4 col-sm-6">
                 @auth('web')
                     @if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
+
+                    @if(!App\Models\Utility::isClientRestrictedDemo())
                         <a href="#" class="btn-addnew-project" data-ajax-popup="true" data-size="lg"
                             data-title="{{ __('Add Client') }}"
                             data-url="{{ route('clients.create', $currentWorkspace->slug) }}">
@@ -135,6 +145,7 @@
                             <h6 class="mt-4 mb-2">{{ __('New Client') }}</h6>
                             <p class="text-muted text-center">{{ __('Click here to add New Client') }}</p>
                         </a>
+                        @endif
                     @endif
                 @endauth
             </div>

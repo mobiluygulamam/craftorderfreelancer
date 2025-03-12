@@ -260,7 +260,7 @@ class ProjectReportController extends Controller
                                     </div>';
 
             if ($project->status == 'Finished') {
-                $tmp['status'] = '<span class="badge rounded-pill p-2 px-3  bg-success">' . 'Finished' . '</span>';
+                $tmp['status'] = '<span class="badge rounded-pill p-2 px-3  bg-success text-dark">' . 'Finished' . '</span>';
             } elseif ($project->status == 'Ongoing') {
                 $tmp['status'] = '<span class="badge rounded-pill p-2 px-3  bg-secondary">' . 'Ongoing' . '</span>';
             } else {

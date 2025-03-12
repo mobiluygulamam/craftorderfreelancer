@@ -573,7 +573,7 @@
     "here": "here",
     "Hi": "Hi",
     "High": "High",
-    "Home": "Home",
+    "Home": "Dashboard",
     "Home Section": "Home Section",
     "Hours": "Hours",
     "Hours Estimation": "Hours Estimation",
@@ -710,8 +710,10 @@
     "Manage Language": "Manage Language",
     "Manage Languages": "Manage Languages",
     "Manage Team": "Manage Team",
+    "Team": "Ekip",
+
     "Manage Tracker": "Manage Tracker",
-    "Manage Users": "Manage Users",
+    "Manage Users": "Manage Teams",
     "Manually": "Manually",
     "Manually Upgrade By Super Admin": "Manually Upgrade By Super Admin",
     "March": "March",
@@ -1553,10 +1555,10 @@
 "faq_5.question": "Is CraftOrder free?",
 "faq_5.answer": "CraftOrder offers a free trial period. You can access basic features with the free plan and upgrade to premium plans when needed."
 
-,  "freelance_crm": "Freelance CRM: Easy and Powerful Tools for Project Management and Tracking"
+,  "freelance_crm": "Digital Project CRM: Easy and Powerful Tools for Project Management and Tracking"
 ,  "princing.title": "Plans Tailored to Your Success",
 "princing.description": "Flexible and simple pricing that supports your growth. Start your 3-day free trial today."
-,"freelancerspecial": "Freelancer-Specific Options", 
+,"freelancerspecial": "Freelancer & Solopreneur's-Specific Options", 
 "freelancerKickoff": "Freelancer Kickoff",
 "freelancerEssentials": "Freelancer Essentials",
 "masterFreelance": "Master Freelance",
@@ -1577,7 +1579,31 @@
      "service_item_6_desc": "Safeguard your data with complete security, using robust systems to ensure your security at every step."
      ,
           "ready_to_get_started": "Ready to Get Started?",
-          "try_craftorder_free": "Try CraftOrder free for 3 days - setting up takes a few minutes."
+          "try_craftorder_free": "Try CraftOrder free for 3 days - setting up takes a few minutes.",
+
+          "active plan": "Aktif Plan",
+          "other plans": "Diğer Paketler",
+"Weekly Price":"Weekly Price",
+"Plan Type": "Plan Type",
+"Estimated Hours":"Estimated Hours","On Going":"Devam Ediyor",
+"On Hold":"Beklemede"
+, 
+"Click here to add New Project":"Yeni Proje Eklemek için tıklayın",
+"Click here to add New Task":"Yeni Görev Eklemek için tıklayın",
+"Click here to add New Bug":"Yeni Hata Eklemek için tıklayın",
+"Click here to add New Note":"Yeni Not Eklemek için tıklayın",
+"Terms & Conditions":"Terms & Conditions",
+"Privacy Policy":"Privacy Policy",
+"Cookie Policy":"Cookie Policy",
+"Refund Policy":"Refund Policy",
+"Contact Us":"Contact Us",
+"About Us":"About Us", "Package":"Package",
+"special_community_access": "Special Community Access",
+"Enter Your Full Name":"Enter Your Full Name"
+,"business_type":"Business Type"
+
+
+
         }
         
    

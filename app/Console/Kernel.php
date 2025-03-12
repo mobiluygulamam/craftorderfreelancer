@@ -16,7 +16,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->command('app:plan-checker')->dailyAt('23:55');
     }
+
+    protected $commands = [
+     PlanChecker::class, // Komut buraya kaydedilir
+ ];
 
     /**
      * Register the commands for the application.

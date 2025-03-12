@@ -13,7 +13,7 @@
         if ($setting['color']) {
             $color = $setting['color'];
         } else {
-            $color = 'theme-3';
+            $color = 'theme-4';
         }
     }
 
@@ -105,7 +105,7 @@
 
 
 @php
-    $color = !empty($setting['color']) ? $setting['color'] : 'theme-3';
+    $color = !empty($setting['color']) ? $setting['color'] : 'theme-4';
 
     if (isset($setting['color_flag']) && $setting['color_flag'] == 'true') {
         $color = 'custom-color';
@@ -205,14 +205,14 @@
 
     <div class="custom-login">
         <div class="login-bg-img">
-            {{-- <img src="{{ asset('assets/img/' . $color . '.svg') }}" class="login-bg-1">
+            {{-- <img src="{{ asset('assets/img/loginbg.png') }}" class="login-bg-1">
             <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2"> --}}
             @if ($color == 'custom-color')
                 <!-- Show theme-3 image -->
                 <img src="{{ asset('assets/img/theme-3.svg') }}" class="login-bg-1">
                 <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2">
             @else
-                <img src="{{ asset('assets/img/' . $color . '.svg') }}" class="login-bg-1">
+                <img src="{{ asset('assets/img/loginbg.png') }}" class="login-bg-1">
                 <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2">
             @endif
         </div>

@@ -79,13 +79,26 @@
                             </div>
                         </div>
                         <span class="price-badge bg-primary"> {{ $plan->name }}</span>
-                        <span
-                            class="mb-4 f-w-600 p-price">{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
-                            <small class="text-sm">/{{ __('Monthly Price') }}</small></span><br>
-                        <span
-                            class="mb-4 f-w-600 p-price">{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->annual_price }}
-                            <small class="text-sm">/{{ __('Annual Price') }}</small></span>
+                        @if($plan->plan_type == "1")
+                        <span class="mb-4 f-w-600 p-price">
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->weekly_price }}
+                            <small class="text-sm">/{{ __('Weekly Price') }}</small>
+                        </span><br>
+                    @elseif($plan->plan_type == "2")
+                        <span class="mb-4 f-w-600 p-price">
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
+                            <small class="text-sm">/{{ __('Monthly Price') }}</small>
+                        </span><br>
+                    @elseif($plan->plan_type == "3")
+                        <span class="mb-4 f-w-600 p-price">
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->annual_price }}
+                            <small class="text-sm">/{{ __('Annual Price') }}</small>
+                        </span>
 
+                        @else 
+                      <div></div>
+                    @endif
+                    
                         <p class="mb-0">
                             {{ $plan->description }}
                         </p>
@@ -97,18 +110,14 @@
                                     {{ $plan->trial_days < 0 ? __('lifetime') : $plan->trial_days }}
                                     {{ __('Trial Days') }}
                                 </li>
-                                <li>
-                                    <span class="theme-avtar">
-                                        <i class="text-primary ti ti-circle-plus"></i></span>
-                                    {{ $plan->enable_chatgpt == 'on' ? __('Chatgpt enabled') : __('Chatgpt disabled') }}
-                                </li>
+                            
                             @endif
-                            <li>
+                            {{-- <li>
                                 <span class="theme-avtar">
                                     <i class="text-primary ti ti-circle-plus"></i></span>
                                 {{ $plan->storage_limit < 0 ? __('Unlimited') : $plan->storage_limit }}
                                 {{ __('Storage Limit') }}
-                            </li>
+                            </li> --}}
                             <li>
                                 <span class="theme-avtar">
                                     <i class="text-primary ti ti-circle-plus"></i></span>

@@ -58,10 +58,11 @@ class WorkspaceController extends Controller
                     [
                         'created_by' => $objUser->id,
                         'name' => $request->name,
-                        'theme_color' => $parentWorksace['theme_color'],
+                        'theme_color' => "theme-4",
                         'color_flag' => $parentWorksace['color_flag'],
                         'currency_code' => 'USD',
                         'paypal_mode' => 'sandbox',
+
                     ]
                 );
 
@@ -894,7 +895,7 @@ class WorkspaceController extends Controller
 
                 if (isset($request->color) && $request->color_flag == 'false') {
                     // $post['color'] = $request->color;
-                    $currentWorkspace->theme_color = (!empty($request->color)) ? $request->color : 'theme-3';
+                    $currentWorkspace->theme_color = (!empty($request->color)) ? $request->color : 'theme-4';
                     $currentWorkspace->color_flag = $request->color_flag;
                 } else {
                     $currentWorkspace->theme_color = $request->custom_color;

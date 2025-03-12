@@ -20,11 +20,18 @@
 @section('action-button')
     @auth('web')
         @if ($currentWorkspace->creater->id == Auth::user()->id)
-            <a href="#" class="btn btn-sm  btn-primary" data-ajax-popup="true" data-size="lg"
-                data-title="{{ __('Create Contract ') }}" data-toggle="tooltip" title="{{ __('Create Contract') }}"
-                data-url="{{ route('contracts.create', $currentWorkspace->slug) }}">
-                <i class="ti ti-plus"></i>
-            </a>
+           @if(!App\Models\Utility::isdemopackage()&&!App\Models\Utility::isFinishPackageTime())
+
+           <a href="#" class="btn btn-sm  btn-primary" data-ajax-popup="true" data-size="lg"
+           data-title="{{ __('Create Contract ') }}" data-toggle="tooltip" title="{{ __('Create Contract') }}"
+           data-url="{{ route('contracts.create', $currentWorkspace->slug) }}">
+           <i class="ti ti-plus"></i>
+       </a>
+       @else 
+       <div class="alert alert-warning text-center">
+          <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla sözleşme ekleyemezsiniz!</h6>
+      </div>
+           @endif
         @endif
     @endauth
 @endsection
@@ -129,7 +136,7 @@
                                         <td>{{ !empty($contract->projects) ? $contract->projects->name : '' }}</td>
                                         <td>{{ $contract->subject }}</td>
                                         <td>{{ $currentWorkspace->priceFormat($contract->value) }}</td>
-                                        <td>{{ $contract->contract_type->name }}</td>
+                                        <td>{{ $contract->contract_type->name??'unknow' }}</td>
                                         <td>{{ App\Models\Utility::dateFormat($contract->start_date) }}</td>
                                         <td>{{ App\Models\Utility::dateFormat($contract->end_date) }}</td>
                                         <td>

@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+
     <div class="row">
         <div class="col-sm-12">
             <div class="row">
@@ -215,53 +216,54 @@
 
                         </div>
 
-                        <div class="mt-5">
-                            <div class="card price-card price-1 wow animate__fadeInUp" data-wow-delay="0.2s"
-                                style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-                                <div class="card-body">
-                                    <span class="price-badge bg-primary">{{ $plan->name }}</span>
-                                    <div class="text-end">
-                                        <div class="">
-                                        </div>
-                                    </div>
-                                    <h3 class="mb-4 f-w-600  ">
-                                        {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
-                                        <small class="text-sm">/{{ __('Monthly Price') }}</small>
-                                    </h3>
-                                    <p class="mb-0">
-                                        @if ($plan->id != 1)
-                                            {{ $plan->trial_days < 0 ? __('Unlimited') : $plan->trial_days }}
-                                            {{ __('Trial Days') }}
-                                        @endif
-                                    <ul class="list-unstyled my-2">
-                                        <li>
-                                            <span class="theme-avtar">
-                                                <i class="text-primary ti ti-circle-plus"></i></span>
-                                            {{ $plan->max_workspaces < 0 ? __('Unlimited') : $plan->max_workspaces }}
-                                            {{ __('Workspaces') }}
-                                        </li>
-                                        <li>
-                                            <span class="theme-avtar">
-                                                <i class="text-primary ti ti-circle-plus"></i></span>
-                                            {{ $plan->max_users < 0 ? __('Unlimited') : $plan->max_users }}
-                                            {{ __('Users Per Workspace') }}
-                                        </li>
-                                        <li>
-                                            <span class="theme-avtar">
-                                                <i class="text-primary ti ti-circle-plus"></i></span>
-                                            {{ $plan->max_clients < 0 ? __('Unlimited') : $plan->max_clients }}
-                                            {{ __('Clients Per Workspace') }}
-                                        </li>
-                                        <li>
-                                            <span class="theme-avtar">
-                                                <i class="text-primary ti ti-circle-plus"></i></span>
-                                            {{ $plan->max_projects < 0 ? __('Unlimited') : $plan->max_projects }}
-                                            {{ __('Projects Per Workspace') }}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                       @if ($plan->name!="Demo Finish")
+                       <div class="mt-5">
+                         <div class="card price-card price-1 wow animate__fadeInUp" data-wow-delay="0.2s"
+                             style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                             <div class="card-body w-full">
+                          
+                                
+
+{{--                                    
+                                 <h3 class="mb-4 f-w-600  ">
+                                     {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
+                                     <small class="text-sm">/{{ __('Monthly Price') }}</small>
+                                 </h3> --}}
+                                 <p class="mb-0">
+                                     @if ($plan->id != 1)
+                                         {{ $plan->trial_days < 0 ? __('Unlimited') : $plan->trial_days }}
+                                         {{ __('Trial Days') }}
+                                     @endif
+                                 <ul class="list-unstyled my-2">
+                                     <li>
+                                         <span class="theme-avtar">
+                                             <i class="text-primary ti ti-circle-plus"></i></span>
+                                         {{ $plan->max_workspaces < 0 ? __('Unlimited') : $plan->max_workspaces }}
+                                         {{ __('Workspaces') }}
+                                     </li>
+                                     <li>
+                                         <span class="theme-avtar">
+                                             <i class="text-primary ti ti-circle-plus"></i></span>
+                                         {{ $plan->max_users < 0 ? __('Unlimited') : $plan->max_users }}
+                                         {{ __('Users Per Workspace') }}
+                                     </li>
+                                     <li>
+                                         <span class="theme-avtar">
+                                             <i class="text-primary ti ti-circle-plus"></i></span>
+                                         {{ $plan->max_clients < 0 ? __('Unlimited') : $plan->max_clients }}
+                                         {{ __('Clients Per Workspace') }}
+                                     </li>
+                                     <li>
+                                         <span class="theme-avtar">
+                                             <i class="text-primary ti ti-circle-plus"></i></span>
+                                         {{ $plan->max_projects < 0 ? __('Unlimited') : $plan->max_projects }}
+                                         {{ __('Projects Per Workspace') }}
+                                     </li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                       @endif
                     </div>
                 </div>
                 <div class="col-xl-9">
@@ -2079,12 +2081,15 @@
                         <div id="paytr_payment" class="card">
                             <div class="card-header">
                                 <h5>{{ __('Pay TR') }}</h5>
+                                <span class="h-12 ">{{ $plan->name ."\t".__('Package') }} </span>
+
                             </div>
                             <div class="card-body">
                                 <form role="form" action="{{ route('plan.pay.with.paytr') }}" method="post"
                                     class="" id="paytr-payment-form">
                                     @csrf
                                     <div class="row">
+                                        @if($frequency=='monthly')
                                         <div class="col-lg-4">
                                             <div class="border card p-3">
                                                 <div class="form-check">
@@ -2094,7 +2099,7 @@
                                                         value="monthly"
                                                         data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
                                                         autocomplete="off"
-                                                        @if ($frequency == 'monthly') checked="" @endif>
+                                                        @if ($frequency == 'monthly') checked @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
@@ -2105,6 +2110,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                   @else
                                         <div class="col-lg-4">
                                             <div class="border card p-3">
                                                 <div class="form-check">
@@ -2112,33 +2118,21 @@
                                                         class="form-check-input input-primary payment_frequency paytr_frequency"
                                                         name="paytr_payment_frequency" data-from="paytr"
                                                         value="annual"
-                                                        @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        @if ($frequency == 'annually' ||$frequency == 'annual' ) checked @endif
+                                                        data-price="{{ $plan->annual_price.($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{$plan->annual_price. ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="row mt-1">
-                                        <div class="col-10">
-                                            <div class="form-group">
-                                                <label class="form-label">Coupon Code</label>
-                                                <input type="text" id="paytr_coupon" name="coupon"
-                                                    class="form-control coupon"
-                                                    placeholder="{{ __('Enter Coupon Code') }}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group mt-4">
-                                                <a href="#" class="btn  btn-primary apply-coupon"
-                                                    data-from="paytr">{{ __('Apply') }}</a>
-                                            </div>
-                                        </div>
+                                      
                                         <div class="row mt-3">
                                             <div class="col-sm-12">
 
@@ -2151,7 +2145,7 @@
                                                     <button class="btn btn-primary" type="submit"
                                                         id="pay_with_paytr">
                                                         {{ __('Checkout') }} (<span
-                                                            class="coupon-paytr">{{ $plan->price }}</span>)
+                                                            class="coupon-paytr">{{$frequency=="annually"||$frequency=="annual"? $plan->annual_price:$plan->monthly_price }}</span>)
                                                     </button>
                                                 </div>
                                             </div>

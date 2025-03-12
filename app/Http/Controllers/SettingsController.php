@@ -21,6 +21,7 @@ class SettingsController extends Controller
             $workspace = new Workspace();
             $payment_detail = Utility::getAdminPaymentSetting();
             $setting = DB::table('admin_payment_settings')->pluck('value', 'name')->toArray();
+            $setting['mail_encryption']= '';
             return view('setting', compact('workspace', 'payment_detail', 'setting'));
         } else {
             return redirect()->back()->with('error', __('Something is wrong'));
@@ -126,7 +127,7 @@ class SettingsController extends Controller
             $post['signup_button'] = !isset($request->SIGNUP_BUTTON) ? 'off' : 'on';
             $post['email_verification'] = !isset($request->email_verification) ? 'off' : 'on';
 
-            $color = (!empty($request->color)) ? $request->color : 'theme-3';
+            $color = (!empty($request->color)) ? $request->color : 'theme-4';
             $post['color'] = $color;
 
             if (isset($request->color) && $request->color_flag == 'false') {
@@ -378,7 +379,7 @@ class SettingsController extends Controller
             $post['mail_port'] = $request->mail_port;
             $post['mail_username'] = $request->mail_username;
             $post['mail_password'] = $request->mail_password;
-            $post['mail_encryption'] = $request->mail_encryption;
+            $post['mail_encryption'] = '';
             $post['mail_from_address'] = $request->mail_from_address;
             $post['mail_from_name'] = $request->mail_from_name;
             $created_at = date('Y-m-d H:i:s');
@@ -1050,6 +1051,7 @@ class SettingsController extends Controller
 
     public function testEmailSend(Request $request)
     {
+     ini_set('max_execution_time',300);
         $validator = \Validator::make(
             $request->all(),
             [

@@ -1746,7 +1746,8 @@ h2.wow.fadeInUp.home_5_testi {
 }
 
 .feature_item_inner {
-  background: linear-gradient(175deg, #7579ff 0%, #b224ef 100%);
+     background: rgb(2,0,36);
+     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,69,1) 48%);
   border-radius: 20px;
   padding: 90px;
 }
@@ -2385,6 +2386,17 @@ h2.wow.fadeInUp.home_5_testi {
   left: 0;
   top: 0;
 }
+.promo_area_dark.two:before {
+     content: "";
+     width: 100%;
+     height: 100%;
+     flex-direction: column;
+     background: url(../img/home-four/shap_2.png) no-repeat center top/cover;
+     z-index: -1;
+     position: absolute;
+     left: 0;
+     top: 0;
+   }
 .promo_area_dark .promo_content h2 {
   font-size: 60px;
   font-family: var(--saas-Inter);

@@ -132,20 +132,21 @@
                                             }
                                         }
                                     @endphp
-                                    @if ($termsAndConditions || $privacyPolicy)
-                                        {{ __('I agree to the ') }}
-                                    @endif
+                                 
                                     @if ($termsAndConditions)
                                         <a href="{{ route('termspage') }}"
-                                            target="_blank">{{ __($termsAndConditions->menubar_page_name) }}</a>
+                                            target="_blank">{{ __('Terms & Conditions') }}</a>
                                     @endif
                                     @if ($termsAndConditions && $privacyPolicy)
                                         {{ __('and the ') }}
                                     @endif
                                     @if ($privacyPolicy)
-                                        <a href="{{ route('custom.page', $privacyPolicy->page_slug) }}"
-                                            target="_blank">{{ $privacyPolicy->menubar_page_name }}</a>
+                                        <a href="{{ route('home.privacypage') }}"
+                                            target="_blank">{{ __("Privacy Policy" )}}</a>
                                     @endif
+                                    @if ($termsAndConditions || $privacyPolicy)
+                                    {{ __('I agree to the ') }}
+                                @endif
                                 @endif
                             </label>
                         </div>

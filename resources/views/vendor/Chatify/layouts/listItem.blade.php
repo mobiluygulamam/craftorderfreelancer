@@ -3,7 +3,7 @@
     if ($setting['color']) {
         $color = $setting['color'];
     } else {
-        $color = 'theme-3';
+        $color = 'theme-4';
     }
 @endphp
 
@@ -31,7 +31,7 @@
                             style="font-size: 22px; color: #1f3996; margin-top: 12px !important;"></span>
                     </div>
                 @endif
-                @if ($color == 'theme-3')
+                @if ($color == 'theme-4')
                     <div class="avatar av-m" style="background-color: #d9efff; text-align: center;">
                         <span class="far fa-bookmark"
                             style="font-size: 22px; color: #6fd943; margin-top: 12px !important;"></span>

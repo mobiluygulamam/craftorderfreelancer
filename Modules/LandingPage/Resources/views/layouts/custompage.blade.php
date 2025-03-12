@@ -16,7 +16,7 @@
     $SITE_RTL = $adminSettings['site_rtl'];
     $setting = \App\Models\Utility::colorset();
     // $SITE_RTL = Utility::getValByName('SITE_RTL');
-    $color = !empty($setting['color']) ? $setting['color'] : 'theme-3';
+    $color = !empty($setting['color']) ? $setting['color'] : 'theme-4';
 
 @endphp
 <!DOCTYPE html>
@@ -79,7 +79,7 @@
 
 </head>
 @php
-    $color = !empty($adminSettings['color']) ? $adminSettings['color'] : 'theme-3';
+    $color = !empty($adminSettings['color']) ? $adminSettings['color'] : 'theme-4';
 
     if (isset($adminSettings['color_flag']) && $adminSettings['color_flag'] == 'true') {
         $color = 'custom-color';

@@ -37,11 +37,19 @@ class RegisteredUserController extends Controller
 
     public function register(Request $request)
     {
-        $user = User::create($request->validated());
+     $validated=$request->validated();
+ 
+     if($validated){
+      $user = User::create();
         event(new Registered($user));
         auth()->login($user);
+        
         return redirect('/')->with('success', "Account successfully registered.");
-    }
+    
+     }
+     return redirect('/')->with('failed', "Please fill all fields");
+
+  }
 
     public function showRegistrationForm($ref = '', $plan_id = '', $lang = '')
     {
@@ -175,22 +183,41 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => ['required', 'string', 'min:8', 'confirmed', Rules\Password::defaults()],
         ]);
-
+$plandays=0;
         do {
             $code = rand(100000, 999999);
         } while (DB::table('users')->where('referral_code', $code)->exists());
+        $planid=1;
+        if (DB::table('plans')->where('name','demo')->exists()) {
+          $plan=DB::table('plans')->where('name','demo')->first();
+          $planid=$plan->id;
 
+        }
+
+        $plandata=DB::table('plans')->where('id',$planid)->first();
+        if($plandata->monthly_price>0){
+          
+          $plandays=30;
+        }
+        else if($plandata->annual_price>0){
+          $plandays=365;
+        }
+        else 
+        {
+          $plandays=$plan->trial_days;
+        }
         $user = User::create([
+          
             'name' => $request->name,
             'email' => $request->email,
             'workspace' => $request->workspace,
             'password' => Hash::make($request->password),
-            'plan' => 1,
+            'plan' => $planid,
             'lang' => $setting['default_admin_lang'] ? $setting['default_admin_lang'] : 'en',
             'referral_code' => $code,
             'referral_used' => !empty($request->ref_code) ? $request->ref_code : '0',
         ]);
-
+        $user->plan_expire_date = \Carbon\Carbon::now()->addDays($plandays)->isoFormat('YYYY-MM-DD');
         $objWorkspace = Workspace::create(['lang' => $setting['default_admin_lang'] ? $setting['default_admin_lang'] : 'en', 'created_by' => $user->id, 'name' => $request->workspace, 'currency_code' => 'USD', 'paypal_mode' => 'sandbox']);
 
         $setting = Utility::getAdminPaymentSetting();

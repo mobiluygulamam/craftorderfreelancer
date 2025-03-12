@@ -18,7 +18,7 @@
     $company_favicon = \App\Models\Utility::getValByName('company_favicon');
     $setting = \App\Models\Utility::colorset();
     $mode_setting = \App\Models\Utility::mode_layout();
-    $color = !empty($setting['color']) ? $setting['color'] : 'theme-3';
+    $color = !empty($setting['color']) ? $setting['color'] : 'theme-4';
     $SITE_RTL = isset($setting['SITE_RTL']) ? $setting['SITE_RTL'] : 'off';
     $meta_image = \App\Models\Utility::get_file('uploads/meta/');
 @endphp

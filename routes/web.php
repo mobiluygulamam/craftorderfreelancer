@@ -63,7 +63,7 @@ use App\Http\Controllers\CinetPayController;
 use App\Http\Controllers\FedapayPaymentController;
 use App\Http\Controllers\PayHerePaymentController;
 
-
+use App\Http\Controllers\PartnerController;
 
 
 /*
@@ -93,6 +93,7 @@ Route::get('/email/verification-notification', [EmailVerificationNotificationCon
 Route::get('/', [HomeController::class, 'landingPage'])->middleware(['XSS']);
 Route::get('/termspage', [HomeController::class, 'termsPage'])->name('home.termspage');
 Route::get('/privacypage', [HomeController::class, 'privacypage'])->name('home.privacypage');
+Route::get('/become-partner', [HomeController::class, 'becomepartner'])->name('home.becomepartner');
 
 
 
@@ -102,7 +103,7 @@ Route::get('password/resets/{lang?}', [AuthenticatedSessionController::class, 's
 Route::get('home/{id}/login-with-admin', [HomeController::class, 'LoginWithAdmin'])->name('login.with.admin')->middleware('auth', 'XSS');
 Route::get('login-with-admin/exit', [HomeController::class, 'ExitAdmin'])->name('exit.admin')->middleware('auth', 'XSS');
 
-
+Route::get('testapi,',[HomeController::class, 'testapi'])->name('testapi')->middleware('auth', 'XSS');
 Route::get('login/{lang?}', [AuthenticatedSessionController::class, 'showLoginForm'])->name('login')->middleware(['XSS']);
 Route::get('register/{ref_id?}/{plan_id?}/{lang?}', [RegisteredUserController::class, 'showRegistrationForm'])->name('register')->middleware(['XSS']);
 
@@ -1142,3 +1143,4 @@ Route::group(['middleware' => ['verified']], function () {
 
 
 Route::get('/{slug}/projects/{id}/task-board/{tid}/{cid?}', [ProjectController::class, 'taskShow'])->name('tasks.show');
+Route::post('/partner-application', [PartnerController::class, 'store'])->name('partner.store');

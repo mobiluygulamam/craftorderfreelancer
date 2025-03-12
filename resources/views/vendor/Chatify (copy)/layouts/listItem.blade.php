@@ -5,7 +5,7 @@ if ($setting['color']) {
     $color = $setting['color'];
 }
 else{
-  $color = 'theme-3';  
+  $color = 'theme-4';  
 }
 @endphp
  {{-- -------------------- Saved Messages -------------------- --}}

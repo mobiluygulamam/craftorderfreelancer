@@ -69,8 +69,11 @@
                 <span><small>{{__("Note: '-1' for unlimited")}}</small></span>
             </div> --}}
                 <div class="form-group col-md-6">
-                    <label for="storage_limit"
-                        class="form-label">{{ __('Storage Limit') }}</label><x-required></x-required>
+                    {{-- <label for="storage_limit"
+                        class="form-label">
+                        {{ __('Storage Limit') }}
+                    </label> --}}
+                    <x-required></x-required>
 
                     <div class="input-group">
                         <input type="number" class="form-control mb-0" id="storage_limit" name="storage_limit"

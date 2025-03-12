@@ -108,7 +108,7 @@ class NotificationSeeder extends Seeder
                         'pl' => 'Etap zadania {task_title} zaktualizowane od {old_stage} to {new_stage}',
                         'ru' => 'Этап задачи {task_title} обновлено из {old_stage} to {new_stage} Проект',
                         'pt' => 'Estágio de tarefa de {task_title} atualizado de {old_stage} to {new_stage}',
-                        'tr' => '{ task_title } görevinin { old_stage } olan görev aşaması { new_stage } olarak güncellendi',
+                        'tr' => '{ task_title } görevinin { old_stage } olan Kilometre taşı { new_stage } olarak güncellendi',
                         'zh' => '{ task_title} 的任务阶段已从 {old_stage} 更新为 {new_stage}',
                         'he' => 'שלב המשימה של {task_title} עודכן מ - {old_השלב} עד {new_stage}',
                         'pt-br' => 'Estágio de tarefa de {task_title} atualizado de {old_stage} para {new_stage}',

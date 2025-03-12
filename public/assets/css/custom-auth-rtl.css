@@ -250,7 +250,7 @@ html{
 .login-bg-1{
     position: absolute;
     bottom: 0;
-    right: 10%;
+    right: 5%;
     z-index: 1;
     transform: scaleX(-1);
     -webkit-transform: scaleX(-1);

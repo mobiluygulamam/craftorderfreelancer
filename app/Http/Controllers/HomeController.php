@@ -22,6 +22,12 @@ use Lab404\Impersonate\Models\Impersonate;
 class HomeController extends Controller
 {
 
+public function testapi(){
+     
+   $data =  User::verifyEmail("kadirdurmazlar@gmail.com");
+   return   view('testapi',compact('data'));
+}
+
     public function landingPage()
     {
         if (!file_exists(storage_path() . "/installed")) {
@@ -56,7 +62,10 @@ class HomeController extends Controller
 
     }
 
-
+public function becomepartner(){
+     return view('landingpage::becomepartner');
+     
+}
 
     
 

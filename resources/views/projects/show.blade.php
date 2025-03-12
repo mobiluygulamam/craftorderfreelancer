@@ -664,39 +664,7 @@
                         </div>
                     @endif
                 </div>
-                @if (
-                    (isset($permissions) && in_array('show uploading', $permissions)) ||
-                        $currentWorkspace->permission == 'Owner' ||
-                        $currentWorkspace->permission == 'Member')
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <h5 class="mb-0"> {{ __('Files') }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-4">
-
-                                <div class="author-box-name form-control-label mb-4">
-
-                                </div>
-                                <div class="col-md-12 dropzone browse-file" id="dropzonewidget">
-                                    <div class="dz-message" data-dz-message>
-                                        <span>
-                                            @if (Auth::user()->getGuard() == 'client')
-                                                {{ __('No files available') }}
-                                            @else
-                                                {{ __('Drop files here to upload') }}
-                                            @endif
-                                        </span>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                @endif
+              
             </div>
         </div>
         <!-- [ sample-page ] end -->

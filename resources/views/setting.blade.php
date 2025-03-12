@@ -332,9 +332,9 @@
                                                                         name="color" value="theme-2"
                                                                         style="display: none;">
                                                                     <a href="#!"
-                                                                        class="themes-color-change {{ $color == 'theme-3' ? 'active_color' : '' }}"
+                                                                        class="themes-color-change {{ $color == 'theme-4' ? 'active_color' : '' }}"
                                                                         data-value="theme-3"
-                                                                        onclick="check_theme('theme-3', this)"></a>
+                                                                        onclick="check_theme('theme-4', this)"></a>
                                                                     <input type="radio" class="theme_color"
                                                                         name="color" value="theme-3"
                                                                         style="display: none;">
@@ -1770,7 +1770,7 @@
     }
 </style>
 
-@if ($color == 'theme-3')
+@if ($color == 'theme-4')
     <style>
         .btn-check:checked+.btn-outline-primary,
         .btn-check:active+.btn-outline-primary,

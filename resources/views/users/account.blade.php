@@ -39,9 +39,7 @@
         </div>
         <div class="col-xl-9">
             <div id="v-pills-home" class="card ">
-                <div class="card-header">
-                    <h5>{{ __('Avatar') }}</h5>
-                </div>
+                
                 @php
                     $workspace = $currentWorkspace ? $currentWorkspace->id : 0;
                     $user_id = $user ? $user->id : 0;
@@ -53,7 +51,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <img @if ($user->avatar) src="{{ asset($logo . $user->avatar) }}" @else avatar="{{ $user->name }}" @endif
                                         id="myAvatar" alt="user-image" class="rounded-circle img-thumbnail img_hight w-25">
                                     {{-- @if ($user->avatar != '')
@@ -65,7 +63,7 @@
                                                 data-confirm-yes="delete_avatar"><i class="ti ti-trash text-white"></i></a>
 
                                         </div>
-                                    @endif --}}
+                                    @endif 
                                     <div class="choose-file ">
                                         <label for="avatar">
                                             <div class=" bg-primary"> <i
@@ -81,6 +79,7 @@
                                             </span>
                                         @enderror
                                     </div>
+                                    --}}
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -129,7 +128,7 @@
                         </form>
                     @endif
                     @auth('web')
-                        <div class="text-end">
+                        {{-- <div class="text-end">
                             <a href="#" class="btn btn-danger delete_btn bs-pass-para"
                                 data-confirm="{{ __('Are You Sure?') }}"
                                 data-text="{{ __('This action can not be undone. Do you want to continue?') }}"
@@ -140,7 +139,7 @@
                                 @csrf
                                 @method('DELETE')
                             </form>
-                        </div>
+                        </div> --}}
                     @endauth
                 </div>
             </div>

@@ -204,20 +204,34 @@
         $company_logo = App\Models\Utility::get_logo();
     @endphp
 
-    <div class="custom-login">
+    <div class="custom-login bg-slate-600 relative">
+   
         <div class="login-bg-img">
-            {{-- <img src="{{ asset('assets/img/' . $color . '.svg') }}" class="login-bg-1">
-            <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2"> --}}
+            {{-- <img src="{{ asset('assets/img/loginbg.png') }}" class="login-bg-1">--}}
+  
+        
             @if ($color == 'custom-color')
                 <!-- Show theme-3 image -->
-                <img src="{{ asset('assets/img/theme-3.svg') }}" class="login-bg-1">
-                <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2">
+                <img src="{{ asset('assets/img/loginbg.png') }}" class="login-bg-1">
+              
+               
             @else
-                <img src="{{ asset('assets/img/' . $color . '.svg') }}" class="login-bg-1">
-                <img src="{{ asset('assets/img/user2.svg') }}" class="login-bg-2">
+        
+                <img src="{{ asset('assets/img/loginbg.png') }}" class="login-bg-1   rounded-5">
+              
+                <div class="login-bg-2 font-[Open_Sans] text-white"><h1 class=" font-[Open_Sans] text-white">{{App\Models\Utility::getRandomMotivationalQuote()}}</h1></div>
+                
             @endif
+           
         </div>
-        <div class="bg-login bg-primary"></div>
+     
+        <div class="bg-login text-right">
+      
+   
+
+        </div>
+
+
         <div class="custom-login-inner">
             <header class="dash-header">
                 <nav class="navbar navbar-expand-md default">
@@ -243,8 +257,8 @@
                     </div>
                 </nav>
             </header>
-            <main class="custom-wrapper">
-                <div class="custom-row">
+            <main class="custom-wrapper ">
+                <div class="custom-row right-5">
                     <div class="card">
                         @yield('content')
                     </div>
@@ -263,7 +277,9 @@
                 </div>
             </div>
         </div>
+       
     </div>
+    
 
     {{-- @yield('content') --}}
 

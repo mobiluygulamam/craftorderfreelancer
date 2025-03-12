@@ -46,6 +46,9 @@ class ContractController extends Controller
             return view('contracts.index', compact('contracts', 'currentWorkspace', 'cnt_contract'));
 
         } else {
+       
+
+ 
             $contracts = Contract::where('workspace_id', '=', $currentWorkspace->id)->with('clients', 'projects', 'contract_type')->get();
             $curr_month = Contract::where('workspace_id', '=', $currentWorkspace->id)->whereMonth('start_date', '=', date('m'))->get();
             $curr_week = Contract::where('workspace_id', '=', $currentWorkspace->id)->whereBetween(
@@ -613,6 +616,7 @@ class ContractController extends Controller
 
         $client = $contract->client_id;
         $company_logo = Utility::getcompanylogo($currentWorkspace->id);
+      
         return view('contracts.contract_view', compact('contract', 'client', 'company_logo', 'currentWorkspace'));
 
     }

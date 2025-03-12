@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-6">
+            {{-- <div class="form-group col-md-6">
                 <label for="storage_limit"
                     class="form-control-label">{{ __('Storage Limit') }}</label><x-required></x-required>
                 <div class="input-group">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <span class="small">{{ __('Note: upload size (In MB)') }}</span>
-            </div>
+            </div> --}}
             <div class="form-group col-md-6">
                 <label for="max_workspaces"
                     class="form-label">{{ __('Maximum Workspaces') }}</label><x-required></x-required>

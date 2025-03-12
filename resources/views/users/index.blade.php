@@ -4,7 +4,7 @@
      @if (\Auth::user()->type == 'admin')
          {{ __('Manage Companies') }}
      @else
-         {{ __('Manage Users') }}
+         {{ __('Manage Team') }}
      @endif
  @endsection
 
@@ -18,7 +18,7 @@
      @if (\Auth::user()->type == 'admin')
          <li class="breadcrumb-item"> {{ __('company') }}</li>
      @else
-         <li class="breadcrumb-item"> {{ __('users') }}</li>
+         <li class="breadcrumb-item"> {{ __('Team') }}</li>
      @endif
      {{-- <li class="breadcrumb-item"> {{ __('users') }}</li> --}}
  @endsection
@@ -45,15 +45,26 @@
                  <i class="ti ti-plus"></i>
              </a>
          @elseif(isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
-             <a href="{{ route('users_logs.index', $currentWorkspace->slug) }}" class="btn btn-sm btn-primary"
-                 data-title="{{ __('User Logs') }}" data-toggle="tooltip" title="{{ __('User Logs') }}">
-                 <i class="ti ti-user-check"></i>
-             </a>
-             <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
-                 data-title="{{ __('Invite New User') }}" data-url="{{ route('users.invite', $currentWorkspace->slug) }}"
-                 data-toggle="tooltip" title="{{ __('Invite') }}">
-                 <i class="ti ti-plus"></i>
-             </a>
+         
+         
+         @if (!App\Models\Utility::isdemopackage()|| !App\Models\Utility::isFinishPackageTime())
+
+         <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
+         data-title="{{ __('Invite New User') }}" data-url="{{ route('users.invite', $currentWorkspace->slug) }}"
+         data-toggle="tooltip" title="{{ __('Invite') }}">
+         <i class="ti ti-plus"></i>
+
+     </a>
+       
+            
+    
+     @else
+      
+         <div class="alert alert-warning text-center">
+          <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla ekip üyesi ekleyemezsiniz!</h6>
+      </div>
+     @endif
+     
          @endif
      @endauth
  @endsection
@@ -74,7 +85,7 @@
                                          @if ($user->permission == 'Owner')
                                              <div class="badge p-2 px-3 rounded bg-success">{{ __('Owner') }}</div>
                                          @else
-                                             <div class="badge p-2 px-3 rounded bg-warning">{{ __('Member') }}</div>
+                                             <div class="badge p-2 px-3 rounded bg-warning">{{ __('Team Member') }}</div>
                                          @endif
                                      @endif
                                  </h6>
@@ -298,7 +309,7 @@
 
              <div class="col-xl-3 col-lg-4 col-sm-6">
                  @auth('web')
-                     @if (Auth::user()->type == 'admin')
+                     @if (Auth::user()->type == 'admin' )
                          <a href="#" class="btn-addnew-project" data-ajax-popup="true" data-size="md"
                              data-title="{{ __('Create Company') }}" data-url="{{ route('users.create') }}">
                              <div class="bg-primary proj-add-icon">
@@ -308,15 +319,17 @@
                              <p class="text-muted text-center">Click here to add New Company</p>
                          </a>
                      @elseif(isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
-                         <a href="#" class="btn-addnew-project" data-ajax-popup="true" data-size="md"
-                             data-title="{{ __('Invite New User') }}"
-                             data-url="{{ route('users.invite', $currentWorkspace->slug) }}">
-                             <div class="bg-primary proj-add-icon">
-                                 <i class="ti ti-plus"></i>
-                             </div>
-                             <h6 class="mt-4 mb-2">Invite New User</h6>
-                             <p class="text-muted text-center">Click here to Invite New User</p>
-                         </a>
+                   @if ($planRestricted)
+                   <a href="#" class="btn-addnew-project" data-ajax-popup="true" data-size="md"
+                   data-title="{{ __('Invite New User') }}"
+                   data-url="{{ route('users.invite', $currentWorkspace->slug) }}">
+                   <div class="bg-primary proj-add-icon">
+                       <i class="ti ti-plus"></i>
+                   </div>
+                   <h6 class="mt-4 mb-2">Invite New User</h6>
+                   <p class="text-muted text-center">Click here to Invite New User</p>
+               </a>
+                   @endif
                      @endif
                  @endauth
              </div>

@@ -20,20 +20,29 @@
 
 @section('action-button')
     @auth('web')
-        <a href="{{ route('project.export') }}" class="btn btn-sm btn-primary " data-toggle="tooltip"
-            title="{{ __('Export Project') }}"> <i class="ti ti-file-x"></i></a>
+  @if(App\Models\Utility::isProjectRestrictedDemo())
 
-        <a href="#" class="btn btn-sm btn-primary mx-1" data-ajax-popup="true" data-title="{{ __('Import Project') }}"
-            data-url="{{ route('project.file.import', $currentWorkspace->slug) }}" data-toggle="tooltip"
-            title="{{ __('Import Project') }}"><i class="ti ti-file-import"></i> </a>
+  <div class="alert alert-warning text-center">
+     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla proje ekleyemezsiniz!</h6>
+ </div>
+@else
+<a href="{{ route('project.export') }}" class="btn btn-sm btn-primary " data-toggle="tooltip"
+title="{{ __('Export Project') }}"> <i class="ti ti-file-x"></i></a>
 
-        @if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
-            <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
-                data-title="{{ __('Create New Project') }}" data-url="{{ route('projects.create', $currentWorkspace->slug) }}"
-                data-toggle="tooltip" title="{{ __('Add Project') }}">
-                <i class="ti ti-plus"></i>
-            </a>
-        @endif
+<a href="#" class="btn btn-sm btn-primary mx-1" data-ajax-popup="true" data-title="{{ __('Import Project') }}"
+data-url="{{ route('project.file.import', $currentWorkspace->slug) }}" data-toggle="tooltip"
+title="{{ __('Import Project') }}"><i class="ti ti-file-import"></i> </a>
+
+@if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
+@if(App\Models\Utility::isProjectRestrictedDemo())
+<a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
+    data-title="{{ __('Create New Project') }}" data-url="{{ route('projects.create', $currentWorkspace->slug) }}"
+    data-toggle="tooltip" title="{{ __('Add Project') }}">
+    <i class="ti ti-plus"></i>
+</a>
+@endif
+@endif
+  @endif
     @endauth
 @endsection
 
@@ -174,11 +183,11 @@
                                             </div>
                                         @endif
                                         <div class="col-auto">
-                                            <p class="mb-0"><b>{{ __('Due Date:') }}</b> {{ $project->end_date }}</p>
+                                            <p class="mb-0"><b>{{ __('Due Date:') }}</b> {{ Carbon\Carbon::parse($project->end_date)->format('d M Y') }}</p>
                                         </div>
                                     </div>
                                     <p class="text-muted text-sm mt-3">{{ $project->description }}</p>
-                                    <h6 class="text-muted">MEMBERS</h6>
+                                    <h6 class="text-muted">{{__("Team Members")}}</h6>
                                     <div class="user-group mx-2">
                                         @foreach ($project->users as $user)
                                             @if ($user->pivot->is_active)
@@ -210,17 +219,20 @@
                     @endforeach
                     @auth('web')
                         @if (isset($currentWorkspace) && $currentWorkspace->creater->id == Auth::id())
-                            <div class="col-xl-3 col-lg-4 col-sm-6 All add_projects">
-                                <a href="#" class="btn-addnew-project " style="padding: 90px 10px;"
-                                    data-ajax-popup="true" data-size="md" data-title="{{ __('Create New Project') }}"
-                                    data-url="{{ route('projects.create', $currentWorkspace->slug) }}">
-                                    <div class="bg-primary proj-add-icon">
-                                        <i class="ti ti-plus"></i>
-                                    </div>
-                                    <h6 class="mt-4 mb-2">Add Project</h6>
-                                    <p class="text-muted text-center">Click here to add New Project</p>
-                                </a>
-                            </div>
+                         @if (!App\Models\Utility::isProjectRestrictedDemo())
+                           
+                         <div class="col-xl-3 col-lg-4 col-sm-6 All add_projects">
+                              <a href="#" class="btn-addnew-project " style="padding: 90px 10px;"
+                                  data-ajax-popup="true" data-size="md" data-title="{{ __('Create New Project') }}"
+                                  data-url="{{ route('projects.create', $currentWorkspace->slug) }}">
+                                  <div class="bg-primary proj-add-icon">
+                                      <i class="ti ti-plus"></i>
+                                  </div>
+                                  <h6 class="mt-4 mb-2">{{__('Add Project') }}</h6>
+                                  <p class="text-muted text-center">{{__('Click here to add New Project')}}</p>
+                              </a>
+                          </div>
+                         @endif
                         @endif
                     @endauth
                 </div>
