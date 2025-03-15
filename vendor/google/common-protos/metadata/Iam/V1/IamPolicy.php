@@ -23,7 +23,7 @@ class IamPolicy
         \GPBMetadata\Google\Protobuf\FieldMask::initOnce();
         $pool->internalAddGeneratedFile(
             '
-û	
+õ	
 google/iam/v1/iam_policy.protogoogle.iam.v1google/api/client.protogoogle/api/field_behavior.protogoogle/api/resource.protogoogle/iam/v1/options.protogoogle/iam/v1/policy.proto google/protobuf/field_mask.proto"è
 SetIamPolicyRequest
 resource (	B	‡A˙A
@@ -43,8 +43,8 @@ class IamPolicy
 	IAMPolicyt
 SetIamPolicy".google.iam.v1.SetIamPolicyRequest.google.iam.v1.Policy")Ç”‰ì#"/v1/{resource=**}:setIamPolicy:*t
 GetIamPolicy".google.iam.v1.GetIamPolicyRequest.google.iam.v1.Policy")Ç”‰ì#"/v1/{resource=**}:getIamPolicy:*ö
-TestIamPermissions(.google.iam.v1.TestIamPermissionsRequest).google.iam.v1.TestIamPermissionsResponse"/Ç”‰ì)"$/v1/{resource=**}:testIamPermissions:* Aiam-meta-api.googleapis.comB
-com.google.iam.v1BIamPolicyProtoPZ)cloud.google.com/go/iam/apiv1/iampb;iampb¯™Google.Cloud.Iam.V1 Google\\Cloud\\Iam\\V1bproto3'
+TestIamPermissions(.google.iam.v1.TestIamPermissionsRequest).google.iam.v1.TestIamPermissionsResponse"/Ç”‰ì)"$/v1/{resource=**}:testIamPermissions:* Aiam-meta-api.googleapis.comB|
+com.google.iam.v1BIamPolicyProtoPZ)cloud.google.com/go/iam/apiv1/iampb;iampb™Google.Cloud.Iam.V1 Google\\Cloud\\Iam\\V1bproto3'
         , true);
 
         static::$is_initialized = true;

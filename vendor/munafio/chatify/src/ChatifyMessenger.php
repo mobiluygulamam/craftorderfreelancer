@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use Pusher\Pusher;
 use Illuminate\Support\Facades\Auth;
 use Exception;
-use App\Models\Utility;
-use Illuminate\Support\Facades\File;
 
 class ChatifyMessenger
 {
@@ -27,7 +25,6 @@ class ChatifyMessenger
 
     public function __construct()
     {
-        Utility::getPusherSetting();
         $this->pusher = new Pusher(
             config('chatify.pusher.key'),
             config('chatify.pusher.secret'),
@@ -68,6 +65,17 @@ class ChatifyMessenger
     }
 
     /**
+     * Returns a fallback primary color.
+     *
+     * @return array
+     */
+    public function getFallbackColor()
+    {
+        $colors = $this->getMessengerColors();
+        return count($colors) > 0 ? $colors[0] : '#000000';
+    }
+
+    /**
      * Trigger an event using Pusher
      *
      * @param string $channel
@@ -83,50 +91,80 @@ class ChatifyMessenger
     /**
      * Authentication for pusher
      *
+     * @param User $requestUser
+     * @param User $authUser
      * @param string $channelName
      * @param string $socket_id
      * @param array $data
      * @return void
      */
-    public function pusherAuth($channelName, $socket_id, $data = null)
+    public function pusherAuth($requestUser, $authUser, $channelName, $socket_id)
     {
-        return $this->pusher->socket_auth($channelName, $socket_id, $data);
+        // Auth data
+        $authData = json_encode([
+            'user_id' => $authUser->id,
+            'user_info' => [
+                'name' => $authUser->name
+            ]
+        ]);
+        // check if user authenticated
+        if (Auth::check()) {
+            if($requestUser->id == $authUser->id){
+                return $this->pusher->socket_auth(
+                    $channelName,
+                    $socket_id,
+                    $authData
+                );
+            }
+            // if not authorized
+            return response()->json(['message'=>'Unauthorized'], 401);
+        }
+        // if not authenticated
+        return response()->json(['message'=>'Not authenticated'], 403);
     }
 
     /**
-     * Fetch message by id and return the message card
+     * Fetch & parse message and return the message card
      * view as a response.
      *
+     * @param Message $prefetchedMessage
      * @param int $id
      * @return array
      */
-    public function fetchMessage($id, $index = null)
+    public function parseMessage($prefetchedMessage = null, $id = null)
     {
+        $msg = null;
         $attachment = null;
         $attachment_type = null;
         $attachment_title = null;
-
-        $msg = Message::where('id', $id)->first();
-
+        if (!!$prefetchedMessage) {
+            $msg = $prefetchedMessage;
+        } else {
+            $msg = Message::where('id', $id)->first();
+            if(!$msg){
+                return [];
+            }
+        }
         if (isset($msg->attachment)) {
             $attachmentOBJ = json_decode($msg->attachment);
             $attachment = $attachmentOBJ->new_name;
             $attachment_title = htmlentities(trim($attachmentOBJ->old_name), ENT_QUOTES, 'UTF-8');
-
             $ext = pathinfo($attachment, PATHINFO_EXTENSION);
             $attachment_type = in_array($ext, $this->getAllowedImages()) ? 'image' : 'file';
         }
-
         return [
-            'index' => $index,
             'id' => $msg->id,
             'from_id' => $msg->from_id,
             'to_id' => $msg->to_id,
             'message' => $msg->body,
-            'attachment' => [$attachment, $attachment_title, $attachment_type],
-            'time' => $msg->created_at->diffForHumans(),
-            'fullTime' => $msg->created_at,
-            'viewType' => ($msg->from_id == Auth::user()->id) ? 'sender' : 'default',
+            'attachment' => (object) [
+                'file' => $attachment,
+                'title' => $attachment_title,
+                'type' => $attachment_type
+            ],
+            'timeAgo' => $msg->created_at->diffForHumans(),
+            'created_at' => $msg->created_at->toIso8601String(),
+            'isSender' => ($msg->from_id == Auth::user()->id),
             'seen' => $msg->seen,
         ];
     }
@@ -134,13 +172,18 @@ class ChatifyMessenger
     /**
      * Return a message card with the given data.
      *
-     * @param array $data
-     * @param string $viewType
+     * @param Message $data
+     * @param boolean $isSender
      * @return string
      */
-    public function messageCard($data, $viewType = null)
+    public function messageCard($data, $renderDefaultCard = false)
     {
-        $data['viewType'] = ($viewType) ? $viewType : $data['viewType'];
+        if (!$data) {
+            return '';
+        }
+        if($renderDefaultCard) {
+            $data['isSender'] =  false;
+        }
         return view('Chatify::layouts.messageCard', $data)->render();
     }
 
@@ -160,19 +203,17 @@ class ChatifyMessenger
      * create a new message to database
      *
      * @param array $data
-     * @return void
+     * @return Message
      */
     public function newMessage($data)
     {
         $message = new Message();
-        $message->id = $data['id'];
-        $message->type = $data['type'];
-        $message->workspace_id = $data['workspace_id'];
         $message->from_id = $data['from_id'];
         $message->to_id = $data['to_id'];
         $message->body = $data['body'];
         $message->attachment = $data['attachment'];
         $message->save();
+        return $message;
     }
 
     /**
@@ -221,40 +262,27 @@ class ChatifyMessenger
      * @param Collection $user
      * @return string
      */
-
-
-     public function getContactItem($messenger_id, $user){
-        // get last message
-        $lastMessage = $this->getLastMessageQuery(!empty($user)?$user->id:0);
-    
-        // Get Unseen messages counter
-        $unseenCounter = $this->countUnseenMessages(!empty($user)?$user->id:0);
-    
-        return view('Chatify::layouts.listItem', [
-            'get' => 'users',
-            'user' => $user,
-            'lastMessage' => $lastMessage,
-            'unseenCounter' => $unseenCounter,
-            'type'=>'user',
-            'id' => $messenger_id,
-        ])->render();
+    public function getContactItem($user)
+    {
+        try {
+            // get last message
+            $lastMessage = $this->getLastMessageQuery($user->id);
+            // Get Unseen messages counter
+            $unseenCounter = $this->countUnseenMessages($user->id);
+            if ($lastMessage) {
+                $lastMessage->created_at = $lastMessage->created_at->toIso8601String();
+                $lastMessage->timeAgo = $lastMessage->created_at->diffForHumans();
+            }
+            return view('Chatify::layouts.listItem', [
+                'get' => 'users',
+                'user' => $this->getUserWithAvatar($user),
+                'lastMessage' => $lastMessage,
+                'unseenCounter' => $unseenCounter,
+                ])->render();
+        } catch (\Throwable $th) {
+            throw new Exception($th->getMessage());
+        }
     }
-
-    // public function getContactItem($user)
-    // {
-    //     // get last message
-    //     $lastMessage = $this->getLastMessageQuery($user->id);
-
-    //     // Get Unseen messages counter
-    //     $unseenCounter = $this->countUnseenMessages($user->id);
-
-    //     return view('Chatify::layouts.listItem', [
-    //         'get' => 'users',
-    //         'user' => $this->getUserWithAvatar($user),
-    //         'lastMessage' => $lastMessage,
-    //         'unseenCounter' => $unseenCounter,
-    //     ])->render();
-    // }
 
     /**
      * Get user with avatar (formatted).
@@ -299,7 +327,6 @@ class ChatifyMessenger
         if ($action > 0) {
             // Star
             $star = new Favorite();
-            $star->id = rand(9, 99999999);
             $star->user_id = Auth::user()->id;
             $star->favorite_id = $user_id;
             $star->save();
@@ -371,23 +398,17 @@ class ChatifyMessenger
     public function deleteMessage($id)
     {
         try {
-            $msg = Message::findOrFail($id);
-                if ($msg->from_id == auth()->id()) {
-                    // delete file attached if exist
-                    if (isset($msg->attachment)) {
-                        $path = config('chatify.attachments.folder') . '/' . json_decode($msg->attachment)->new_name;
-                        if (self::storage()->exists($path)) {
-                            self::storage()->delete($path);
-                        }
-                    }
-                    // delete from database
-                    $msg->delete();
-                } else {
-                    return 0;
+            $msg = Message::where('from_id', auth()->id())->where('id', $id)->firstOrFail();
+            if (isset($msg->attachment)) {
+                $path = config('chatify.attachments.folder') . '/' . json_decode($msg->attachment)->new_name;
+                if (self::storage()->exists($path)) {
+                    self::storage()->delete($path);
                 }
+            }
+            $msg->delete();
             return 1;
         } catch (Exception $e) {
-            return 0;
+            throw new Exception($e->getMessage());
         }
     }
 

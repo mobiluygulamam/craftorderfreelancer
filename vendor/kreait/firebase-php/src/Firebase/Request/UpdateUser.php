@@ -20,8 +20,11 @@ final class UpdateUser implements Request
 {
     /** @phpstan-use EditUserTrait<self> */
     use EditUserTrait;
+
     public const DISPLAY_NAME = 'DISPLAY_NAME';
+
     public const PHOTO_URL = 'PHOTO_URL';
+
     public const EMAIL = 'EMAIL';
 
     /**
@@ -150,6 +153,18 @@ final class UpdateUser implements Request
                     );
 
                     break;
+
+                case 'resetmultifactor':
+                    if ($value === true) {
+                        $request = $request->resetMultiFactor();
+                    }
+
+                    break;
+
+                case 'multifactors':
+                    $request = $request->withMultiFactors($value);
+
+                    break;
             }
         }
 
@@ -198,6 +213,32 @@ final class UpdateUser implements Request
         $request = clone $this;
         $request->email = null;
         $request->attributesToDelete[] = self::EMAIL;
+
+        return $request;
+    }
+
+    /**
+     * @param array<array-key, array{
+     *     'mfaEnrollmentId'?: string,
+     *     'displayName': string,
+     *     'phoneInfo': string,
+     *     'enrolledAt'?: string,
+     * }> $enrollments
+     */
+    public function withMultiFactors(array $enrollments): self
+    {
+        $request = clone $this;
+        $request->multiFactor ??= [];
+        $request->multiFactor['enrollments'] = $enrollments;
+
+        return $request;
+    }
+
+    public function resetMultiFactor(): self
+    {
+        $request = clone $this;
+        $request->multiFactor ??= [];
+        $request->multiFactor['enrollments'] = [];
 
         return $request;
     }
