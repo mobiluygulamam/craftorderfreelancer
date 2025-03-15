@@ -2300,6 +2300,20 @@ class ProjectController extends Controller
         return view('projects.tasks', compact('currentWorkspace', 'projects', 'users', 'stages'));
     }
 
+    public function getprojectList($slug)
+    {
+        $currentWorkspace = Utility::getWorkspaceBySlug($slug);
+        $projects=[];
+        $objUser = Auth::user();
+if ($objUser->getGuard() == 'client') {
+     $projects = Project::select('projects.*')->join('client_projects', 'projects.id', '=', 'client_projects.project_id')->where('client_projects.client_id', '=', $objUser->id)->where('projects.workspace', '=', $currentWorkspace->id)->get();
+ } else {
+     $projects = Project::select('projects.*')->join('user_projects', 'projects.id', '=', 'user_projects.project_id')->where('user_projects.user_id', '=', $objUser->id)->where('projects.workspace', '=', $currentWorkspace->id)->get();
+ }
+
+return view('projects.projectslistmodal', compact(['currentWorkspace','projects']));
+    }
+
     public function ajax_tasks($slug, Request $request)
     {
         $userObj = Auth::user();

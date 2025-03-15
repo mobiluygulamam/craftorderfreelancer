@@ -226,7 +226,7 @@
 
 {{--                                    
                                  <h3 class="mb-4 f-w-600  ">
-                                     {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
+                                     {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}{{ $plan->monthly_price }}
                                      <small class="text-sm">/{{ __('Monthly Price') }}</small>
                                  </h3> --}}
                                  <p class="mb-0">
@@ -315,14 +315,14 @@
                                                         <input type="radio" name="bank_payment_frequency"
                                                             class="form-check-input input-primary payment_frequency"
                                                             data-from="bank" value="monthly"
-                                                            data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                            data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                             autocomplete="off"
                                                             @if ($frequency == 'monthly') checked="" @endif
                                                             id="">
                                                         <label class="form-check-label d-block" for="">
                                                             <span>
                                                                 <span class="h5 d-block"><strong class="float-end">
-                                                                        {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}</span>
+                                                                        {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}</span>
                                                             </span>
                                                         </label>
                                                     </div>
@@ -333,7 +333,7 @@
                                                     <div class="form-check">
                                                         <input type="radio" name="bank_payment_frequency"
                                                             data-from="bank" value="annual"
-                                                            data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                            data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                             autocomplete="off"
                                                             class="form-check-input input-primary payment_frequency"
                                                             @if ($frequency == 'annual') checked="" @endif
@@ -341,7 +341,7 @@
                                                         <label class="form-check-label d-block" for="">
                                                             <span>
                                                                 <span class="h5 d-block"><strong class="float-end">
-                                                                        {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                        {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                             </span>
                                                         </label>
                                                     </div>
@@ -418,14 +418,14 @@
                                                     <input type="radio" name="stripe_payment_frequency"
                                                         class="form-check-input input-primary payment_frequency"
                                                         data-from="stripe" value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif
                                                         id="">
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}</span>
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}</span>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -436,7 +436,7 @@
                                                 <div class="form-check">
                                                     <input type="radio" name="stripe_payment_frequency"
                                                         data-from="stripe" value="annual"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off"
                                                         class="form-check-input input-primary payment_frequency"
                                                         @if ($frequency == 'annual') checked="" @endif
@@ -444,7 +444,7 @@
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -537,13 +537,13 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         name="paypal_payment_frequency" data-from="paypal"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -557,12 +557,12 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         data-from="paypal" value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -620,13 +620,13 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         name="paystack_payment_frequency" data-from="paystack"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -640,11 +640,11 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         name="paystack_payment_frequency" data-from="paystack"
                                                         @if ($frequency == 'annual') checked="" @endif value="annual"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -704,13 +704,13 @@
                                                         class="form-check-input input-primary flaterwave_frequency payment_frequency"
                                                         name="flaterwave_payment_frequency" data-from="flaterwave"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -724,11 +724,11 @@
                                                         class="form-check-input input-primary payment_frequency flaterwave_frequency"
                                                         name="flaterwave_payment_frequency" data-from="flaterwave"
                                                         value="annual" @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -787,13 +787,13 @@
                                                         class="form-check-input input-primary payment_frequency razorpay_frequency"
                                                         name="razorpay_payment_frequency" data-from="razorpay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -808,11 +808,11 @@
                                                         name="razorpay_payment_frequency" data-from="razorpay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -871,13 +871,13 @@
                                                     <input type="radio"
                                                         class="form-check-input input-primary paytm_frequency payment_frequency"
                                                         name="paytm_payment_frequency" data-from="paytm" value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -891,11 +891,11 @@
                                                         class="form-check-input input-primary payment_frequency paytm_frequency"
                                                         name="paytm_payment_frequency" data-from="paytm" value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -963,13 +963,13 @@
                                                         class="form-check-input input-primary payment_frequency mercado_frequency"
                                                         name="mercado_payment_frequency" data-from="mercado"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -984,11 +984,11 @@
                                                         name="mercado_payment_frequency" data-from="mercado"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1047,13 +1047,13 @@
                                                         class="form-check-input input-primary mollie_frequency payment_frequency"
                                                         name="mollie_payment_frequency" data-from="mollie"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1067,11 +1067,11 @@
                                                         class="form-check-input input-primary payment_frequency mollie_frequency"
                                                         name="mollie_payment_frequency" data-from="mollie" value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1132,13 +1132,13 @@
                                                         class="form-check-input input-primary payment_frequency skrill_frequency"
                                                         name="skrill_payment_frequency" data-from="skrill"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1152,11 +1152,11 @@
                                                         class="form-check-input input-primary payment_frequency skrill_frequency"
                                                         name="skrill_payment_frequency" data-from="skrill" value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1227,13 +1227,13 @@
                                                         class="form-check-input input-primary payment_frequency coingate_frequency"
                                                         name="coingate_payment_frequency" data-from="coingate"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1248,11 +1248,11 @@
                                                         name="coingate_payment_frequency" data-from="coingate"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1310,13 +1310,13 @@
                                                     <input type="radio"
                                                         class="form-check-input input-primary paymentwall_frequency payment_frequency"name="paymentwall_payment_frequency"
                                                         data-from="coingate" value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1331,11 +1331,11 @@
                                                         name="paymentwall_payment_frequency" data-from="paymentwall"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1397,13 +1397,13 @@
                                                         class="form-check-input input-primary toyyibpay_frequency payment_frequency"
                                                         name="toyyibpay_payment_frequency" data-from="toyyibpay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1418,11 +1418,11 @@
                                                         name="toyyibpay_payment_frequency" data-from="toyyibpay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1490,13 +1490,13 @@
                                                         class="form-check-input input-primary payfast_frequency payment_frequency"
                                                         name="payfast_payment_frequency" data-from="payfast"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1511,11 +1511,11 @@
                                                         name="payfast_payment_frequency" data-from="payfast"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1574,13 +1574,13 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         name="iyzipay_payment_frequency" data-from="iyzipay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1594,12 +1594,12 @@
                                                         class="form-check-input input-primary payment_frequency"
                                                         data-from="iyzipay" value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                         </span>
                                                     </label>
                                                 </div>
@@ -1659,13 +1659,13 @@
                                                         class="form-check-input input-primary sspay_frequency payment_frequency"
                                                         name="sspay_payment_frequency" data-from="sspay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1680,11 +1680,11 @@
                                                         name="sspay_payment_frequency" data-from="sspay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1746,13 +1746,13 @@
                                                         class="form-check-input input-primary paytab_frequency payment_frequency"
                                                         name="paytab_payment_frequency" data-from="paytab"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1767,11 +1767,11 @@
                                                         name="paytab_payment_frequency" data-from="paytab"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1833,13 +1833,13 @@
                                                         class="form-check-input input-primary benefit_frequency payment_frequency"
                                                         name="benefit_payment_frequency" data-from="benefit"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1854,11 +1854,11 @@
                                                         name="benefit_payment_frequency" data-from="benefit"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -1920,13 +1920,13 @@
                                                         class="form-check-input input-primary cashfree_frequency payment_frequency"
                                                         name="cashfree_payment_frequency" data-from="cashfree"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -1941,11 +1941,11 @@
                                                         name="cashfree_payment_frequency" data-from="cashfree"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2007,13 +2007,13 @@
                                                         class="form-check-input input-primary aamarpay_frequency payment_frequency"
                                                         name="aamarpay_payment_frequency" data-from="aamarpay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2028,11 +2028,11 @@
                                                         name="aamarpay_payment_frequency" data-from="aamarpay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2097,13 +2097,13 @@
                                                         class="form-check-input input-primary paytr_frequency payment_frequency"
                                                         name="paytr_payment_frequency" data-from="paytr"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2145,7 +2145,7 @@
                                                     <button class="btn btn-primary" type="submit"
                                                         id="pay_with_paytr">
                                                         {{ __('Checkout') }} (<span
-                                                            class="coupon-paytr">{{$frequency=="annually"||$frequency=="annual"? $plan->annual_price:$plan->monthly_price }}</span>)
+                                                            class="coupon-paytr">{{$frequency=="annually"||$frequency=="annual"? $plan->annual_price:$plan->monthly_price }} {{($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺')}}</span>)
                                                     </button>
                                                 </div>
                                             </div>
@@ -2173,13 +2173,13 @@
                                                         class="form-check-input input-primary midtrans_frequency payment_frequency"
                                                         name="midtrans_payment_frequency" data-from="midtrans"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2194,11 +2194,11 @@
                                                         name="midtrans_payment_frequency" data-from="midtrans"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2232,7 +2232,7 @@
                                                     <button class="btn btn-primary" type="submit"
                                                         id="pay_with_midtrans">
                                                         {{ __('Checkout') }} (<span
-                                                            class="coupon-midtrans">{{ $plan->price }}</span>)
+                                                            class="coupon-midtrans">{{ $plan->price }} </span>)
                                                     </button>
                                                 </div>
                                             </div>
@@ -2260,13 +2260,13 @@
                                                         class="form-check-input input-primary xendit_frequency payment_frequency"
                                                         name="xendit_payment_frequency" data-from="xendit"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2281,11 +2281,11 @@
                                                         name="xendit_payment_frequency" data-from="xendit"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2347,13 +2347,13 @@
                                                         class="form-check-input input-primary yookassa_frequency payment_frequency"
                                                         name="yookassa_payment_frequency" data-from="yookassa"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2365,14 +2365,14 @@
                                                 <div class="form-check">
                                                     <input type="radio"
                                                         class="form-check-input input-primary payment_frequency yookassa_frequency"
-                                                        name="yookassa_payment_frequency" data-from="yookassa"
+                                                        name="yookassa_payment_frequency" data-from="yookassa"₺
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2437,13 +2437,13 @@
                                                         class="form-check-input input-primary paiementpro_frequency payment_frequency"
                                                         name="paiementpro_payment_frequency" data-from="paiementpro"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2458,11 +2458,11 @@
                                                         name="paiementpro_payment_frequency" data-from="paiementpro"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2540,13 +2540,13 @@
                                                         class="form-check-input input-primary nepalste_frequency payment_frequency"
                                                         name="nepalste_payment_frequency" data-from="nepalste"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2561,11 +2561,11 @@
                                                         name="nepalste_payment_frequency" data-from="nepalste"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2629,13 +2629,13 @@
                                                         class="form-check-input input-primary cinetpay_frequency payment_frequency"
                                                         name="cinetpay_payment_frequency" data-from="cinetpay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2650,11 +2650,11 @@
                                                         name="cinetpay_payment_frequency" data-from="cinetpay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2719,13 +2719,13 @@
                                                         class="form-check-input input-primary fedapay_frequency payment_frequency"
                                                         name="fedapay_payment_frequency" data-from="fedapay"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2740,11 +2740,11 @@
                                                         name="fedapay_payment_frequency" data-from="fedapay"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>
@@ -2808,13 +2808,13 @@
                                                         class="form-check-input input-primary payhere_frequency payment_frequency"
                                                         name="payhere_payment_frequency" data-from="payhere"
                                                         value="monthly"
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}"
                                                         autocomplete="off"
                                                         @if ($frequency == 'monthly') checked="" @endif>
                                                     <label class="form-check-label d-block" for="">
                                                         <span>
                                                             <span class="h5 d-block"><strong class="float-end">
-                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
+                                                                    {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->monthly_price }}</strong>{{ __('Monthly Payments') }}
                                                             </span>
                                                         </span>
                                                     </label>
@@ -2829,11 +2829,11 @@
                                                         name="payhere_payment_frequency" data-from="payhere"
                                                         value="annual"
                                                         @if ($frequency == 'annual') checked="" @endif
-                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}"
+                                                        data-price="{{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}"
                                                         autocomplete="off">
                                                     <span>
                                                         <span class="h5 d-block"><strong class="float-end">
-                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '$') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
+                                                                {{ ($setting['currency_symbol'] ? $setting['currency_symbol'] : '₺') . $plan->annual_price }}</strong>{{ __('Annual Payments') }}</span>
                                                     </span>
                                                     </label>
                                                 </div>

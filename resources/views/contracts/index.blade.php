@@ -29,7 +29,7 @@
        </a>
        @else 
        <div class="alert alert-warning text-center">
-          <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla sözleşme ekleyemezsiniz!</h6>
+          <h6 class="mt-4 mb-2">Bulunduğunuz paketin süresi dolduğu için daha fazla sözleşme ekleyemezsiniz!</h6>
       </div>
            @endif
         @endif

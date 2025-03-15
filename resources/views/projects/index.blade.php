@@ -23,7 +23,7 @@
   @if(App\Models\Utility::isProjectRestrictedDemo())
 
   <div class="alert alert-warning text-center">
-     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla proje ekleyemezsiniz!</h6>
+     <h6 class="mt-4 mb-2">Bulunduğunuz paketin süresi dolduğu için daha fazla proje ekleyemezsiniz!</h6>
  </div>
 @else
 <a href="{{ route('project.export') }}" class="btn btn-sm btn-primary " data-toggle="tooltip"
@@ -188,13 +188,25 @@ title="{{ __('Import Project') }}"><i class="ti ti-file-import"></i> </a>
                                     </div>
                                     <p class="text-muted text-sm mt-3">{{ $project->description }}</p>
                                     <h6 class="text-muted">{{__("Team Members")}}</h6>
-                                    <div class="user-group mx-2">
+                                    {{-- <div class="user-group mx-2">
                                         @foreach ($project->users as $user)
                                             @if ($user->pivot->is_active)
                                                 <a href="#" class="img_group" data-toggle="tooltip"
                                                     data-placement="top" title="{{ $user->name }}">
                                                     <img alt="{{ $user->name }}"
                                                         @if ($user->avatar) src="{{ asset($logo . $user->avatar) }}" @else avatar="{{ $user->name }}" @endif>
+                                                </a>
+                                            @endif
+                                        @endforeach
+                                    </div> --}}
+
+                                         <div class="user-group mx-2">
+                                        @foreach ($project->users as $user)
+                                            @if ($user->pivot->is_active)
+                                                <a href="#" class="img_group" data-toggle="tooltip"
+                                                    data-placement="top" title="{{ $user->name }}">
+                                                    <img alt="{{ $user->name }}"
+                                                        avatar="{{ $user->name }}" >
                                                 </a>
                                             @endif
                                         @endforeach

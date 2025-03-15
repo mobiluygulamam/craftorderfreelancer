@@ -442,7 +442,7 @@ class Utility
 
     public static function isClientRestrictedDemo(){
 
-     if(Utility::isdemopackage()){
+     if(Utility::isdemopackage()||Utility::isFinishPackageTime()){
 
           $user=Auth::user();
           $currant_workspace = $user->currant_workspace;
@@ -455,7 +455,7 @@ return true;
      else return false;
 }
     public static function isProjectRestrictedDemo(){
-         if(Utility::isdemopackage()){
+         if(Utility::isdemopackage()||Utility::isFinishPackageTime()){
 if (Utility::userprojectcount()>=3) {
    return true;
 }return false;
@@ -473,6 +473,7 @@ return $now->gt($expiredate) ? true : false;
   
    
     }
+  
 public static function isdemopackage(){
      $user=Auth::user();
    
@@ -734,7 +735,7 @@ return strtolower($planname) == 'demo'|| strtolower($planname) == 'deneme' ? tru
             "wasabi_max_upload_size" => "",
             "wasabi_storage_validation" => "",
             "meta_image" => '',
-            "meta_keywords" => 'Taskly SaaS',
+            "meta_keywords" => 'Craft Order',
             "meta_description" => 'Taskly is a tool where you can Manage projects, work with clients, and collaborate with team members. All in one place.',
             "is_payfast_enabled" => '',
             "payfast_merchant_id" => '',
@@ -773,8 +774,8 @@ return strtolower($planname) == 'demo'|| strtolower($planname) == 'deneme' ? tru
             'google_recaptcha_secret' => '',
             'currency' => 'TL',
             'currency_symbol' => '₺',
-            'app_name' => 'Taskly Saasasd',
-            'APP_NAME' => 'Taskly asdasd',
+            'app_name' => 'Craft Order',
+            'APP_NAME' => 'Craft Order',
             'default_admin_lang' => 'en',
             'display_landing' => 'on',
             'site_rtl' => 'off',
@@ -1070,6 +1071,8 @@ return strtolower($planname) == 'demo'|| strtolower($planname) == 'deneme' ? tru
 
         return true;
     }
+
+
 
     public static function getAdminPaymentSettings()
     {
@@ -2105,4 +2108,28 @@ return strtolower($planname) == 'demo'|| strtolower($planname) == 'deneme' ? tru
         }
         return $planPrice;
     }
-}
+
+
+
+public static function call_metapixel()
+    {
+        return <<<HTML
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '499987013180635');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=499987013180635&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+        HTML;
+    }}

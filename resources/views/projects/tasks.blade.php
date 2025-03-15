@@ -14,9 +14,18 @@
 @endsection
 
 @section('action-button')
+
+    @if (!App\Models\Utility::isdemopackage()|| !App\Models\Utility::isFinishPackageTime())
     <a href="#" class="btn btn-sm btn-primary filter" data-toggle="tooltip" title="{{ __('Filter') }}">
-        <i class="ti ti-filter"></i>
-    </a>
+     <i class="ti ti-filter"></i>
+ </a>
+    <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"
+    data-title="{{ __('Invite New User') }}" data-url="{{ route('projects.getprojectList', $currentWorkspace->slug) }}"
+    data-toggle="tooltip" title="{{ __('Invite') }}">
+    <i class="ti ti-plus"></i>
+
+</a>
+@endif
     @auth('web')
 
   

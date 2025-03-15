@@ -70,15 +70,23 @@
                                                          <span class="ms-2"> {{ __('Active') }}</span>
                                                      </span>
                                                  </div>
-                                           
+                                           @if($currentPlan->monthly_price>0)
                                              <span
-                                                 class="mb-4 f-w-600 p-price">{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $currentPlan->monthly_price }}
+                                                 class="mb-4 f-w-600 p-price">{{ $currentPlan->monthly_price }}{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}
                                                  <small class="text-sm">/{{ __('Per month') }}</small>
                                              </span>
+                                             @else
+                                             <span
+                                             class="mb-4 f-w-600 p-price">{{ $currentPlan->annual_price }}{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}
+                                             <small class="text-sm">/{{ __('Per Year') }}</small>
+                                         </span>
+                                             @endif
                                              <p class="mb-0">
                                                  {{ $currentPlan->description }}
                                              </p>
+                                      
                                              <ul class="list-unstyled my-5">
+                                                         @if($currentPlan->trial_days>0)
                                                  <li>
                                                      <span class="theme-avtar">
                                                          <i class=" text-primary ti ti-circle-plus"></i>
@@ -86,6 +94,8 @@
                                                      {{ $currentPlan->trial_days < 0 ? __('Unlimited') : $currentPlan->trial_days }}
                                                      {{ __('Trial Days') }}
                                                  </li>
+
+                                                 @endif
                                              
                                                  {{-- <li>
                                                      <span class="theme-avtar">
@@ -137,8 +147,7 @@
                                                                <div class="col-8">
                                                                    <button
                                                                        class="btn mb-3 btn-primary d-flex justify-content-center align-items-center">
-                                                                       <a href="{{ route('payment', ['monthly', \Illuminate\Support\Facades\Crypt::encrypt($currentPlan->id)]) }}"
-                                                                           id="interested_plan_{{ $currentPlan->id }}"
+                                                                       <a href="{{ route('payment', ['plan_type' => $plan->monthly_price > 0 ? 'monthly' : 'annual', 'id' => \Illuminate\Support\Facades\Crypt::encrypt($currentPlan->id)]) }}"                                                                           id="interested_plan_{{ $currentPlan->id }}"
                                                                            class="text-white">
                                                                            <i
                                                                                class="ti ti-shopping-cart px-2 text-white"></i>{{ __('Subscribe') }}
@@ -213,7 +222,7 @@
                                                                <div class="col-8">
                                                                    <button
                                                                        class="btn mb-3 btn-primary d-flex justify-content-center align-items-center">
-                                                                       <a href="{{ route('payment', ['monthly', \Illuminate\Support\Facades\Crypt::encrypt($currentPlan->id)]) }}"
+                                                                       <a href="{{ route('payment', ['plan_type' => $plan->monthly_price > 0 ? 'monthly' : 'annual', 'id' => \Illuminate\Support\Facades\Crypt::encrypt($currentPlan->id)]) }}"
                                                                            id="interested_plan_{{ $currentPlan->id }}"
                                                                            class="text-white">
                                                                            <i
@@ -307,10 +316,23 @@
                                                 </div>
                                             @endif
                                             
-                                            <span
-                                                class="mb-4 f-w-600 p-price">{{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->annual_price }}
-                                                <small class="text-sm">/{{ __('Per Year') }}</small>
-                                            </span>
+                                            @if($plan->monthly_price>0)
+                                             <span
+                                                 class="mb-4 f-w-600 p-price">
+                                                 
+                                                 {{ $plan->monthly_price }}
+                                                 {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}
+                                                 <small class="text-sm">/{{ __('Per month') }}</small>
+                                             </span>
+                                             @else
+                                             <span
+                                             class="mb-4 f-w-600 p-price">
+                                           
+                                             {{ $plan->annual_price }}
+                                             {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}
+                                             <small class="text-sm">/{{ __('Per Year') }}</small>
+                                         </span>
+                                             @endif
                                             <p class="mb-0">
                                                 {{ $plan->description }}
                                             </p>
@@ -375,7 +397,7 @@
                                                                 <div class="col-8">
                                                                     <button
                                                                         class="btn mb-3 btn-primary d-flex justify-content-center align-items-center">
-                                                                        <a href="{{ route('payment', ['annual', \Illuminate\Support\Facades\Crypt::encrypt($plan->id)]) }}"
+                                                                        <a href="{{ route('payment', ['plan_type' => $plan->monthly_price > 0 ? 'monthly' : 'annual', 'id' => \Illuminate\Support\Facades\Crypt::encrypt($currentPlan->id)]) }}"
                                                                             id="interested_plan_{{ $plan->id }}"
                                                                             class="text-white">
                                                                             <i
@@ -446,16 +468,16 @@
                                                         @endif
                                                         <div class="row">
                                                             @if ($plan->id != 1 && (\Auth::user()->plan != $plan->id || $userFrequency != 'annual'))
+                                                           
                                                                 <div class="col-8">
-                                                                    <button
-                                                                        class="btn mb-3 btn-primary d-flex justify-content-center align-items-center">
-                                                                        <a href="{{ route('payment', ['annual', \Illuminate\Support\Facades\Crypt::encrypt($plan->id)]) }}"
-                                                                            id="interested_plan_{{ $plan->id }}"
-                                                                            class="text-white">
-                                                                            <i
-                                                                                class="ti ti-shopping-cart px-2 text-white"></i>{{ __('Subscribe') }}
-                                                                        </a>
-                                                                    </button>
+                                                                 <button class="btn mb-3 btn-primary d-flex justify-content-center align-items-center">
+                                                                      <a href="{{ route('payment', ['frequency' => $plan->monthly_price > 0 ? 'monthly' : 'annual', 'code' => \Illuminate\Support\Facades\Crypt::encrypt($plan->id)]) }}"
+                                                                         id="interested_plan_{{ $plan->id }}"
+                                                                         class="text-white">
+                                                                          <i class="ti ti-shopping-cart px-2 text-white"></i>{{ __('Subscribe') }}
+                                                                      </a>
+                                                                  </button>
+                                                                  
                                                                 </div>
                                                                 <div class="col-4">
                                                                     @if (\Auth::user()->requested_plan != $plan->id)

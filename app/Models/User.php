@@ -417,7 +417,7 @@ public static function verifyEmail($pmail) {
             'ru' => 'Russian',
             'pt' => 'Portuguese',
             'en' => 'English',
-            'tr' => 'Turkish',
+            'tr' => 'Türkçe',
             'zh' => 'Chinese',
             'he' => 'Hebrew',
             'pt-br' => 'Portuguese(BR)',

@@ -52,11 +52,11 @@
 
 <nav class="dash-sidebar light-sidebar {{ isset($cust_theme_bg) && $cust_theme_bg == 'on' ? 'transprent-bg' : '' }}">
     <div class="navbar-wrapper">
-        <div class="m-header main-logo">
+        <div class="m-header main-logo ">
             <a href="{{ route('home') }}" class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
                 {{-- <img src="{{ asset($logo . $company_logo . '?timestamp=' . strtotime(isset($currentWorkspace) ? $currentWorkspace->updated_at : '')) }}" alt="logo" class="sidebar_logo_size " /> --}}
-                <img src="{{ asset('../resources/'.$logo . $company_logo . '?v=' . time()) }}" alt="logo" class="sidebar_logo_size " />
+                <img src="/landingassets/img/logotext.png" alt="logo"  class="w-100 h-100">
                 {{-- <img src="{{ url('storage/logo/logo-light.png') }}" alt="logo" class="sidebar_logo_size " /> --}}
             </a>
         </div>

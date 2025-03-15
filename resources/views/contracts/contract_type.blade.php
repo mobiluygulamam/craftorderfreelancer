@@ -18,7 +18,7 @@
         @if ($currentWorkspace->permission == 'Owner')
 @if(App\Models\Utility::isdemopackage()|| App\Models\Utility::isFinishPackageTime())
 <div class="alert alert-warning text-center">
-     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla sözleşme türü ekleyemezsiniz!</h6>
+     <h6 class="mt-4 mb-2">Bulunduğunuz paketin süresi dolduğu için daha fazla sözleşme türü ekleyemezsiniz!</h6>
  </div>
  @else 
  <a href="#" class="btn btn-sm btn-primary" data-ajax-popup="true" data-size="md"

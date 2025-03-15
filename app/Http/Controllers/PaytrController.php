@@ -79,7 +79,7 @@ class PaytrController extends Controller
                                     'plan_id' => $plan->id,
                                     'price' => $get_amount == null ? 0 : $get_amount,
                                     // 'price_currency' => !empty(env('CURRENCY')) ? env('CURRENCY') : 'USD',
-                                    'price_currency' => $payment_setting['currency'] ? $payment_setting['currency'] : 'USD',
+                                    'price_currency' => $payment_setting['currency'] ? $payment_setting['currency'] : 'TL',
                                     'txn_id' => '',
                                     'payment_type' => 'PayTr',
                                     'payment_status' => 'success',

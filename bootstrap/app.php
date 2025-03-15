@@ -36,7 +36,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
             'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
             'XSS' => \App\Http\Middleware\XSS::class,
+            'ABTestingMiddleware' => \App\Http\Middleware\ABTestingMiddleware::class,
             'CheckPlan' => \App\Http\Middleware\CheckPlan::class,
+
             'pusher' => \App\Http\Middleware\pusher_config::class,
         ]);
 

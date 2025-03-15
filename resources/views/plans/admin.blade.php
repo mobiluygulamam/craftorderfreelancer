@@ -79,19 +79,19 @@
                             </div>
                         </div>
                         <span class="price-badge bg-primary"> {{ $plan->name }}</span>
-                        @if($plan->plan_type == "1")
+                        @if($plan->weekly_price >0)
                         <span class="mb-4 f-w-600 p-price">
-                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->weekly_price }}
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}{{ $plan->weekly_price }}
                             <small class="text-sm">/{{ __('Weekly Price') }}</small>
                         </span><br>
-                    @elseif($plan->plan_type == "2")
+                    @elseif($plan->monthly_price >0)
                         <span class="mb-4 f-w-600 p-price">
-                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->monthly_price }}
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}{{ $plan->monthly_price }}
                             <small class="text-sm">/{{ __('Monthly Price') }}</small>
                         </span><br>
-                    @elseif($plan->plan_type == "3")
+                    @elseif($plan->annual_price>0 )
                         <span class="mb-4 f-w-600 p-price">
-                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '$' }}{{ $plan->annual_price }}
+                            {{ $setting['currency_symbol'] ? $setting['currency_symbol'] : '₺' }}{{ $plan->annual_price }}
                             <small class="text-sm">/{{ __('Annual Price') }}</small>
                         </span>
 

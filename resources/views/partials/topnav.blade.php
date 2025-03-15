@@ -1,3 +1,21 @@
+<!-- Meta Pixel Code -->
+<script>
+     !function(f,b,e,v,n,t,s)
+     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+     n.queue=[];t=b.createElement(e);t.async=!0;
+     t.src=v;s=b.getElementsByTagName(e)[0];
+     s.parentNode.insertBefore(t,s)}(window, document,'script',
+     'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '499987013180635');
+     fbq('track', 'PageView');
+     </script>
+     <noscript><img height="1" width="1" style="display:none"
+     src="https://www.facebook.com/tr?id=499987013180635&ev=PageView&noscript=1"
+     /></noscript>
+     <!-- End Meta Pixel Code -->
+
 @php
     $unseenCounter = App\Models\ChMessage::where('to_id', Auth::user()->id)
         ->where('seen', 0)
@@ -103,7 +121,7 @@
                     <a class="dash-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
                      
-                        <img class="theme-avtar"@if (Auth::user()->avatar) src="{{ asset($logo . Auth::user()->avatar) }}" @else avatar="{{ Auth::user()->name }}" @endif
+                        <img class="theme-avtar"  avatar="{{ Auth::user()->name }}"
                             alt="{{ Auth::user()->name }}">
                         <span class="hide-mob ms-2">{{ __('Hi') }},{{ Auth::user()->name }} !  
             
@@ -114,7 +132,15 @@
                     </a>
                     @if (Auth::user()->type != 'admin')
                     @if (Auth::user()->getGuard() != 'client')
-                    <a class="mr-5 btn btn-bg-primary" href="{{route('plans.index')}}">{{App\Models\Plan::find(Auth::user()->plan)->name??""}} </a>
+                    <a class="mr-5 btn btn-bg-primary " href="{{route('plans.index')}}">
+                         <span class="text-green-500">
+                              {{App\Models\Plan::find(Auth::user()->plan)->name??""}}
+@if(App\Models\Utility::isFinishPackageTime())
+<span class="badge bg-danger text-center rounded-sm m-10">Kullanım süresi doldu</span>
+@endif
+
+                         </span>
+                      </a>
     
                         @endif
                     @endif

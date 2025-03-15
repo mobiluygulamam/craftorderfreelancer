@@ -21,6 +21,7 @@ class Plan extends Model
         'description',
         'image',
         'is_trial_disable',
+        'plan_features',
     ];
 
     public function arrDuration()
@@ -32,6 +33,9 @@ class Plan extends Model
         ];
     }
 
+    protected $casts = [
+     'plan_features' => 'array', // JSON formatını array olarak kullanabilmek için
+ ];
 
 
 }

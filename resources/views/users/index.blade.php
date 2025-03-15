@@ -61,7 +61,7 @@
      @else
       
          <div class="alert alert-warning text-center">
-          <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz için daha fazla ekip üyesi ekleyemezsiniz!</h6>
+          <h6 class="mt-4 mb-2">Bulunduğunuz paketin süresi dolduğu için daha fazla ekip üyesi ekleyemezsiniz!</h6>
       </div>
      @endif
      
@@ -234,9 +234,8 @@
                          <div class="card-body">
                              <div class="avatar">
                                  <img alt="user-image" class=" rounded-circle img_users_fix_size"
-                                     @if ($user->avatar) src="{{ asset($logo . $user->avatar) }}"
-                                     @else
-                                       avatar="{{ $user->name }}" @endif>
+                                    
+                                       avatar="{{ $user->name }}" >
                              </div>
                              <h4 class="mt-2">{{ $user->name }}</h4>
                              <small>{{ $user->email }}</small>

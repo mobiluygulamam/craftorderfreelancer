@@ -24,7 +24,7 @@
   @if(App\Models\Utility::isClientRestrictedDemo())
 
   <div class="alert alert-warning text-center">
-     <h6 class="mt-4 mb-2">Deneme paketinde bulunduğunuz ve müşteri hacmini aştığınız için daha fazla Müşteri ekleyemezsiniz!</h6>
+     <h6 class="mt-4 mb-2">Bulunduğunuz paketin süresi dolduğu ve müşteri hacmini aştığınız için daha fazla Müşteri ekleyemezsiniz!</h6>
  </div>
 @else
 <a href="{{ route('client.export') }}" class="btn btn-sm btn-primary" data-toggle="tooltip"

@@ -90,7 +90,13 @@ require __DIR__ . '/auth.php';
 Route::get('/verify-email/{lang?}', [AuthenticatedSessionController::class, 'showVerifcation'])->name('verification.notice');
 Route::get('/verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke',])->name('verification.verify')->middleware('auth');
 Route::get('/email/verification-notification', [EmailVerificationNotificationController::class, 'store',])->name('verification.send');
-Route::get('/', [HomeController::class, 'landingPage'])->middleware(['XSS']);
+// Route::get('/', [HomeController::class, 'landingPage'])->middleware(['XSS']);
+Route::middleware(['XSS'])->group(function () {
+     Route::get('/', function () {
+         // Kullanıcı çerezine göre hangi sayfayı göstereceğimizi belirliyoruz.
+         return view(request()->cookie('ab_test_group') == 'A' ? 'landingpage::layouts.homepageA' : 'landingpage::layouts.homepageB');
+     });
+ });
 Route::get('/termspage', [HomeController::class, 'termsPage'])->name('home.termspage');
 Route::get('/privacypage', [HomeController::class, 'privacypage'])->name('home.privacypage');
 Route::get('/become-partner', [HomeController::class, 'becomepartner'])->name('home.becomepartner');
@@ -615,6 +621,8 @@ Route::group(['middleware' => ['verified']], function () {
 
     Route::get('/{slug}/users', [UserController::class, 'index'])->name('users.index')->middleware(['auth', 'CheckPlan', 'XSS']);
     Route::get('/{slug}/users/invite', [UserController::class, 'invite'])->name('users.invite')->middleware(['auth', 'XSS']);
+    Route::get('/{slug}/tasks/projectslist', [ProjectController::class, 'getprojectList'])->name('projects.getprojectList')->middleware(['auth', 'XSS']);
+    
     Route::post('/{slug}/users/invite', [UserController::class, 'inviteUser'])->name('users.invite.update')->middleware(['auth', 'XSS']);
     Route::get('/{slug}/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit')->middleware(['auth', 'XSS']);
     Route::post('/{slug}/users/update/{id}', [UserController::class, 'update'])->name('users.update')->middleware(['auth', 'XSS']);
@@ -716,6 +724,9 @@ Route::group(['middleware' => ['verified']], function () {
     Route::delete('/{slug}/projects/{id}/task-board/{tid}', [ProjectController::class, 'taskDestroy'])->name('tasks.destroy')->middleware(['auth', 'XSS']);
     Route::post('/{slug}/projects/{id}/task-board/{tid}/drag', [ProjectController::class, 'taskDrag'])->name('tasks.drag.event');
     Route::get('/{slug}/projects/{id}/task-board', [ProjectController::class, 'taskBoard'])->name('projects.task.board')->middleware(['XSS']);
+
+
+    Route::get('/{slug}/users/invite', [UserController::class, 'invite'])->name('users.invite')->middleware(['auth', 'XSS']);
 
 
     // Gantt Chart
